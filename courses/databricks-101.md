@@ -1,13 +1,13 @@
 ---
 layout: course
 title: Databricks 101
-description: Databricks-Infrastruktur und Networking — 8 Stunden, Azure-Vorkenntnisse empfohlen
+description: Databricks-Infrastruktur und Networking
 permalink: /courses/databricks-101.html
 ---
 
 # 🟨 Databricks 101 — <span class="lang-en" style="display:none">Databricks infrastructure and networking</span><span class="lang-de">Databricks-Infrastruktur und Networking</span>
 
-> **Dauer:** 8 Stunden (1 voller Tag)  
+
 > **Niveau:** Beginners — Azure 101 wird vorausgesetzt oder parallel gemacht  
 > **Sprache:** Deutsch, mit englischen Fachbegriffen
 
@@ -15,12 +15,12 @@ permalink: /courses/databricks-101.html
 
 ## Inhaltsverzeichnis
 
-1. [Modul A: Was ist Databricks?](#modul-a-was-ist-databricks) (1 h)
-2. [Modul B: Databricks Workspace-Grundlagen](#modul-b-databricks-workspace-basics) (1,5 h)
-3. [Modul C: VNet Injection](#modul-c-vnet-injection) (2 h)
-4. [Modul D: Secure Cluster Connectivity (SCC)](#modul-d-secure-cluster-connectivity-scc) (1,5 h)
-5. [Modul E: Private Link und Networking-Entscheidungen](#modul-e-private-link-und-networking) (1 h)
-6. [Modul F: Terraform für Databricks und Capstone](#modul-f-terraform-für-databricks) (1 h)
+1. [Modul A: Was ist Databricks?](#modul-a-was-ist-databricks)
+2. [Modul B: Databricks Workspace-Grundlagen](#modul-b-databricks-workspace-basics)
+3. [Modul C: VNet Injection](#modul-c-vnet-injection)
+4. [Modul D: Secure Cluster Connectivity (SCC)](#modul-d-secure-cluster-connectivity-scc)
+5. [Modul E: Private Link und Networking-Entscheidungen](#modul-e-private-link-und-networking)
+6. [Modul F: Terraform für Databricks und Capstone](#modul-f-terraform-für-databricks)
 
 ---
 

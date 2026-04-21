@@ -7,7 +7,7 @@ permalink: /courses/azure-101.html
 
 # 🟦 Azure 101 — <span class="lang-en" style="display:none">Cloud fundamentals for Terraform users</span><span class="lang-de">Cloud-Grundlagen für Terraform-Nutzer</span>
 
-> **Dauer:** 8 Stunden (1 voller Tag)  
+
 > **Niveau:** Absolute Beginners — keine Azure-Vorkenntnisse nötig  
 > **Sprache:** Deutsch, mit englischen Fachbegriffen
 
@@ -15,12 +15,12 @@ permalink: /courses/azure-101.html
 
 ## Inhaltsverzeichnis
 
-1. [Modul A: Azure-Grundlagen](#modul-a-azure-basics) (1,5 h)
-2. [Modul B: Ressourcengruppen und Ressourcen](#modul-b-ressourcengruppen-und-ressourcen) (1 h)
-3. [Modul C: Virtual Networks (VNet)](#modul-c-virtual-networks-vnet) (2 h)
-4. [Modul D: Hub-and-Spoke Architektur](#modul-d-hub-and-spoke-architektur) (1,5 h)
-5. [Modul E: Sicherheit mit NSGs](#modul-e-sicherheit-mit-nsgs) (1 h)
-6. [Modul F: Terraform-Integration und Capstone](#modul-f-terraform-integration-und-capstone) (1 h)
+1. [Modul A: Azure-Grundlagen](#modul-a-azure-basics)
+2. [Modul B: Ressourcengruppen und Ressourcen](#modul-b-ressourcengruppen-und-ressourcen)
+3. [Modul C: Virtual Networks (VNet)](#modul-c-virtual-networks-vnet)
+4. [Modul D: Hub-and-Spoke Architektur](#modul-d-hub-and-spoke-architektur)
+5. [Modul E: Sicherheit mit NSGs](#modul-e-sicherheit-mit-nsgs)
+6. [Modul F: Terraform-Integration und Capstone](#modul-f-terraform-integration-und-capstone)
 
 ---
 

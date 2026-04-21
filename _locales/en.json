@@ -35,8 +35,8 @@
     "title": "Terraform 101",
     "description": "IaC and Terraform from scratch",
     "badge": "8 hours · Beginner 101",
-    "duration": "8 hours · Absolute Beginners",
-    "durationDetail": "1 full day",
+    "duration": "Absolute Beginners",
+    "durationDetail": "Full day",
     "level": "Absolute Beginners — no prior knowledge needed",
     "modules": {
       "a": "Module A: What is IaC?",
@@ -85,16 +85,22 @@
     ],
     "glossary": null,
     "chapters": [
-      {"name": "Command Cheat Sheet", "text": null},
-      {"name": "Troubleshooting", "text": null}
+      {
+        "name": "Command Cheat Sheet",
+        "text": null
+      },
+      {
+        "name": "Troubleshooting",
+        "text": null
+      }
     ]
   },
   "azure": {
     "title": "Azure 101",
     "description": "Azure cloud fundamentals for Terraform users",
     "badge": "8 hours · Beginner 101",
-    "duration": "8 hours · Absolute Beginners",
-    "durationDetail": "1 full day",
+    "duration": "Terraform 101 recommended",
+    "durationDetail": "Full day",
     "level": "Absolute Beginners — no Azure prior knowledge needed",
     "modules": {
       "a": "Module A: Azure basics",
@@ -136,16 +142,22 @@
       "6.5 Databricks networking preview"
     ],
     "chapters": [
-      {"name": "Command Cheat Sheet", "text": null},
-      {"name": "Common errors", "text": null}
+      {
+        "name": "Command Cheat Sheet",
+        "text": null
+      },
+      {
+        "name": "Common errors",
+        "text": null
+      }
     ]
   },
   "databricks": {
     "title": "Databricks 101",
     "description": "Databricks infrastructure and networking",
     "badge": "8 hours · Beginner 101",
-    "duration": "8 hours · Azure prior knowledge",
-    "durationDetail": "1 full day",
+    "duration": "Azure prior knowledge required",
+    "durationDetail": "Full day",
     "level": "Azure 101 recommended",
     "modules": {
       "a": "Module A: What is Databricks?",
@@ -182,16 +194,22 @@
     ],
     "glossary": null,
     "chapters": [
-      {"name": "Databricks Port Reference", "text": null},
-      {"name": "Troubleshooting", "text": null}
+      {
+        "name": "Databricks Port Reference",
+        "text": null
+      },
+      {
+        "name": "Troubleshooting",
+        "text": null
+      }
     ]
   },
   "integration": {
     "title": "Integration 101",
     "description": "All three combined: Terraform + Azure + Databricks",
     "badge": "10 hours · Beginner 101",
-    "duration": "10 hours · Intermediate",
-    "durationDetail": "1.5 full days",
+    "duration": "Intermediate",
+    "durationDetail": "1–2 days",
     "level": "All previous courses recommended",
     "modules": {
       "a": "Module A: Overview and architecture",
@@ -230,8 +248,14 @@
     ],
     "glossary": null,
     "chapters": [
-      {"name": "Cheat Sheet", "text": null},
-      {"name": "Troubleshooting", "text": null}
+      {
+        "name": "Cheat Sheet",
+        "text": null
+      },
+      {
+        "name": "Troubleshooting",
+        "text": null
+      }
     ]
   }
 }

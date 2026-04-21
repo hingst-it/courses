@@ -1,13 +1,13 @@
 ---
 layout: course
 title: Terraform 101
-description: IaC und Terraform von Grund auf — 8 Stunden, absolute Beginners
+description: IaC und Terraform von Grund auf
 permalink: /courses/terraform-101.html
 ---
 
 # 🟩 Terraform 101 — <span class="lang-en" style="display:none">Infrastructure as Code for Beginners</span><span class="lang-de">Infrastruktur als Code für Anfänger</span>
 
-> **Dauer:** 8 Stunden (1 voller Tag)  
+
 > **Niveau:** Absolute Beginners — keine Vorkenntnisse nötig  
 > **Sprache:** Deutsch, mit englischen Fachbegriffen
 
@@ -15,12 +15,12 @@ permalink: /courses/terraform-101.html
 
 ## Inhaltsverzeichnis
 
-1. [Modul A: Was ist IaC?](#modul-a-was-ist-iac) (1 h)
-2. [Modul B: Erste Schritte mit Terraform](#modul-b-erste-schritte-mit-terraform) (2 h)
-3. [Modul C: Die Terraform-Sprache HCL](#modul-c-die-terraform-sprache-hcl) (2 h)
-4. [Modul D: State — Terraforms Gedächtnis](#modul-d-state--terraformsd-gedächtnis) (1 h)
-5. [Modul E: Module und Wiederverwendbarkeit](#modul-e-module-und-wiederverwendbarkeit) (1,5 h)
-6. [Modul F: Best Practices und Capstone](#modul-f-best-practices-und-capstone) (0,5 h)
+1. [Modul A: Was ist IaC?](#modul-a-was-ist-iac)
+2. [Modul B: Erste Schritte mit Terraform](#modul-b-erste-schritte-mit-terraform)
+3. [Modul C: Die Terraform-Sprache HCL](#modul-c-die-terraform-sprache-hcl)
+4. [Modul D: State — Terraforms Gedächtnis](#modul-d-state--terraformsd-gedächtnis)
+5. [Modul E: Module und Wiederverwendbarkeit](#modul-e-module-und-wiederverwendbarkeit)
+6. [Modul F: Best Practices und Capstone](#modul-f-best-practices-und-capstone)
 
 ---
 

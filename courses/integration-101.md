@@ -1,13 +1,13 @@
 ---
 layout: course
 title: Integration 101
-description: Terraform + Azure + Databricks kombiniert — 10 Stunden, Intermediate
+description: Terraform + Azure + Databricks kombiniert
 permalink: /courses/integration-101.html
 ---
 
 # 🚀 Integration 101 — <span class="lang-en" style="display:none">Terraform × Azure × Databricks combined</span><span class="lang-de">Terraform × Azure × Databricks kombiniert</span>
 
-> **Dauer:** 10 Stunden (1,5 Tage)  
+
 > **Niveau:** Intermediate — Terraform 101 und Azure 101 werden vorausgesetzt  
 > **Sprache:** Deutsch, mit englischen Fachbegriffen
 
@@ -15,12 +15,12 @@ permalink: /courses/integration-101.html
 
 ## Inhaltsverzeichnis
 
-1. [Modul A: Gesamtsystem-Architektur](#modul-a-gesamtsystem-architektur) (1,5 h)
-2. [Modul B: Projektstruktur und Organisation](#modul-b-projektstruktur-und-organisation) (1,5 h)
-3. [Modul C: Infrastruktur-Code — Schritt für Schritt](#modul-c-infrastruktur-code--schritt-für-schritt) (3 h)
-4. [Modul D: Security, Compliance und Best Practices](#modul-d-security-compliance-und-best-practices) (2 h)
-5. [Modul E: CI/CD und Automatisierung](#modul-e-cicd-und-automatisierung) (1 h)
-6. [Modul F: Capstone und Deployment](#modul-f-capstone-und-deployment) (1 h)
+1. [Modul A: Gesamtsystem-Architektur](#modul-a-gesamtsystem-architektur)
+2. [Modul B: Projektstruktur und Organisation](#modul-b-projektstruktur-und-organisation)
+3. [Modul C: Infrastruktur-Code — Schritt für Schritt](#modul-c-infrastruktur-code--schritt-für-schritt)
+4. [Modul D: Security, Compliance und Best Practices](#modul-d-security-compliance-und-best-practices)
+5. [Modul E: CI/CD und Automatisierung](#modul-e-cicd-und-automatisierung)
+6. [Modul F: Capstone und Deployment](#modul-f-capstone-und-deployment)
 
 ---
 
