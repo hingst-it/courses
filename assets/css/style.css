@@ -1,0 +1,322 @@
+/* ===== Infomotion Course Site ===== */
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.7;
+  color: #1a1a2e;
+  background: #f8f9fa;
+}
+
+/* Layout */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.site-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.site-header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.site-header nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.site-header nav a:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+/* Main */
+main {
+  padding: 40px 0;
+  min-height: calc(100vh - 160px);
+}
+
+main h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #1a1a2e;
+}
+
+main h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-top: 24px;
+  border-top: 2px solid #e9ecef;
+  color: #16213e;
+}
+
+main h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  color: #2d3748;
+}
+
+main h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  color: #4a5568;
+}
+
+/* Links */
+main a {
+  color: #2b6cb0;
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+tr:hover {
+  background: #edf2f7;
+}
+
+/* Code */
+pre {
+  background: #1a1a2e;
+  color: #e2e8f0;
+  padding: 16px 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 16px 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+code {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+p code, li code {
+  background: #edf2f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #c7254e;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #2b6cb0;
+  padding: 12px 20px;
+  margin: 16px 0;
+  background: #ebf5ff;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Lists */
+main ul, main ol {
+  padding-left: 24px;
+  margin: 12px 0;
+}
+
+main li {
+  margin-bottom: 6px;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 2px solid #e9ecef;
+  margin: 40px 0;
+}
+
+/* Footer */
+.site-footer {
+  background: #1a1a2e;
+  color: #a0aec0;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* Course content specific */
+.course-content {
+  max-width: 900px;
+}
+
+.course-content h2 {
+  scroll-margin-top: 80px;
+}
+
+/* Quiz boxes */
+.quiz-box {
+  background: #f0fff4;
+  border: 1px solid #68d391;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.quiz-box p {
+  margin-bottom: 8px;
+}
+
+/* Hausaufgaben */
+.hausaufgabe {
+  background: #fffbeb;
+  border: 1px solid #f6e05e;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+/* Praktische Übung */
+.praxis {
+  background: #ebf8ff;
+  border: 1px solid #63b3ed;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+/* Capstone */
+.capstone {
+  background: #faf5ff;
+  border: 1px solid #b794f4;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+/* Warning */
+.warning {
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+/* Checklists */
+.checklist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.checklist li {
+  padding: 4px 0;
+}
+
+/* Badge / Tag */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-green { background: #c6f6d5; color: #22543d; }
+.badge-blue { background: #bee3f8; color: #2a4365; }
+.badge-yellow { background: #fefcbf; color: #744210; }
+.badge-purple { background: #e9d8fd; color: #44337a; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .site-header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main h1 {
+    font-size: 1.75rem;
+  }
+
+  main h2 {
+    font-size: 1.4rem;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 8px 10px;
+  }
+}

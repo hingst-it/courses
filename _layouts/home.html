@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} — {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% feed_meta %}
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+      <nav>
+        <a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a>
+        <a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a>
+        <a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a>
+        <a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© {{ 'now' | date: '%Y' }} Infomotion. Kursmaterialien basieren auf terraform-skill (Apache 2.0).</p>
+    </div>
+  </footer>
+</body>
+</html>

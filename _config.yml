@@ -1,0 +1,7 @@
+title: Infomotion — Terraform, Azure & Databricks Kurse
+description: Beginner 101 Kurse für Infrastructure as Code
+
+# Markdown
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
