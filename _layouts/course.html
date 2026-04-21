@@ -5,64 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }} — {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% include i18n.html %}
 </head>
-<body>
-  <div class="parallax-bg">
-    <div class="layer" id="bg-layer-1"></div>
-    <div class="layer layer--2" id="bg-layer-2"></div>
+<body class="vscode-course">
+
+  <!-- Title Bar -->
+  <div class="vscode-titlebar">
+    <div class="traffic-lights">
+      <span class="traffic light-red"></span>
+      <span class="traffic light-yellow"></span>
+      <span class="traffic light-green"></span>
+    </div>
+    <div class="titlebar-title">
+      <span class="vscode-icon">📁</span>
+      <span>Cloud Courses</span>
+    </div>
   </div>
 
-  <header class="site-header">
-    <div class="nav-inner">
-      <a href="{{ '/' | relative_url }}" class="logo"><span>☁️</span> Cloud Courses</a>
-      <nav>
-        <span class="lang-en" style="display:none"><a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a></span>
-        <span class="lang-de"><a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a></span>
-        <span class="lang-en" style="display:none"><a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a></span>
-        <span class="lang-de"><a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a></span>
-        <span class="lang-en" style="display:none"><a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a></span>
-        <span class="lang-de"><a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a></span>
-        <span class="lang-en" style="display:none"><a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a></span>
-        <span class="lang-de"><a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a></span>
-      </nav>
-    </div>
-  </header>
+  <div class="vscode-layout">
+    <!-- Sidebar -->
+    <aside class="vscode-sidebar course-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">
+          <span>EXPLORER</span>
+        </div>
+        <div class="vscode-lang-toggle">
+          <button id="lang-toggle-de" class="vscode-btn-toggle active">DE</button>
+          <button id="lang-toggle-en" class="vscode-btn-toggle">EN</button>
+        </div>
+      </div>
+      <div class="file-tree">
+        <div class="tree-item active">
+          <span class="tree-icon">📄</span>
+          <span class="tree-text">{{ page.title | prepend: ' | ' }}</span>
+        </div>
+        <div class="tree-item">
+          <span class="tree-icon">📁</span>
+          <span class="tree-text">Kurse</span>
+          <div class="tree-children">
+            <a href="{{ '/courses/terraform-101.html' | relative_url }}" class="tree-item">
+              <span class="tree-icon">📄</span>
+              <span class="tree-text">terraform-101.md</span>
+            </a>
+            <a href="{{ '/courses/azure-101.html' | relative_url }}" class="tree-item">
+              <span class="tree-icon">📄</span>
+              <span class="tree-text">azure-101.md</span>
+            </a>
+            <a href="{{ '/courses/databricks-101.html' | relative_url }}" class="tree-item">
+              <span class="tree-icon">📄</span>
+              <span class="tree-text">databricks-101.md</span>
+            </a>
+            <a href="{{ '/courses/integration-101.html' | relative_url }}" class="tree-item">
+              <span class="tree-icon">📄</span>
+              <span class="tree-text">integration-101.md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
 
-  <main class="course-page">
-    {{ content }}
-  </main>
+    <!-- Main Editor Area -->
+    <main class="vscode-editor">
+      <!-- Tab Bar -->
+      <div class="vscode-tabs">
+        <div class="tab" data-tab="welcome">
+          <span class="tab-icon">🏠</span>
+          <span class="tab-name">Welcome</span>
+        </div>
+        <div class="tab active" data-tab="current">
+          <span class="tab-icon">📄</span>
+          <span class="tab-name">{{ page.title | append: '.md' }}</span>
+        </div>
+      </div>
 
-  <footer class="site-footer">
-    <p>
-      <span class="lang-en" style="display:none">Kursmaterialien basierend auf terraform-skill (Apache 2.0).</span>
-      <span class="lang-de">Kursmaterialien basierend auf terraform-skill (Apache 2.0).</span>
-      <span class="lang-en" style="display:none">Course materials based on terraform-skill (Apache 2.0).</span>
-      <span class="lang-de" style="display:none">Course materials based on terraform-skill (Apache 2.0).</span>
-    </p>
-    <p style="margin-top:8px;">
-      <a href="{{ '/' | relative_url }}" style="color:var(--clr-accent);">
-        <span class="lang-en" style="display:none">← Zurück zur Übersicht</span>
-        <span class="lang-de" style="display:none">← Zurück zur Übersicht</span>
-        <span class="lang-en">← Back to overview</span>
-        <span class="lang-de">← Zurück zur Übersicht</span>
-      </a>
-    </p>
-  </footer>
+      <!-- Breadcrumbs -->
+      <div class="vscode-breadcrumbs">
+        <a href="{{ '/' | relative_url }}" class="breadcrumb-item">Cloud Courses</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="{{ '/courses/' | append: page.title | split: ' ' | first | append: '.html' | relative_url }}" class="breadcrumb-item">courses</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-item active">{{ page.title | append: '.md' }}</span>
+      </div>
+
+      <!-- Course Content -->
+      <div class="editor-content course-content">
+        {{ content }}
+      </div>
+
+      <!-- Status Bar -->
+      <div class="vscode-statusbar">
+        <div class="statusbar-left">
+          <span class="status-item">
+            <span class="icon">🔀 main</span>
+          </span>
+          <span class="status-item">
+            <span class="icon">✓ 0</span>
+          </span>
+          <span class="status-item">
+            <span class="icon">⚠ 0</span>
+          </span>
+        </div>
+        <div class="statusbar-right">
+          <span class="status-item" id="status-lang">
+            <span class="icon">DE</span>
+          </span>
+          <span class="status-item">
+            <span class="icon">Markdown</span>
+          </span>
+          <span class="status-item">
+            <span class="icon">UTF-8</span>
+          </span>
+          <span class="status-item">
+            <span class="icon">CRLF</span>
+          </span>
+        </div>
+      </div>
+    </main>
+  </div>
 
   <script src="{{ '/assets/js/i18n.js' | relative_url }}"></script>
-  <script>
-    const layers = document.querySelector('.parallax-bg .layer');
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          layers.style.transform = `translate(${scrollY * 0.02}px, ${scrollY * 0.01}px)`;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  </script>
 </body>
 </html>
