@@ -63,12 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Set up file tree clicks
-  document.querySelectorAll('.tree-item a').forEach(item => {
-    item.addEventListener('click', (e) => {
+  document.querySelectorAll('.tree-item a').forEach(link => {
+    link.addEventListener('click', (e) => {
       e.preventDefault();
       
       // Determine view name from href
-      const href = e.target.getAttribute('href');
+      const href = link.getAttribute('href');
       const viewName = Object.keys(courses).find(key => {
         return href.includes(key + '.html') || 
                ('/' + key + '.html' === href);
@@ -76,24 +76,24 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (viewName) {
         goToView(viewName);
-        window.location.href = e.target.getAttribute('href');
+        window.location.href = href;
       }
     });
   });
 
   // Welcome quick start links
-  document.querySelectorAll('.quick-start-item').forEach(item => {
-    item.addEventListener('click', (e) => {
+  document.querySelectorAll('.quick-start-item').forEach(link => {
+    link.addEventListener('click', (e) => {
       e.preventDefault();
+      const href = link.getAttribute('href');
       const viewName = Object.keys(courses).find(key => {
-        const href = e.target.getAttribute('href');
         return href.includes(key);
       });
       
       if (viewName) {
         goToView(viewName);
         setTimeout(() => {
-          window.location.href = e.target.getAttribute('href');
+          window.location.href = href;
         }, 100);
       }
     });
