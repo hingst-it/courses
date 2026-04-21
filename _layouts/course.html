@@ -7,26 +7,48 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
+  <div class="parallax-bg">
+    <div class="layer" id="bg-layer-1"></div>
+    <div class="layer layer--2" id="bg-layer-2"></div>
+  </div>
+
   <header class="site-header">
-    <div class="container">
-      <h1><a href="{{ '/' | relative_url }}">Cloud Kurse</a></h1>
+    <div class="nav-inner">
+      <a href="{{ '/' | relative_url }}" class="logo"><span>☁️</span> Cloud Courses</a>
       <nav>
-        <a href="{{ '/courses/terraform-101.html' | relative_url }}">🟩 Terraform 101</a>
-        <a href="{{ '/courses/azure-101.html' | relative_url }}">🟦 Azure 101</a>
-        <a href="{{ '/courses/databricks-101.html' | relative_url }}">🟨 Databricks 101</a>
-        <a href="{{ '/courses/integration-101.html' | relative_url }}">🚀 Integration 101</a>
+        <a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a>
+        <a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a>
+        <a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a>
+        <a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a>
       </nav>
     </div>
   </header>
 
-  <main class="container course-content">
+  <main class="course-page">
     {{ content }}
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© {{ 'now' | date: '%Y' }} Kursmaterialien basierend auf terraform-skill (Apache 2.0).</p>
-    </div>
+    <p>Kursmaterialien basierend auf terraform-skill (Apache 2.0).</p>
+    <p style="margin-top:8px;"><a href="{{ '/' | relative_url }}" style="color:var(--clr-accent);">← Zurück zur Übersicht</a></p>
   </footer>
+
+  <script>
+    const layers = document.querySelectorAll('.parallax-bg .layer');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          layers.forEach((l, i) => {
+            const speed = (i + 1) * 0.02;
+            l.style.transform = `translate(${scrollY * speed}px, ${scrollY * speed * 0.5}px)`;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  </script>
 </body>
 </html>

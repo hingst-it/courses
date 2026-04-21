@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }} — {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
- 
 </head>
 <body>
+  <div class="parallax-bg">
+    <div class="layer" id="bg-layer-1"></div>
+    <div class="layer layer--2" id="bg-layer-2"></div>
+  </div>
+
   <header class="site-header">
-    <div class="container">
-      <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+    <div class="nav-inner">
+      <a href="{{ '/' | relative_url }}" class="logo"><span>☁️</span> Cloud Courses</a>
       <nav>
         <a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a>
         <a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a>
@@ -20,14 +24,213 @@
     </div>
   </header>
 
-  <main class="container">
-    {{ content }}
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© {{ 'now' | date: '%Y' }} Kursmaterialien basierend auf terraform-skill (Apache 2.0).</p>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Beginner 101 · Deutsch</div>
+      <h1>Terraform × Azure<br><span class="gradient">& Databricks</span></h1>
+      <p>Dein Weg von Null zur Cloud-Infrastruktur. Schritt für Schritt — auf Deutsch.</p>
+      <div class="hero-cta">
+        <a href="#courses" class="btn btn-primary">Kurse entdecken ↓</a>
+        <a href="#how" class="btn btn-outline">So funktioniert's</a>
+      </div>
     </div>
-  </footer>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <div class="section" id="courses">
+    <span class="section-label">Kurse</span>
+    <h2 class="section-title">Wähle deinen Einstieg</h2>
+    <p class="section-desc">Vier Kurse, eine Reise. Beginne bei Terraform 101 oder springe direkt rein.</p>
+
+    <div class="courses-grid">
+      <a href="{{ '/courses/terraform-101.html' | relative_url }}" class="course-card reveal">
+        <div class="icon icon--tf">🟩</div>
+        <h3>Terraform 101</h3>
+        <div class="duration">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          8 Stunden · Absolute Beginners
+        </div>
+        <p class="desc">Infrastructure as Code von Grund auf. HCL, State, Modules, Best Practices.</p>
+        <div class="tags">
+          <span class="tag">HCL</span>
+          <span class="tag">State</span>
+          <span class="tag">Modules</span>
+        </div>
+        <span class="arrow">Kurs starten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="{{ '/courses/azure-101.html' | relative_url }}" class="course-card reveal">
+        <div class="icon icon--az">🟦</div>
+        <h3>Azure 101</h3>
+        <div class="duration">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          8 Stunden · Terraform 101 empfohlen
+        </div>
+        <p class="desc">Azure Cloud-Grundlagen: Resource Groups, VNets, NSGs, Hub-and-Spoke.</p>
+        <div class="tags">
+          <span class="tag">VNet</span>
+          <span class="tag">NSG</span>
+          <span class="tag">Peering</span>
+        </div>
+        <span class="arrow">Kurs starten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="{{ '/courses/databricks-101.html' | relative_url }}" class="course-card reveal">
+        <div class="icon icon--db">🟨</div>
+        <h3>Databricks 101</h3>
+        <div class="duration">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          8 Stunden · Azure-Vorkenntnisse
+        </div>
+        <p class="desc">Databricks-Infrastruktur: Workspace, VNet Injection, SCC, Private Link.</p>
+        <div class="tags">
+          <span class="tag">VNet Injection</span>
+          <span class="tag">SCC</span>
+          <span class="tag">Private Link</span>
+        </div>
+        <span class="arrow">Kurs starten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a href="{{ '/courses/integration-101.html' | relative_url }}" class="course-card reveal">
+        <div class="icon icon--it">🚀</div>
+        <h3>Integration 101</h3>
+        <div class="duration">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          10 Stunden · Intermediate
+        </div>
+        <p class="desc">Alles kombiniert: Module, CI/CD, Security Scanning, Capstone-Projekt.</p>
+        <div class="tags">
+          <span class="tag">CI/CD</span>
+          <span class="tag">OIDC</span>
+          <span class="tag">Capstone</span>
+        </div>
+        <span class="arrow">Kurs starten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </div>
+
+  <section class="parallax-image reveal" id="how" data-speed="0.3">
+    <div class="parallax-img" style="background-image: linear-gradient(135deg, rgba(108,99,255,0.3) 0%, rgba(0,212,170,0.3) 100%), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 600%22><rect fill=%22%230a0a1a%22 width=%221200%22 height=%22600%22/></svg>');"></div>
+    <div class="overlay"></div>
+    <div class="parallax-content">
+      <h2>So funktionieren die Kurse</h2>
+      <p>Fünf Schritte von Theorie zur Praxis</p>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="features-grid">
+      <div class="feature reveal">
+        <div class="num">01</div>
+        <h3>Was ist das?</h3>
+        <p>Konzepte, Analogien und die Frage „Warum?" — bevor Code entsteht.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="num">02</div>
+        <h3>Worked Examples</h3>
+        <p>Schritt-für-Schritt: Du siehst wie es funktioniert, bevor du es machst.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="num">03</div>
+        <h3>Mach es selbst</h3>
+        <p>Geführte Labs mit echtem Terraform-Code — Learning by Doing.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="num">04</div>
+        <h3>Quiz & Lösungen</h3>
+        <p>Teste dein Wissen sofort — mit direkt sichtbaren Musterlösungen.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="num">05</div>
+        <h3>Transferaufgabe</h3>
+        <p>Hausaufgaben & Ausblick — was du als Nächstes machen kannst.</p>
+      </div>
+    </div>
+
+    <div class="flow-diagram reveal">
+      <div class="flow-item">
+        <div class="flow-icon">🟩</div>
+        <div class="flow-label">Terraform 101</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">
+        <div class="flow-icon">🟦</div>
+        <div class="flow-label">Azure 101</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">
+        <div class="flow-icon">🟨</div>
+        <div class="flow-label">Databricks 101</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">
+        <div class="flow-icon">🚀</div>
+        <div class="flow-label">Integration 101</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer">
+    <p>Kursmaterialien basierend auf terraform-skill (Apache 2.0).</p>
+  </div>
+
+  <script>
+    // ── Parallax on scroll ──
+    const layers = document.querySelectorAll('.parallax-bg .layer');
+    const parallaxImages = document.querySelectorAll('.parallax-image .parallax-img');
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+
+          // Background dots
+          layers.forEach((l, i) => {
+            const speed = (i + 1) * 0.02;
+            l.style.transform = `translate(${scrollY * speed}px, ${scrollY * speed * 0.5}px)`;
+          });
+
+          // Section parallax images
+          parallaxImages.forEach(img => {
+            const rect = img.parentElement.getBoundingClientRect();
+            const center = rect.top + rect.height / 2;
+            const offset = (center - window.innerHeight / 2) * 0.3;
+            img.style.transform = `translateY(${offset}px)`;
+          });
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // ── Reveal on scroll ──
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    // ── Smooth scroll for anchor links ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
