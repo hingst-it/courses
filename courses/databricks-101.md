@@ -8,35 +8,35 @@ permalink: /courses/databricks-101.html
 # 🟨 Databricks 101 — <span class="lang-en" style="display:none">Databricks infrastructure and networking</span><span class="lang-de">Databricks-Infrastruktur und Networking</span>
 
 
-> **Niveau:** Beginners — Azure 101 wird vorausgesetzt oder parallel gemacht  
-> **Sprache:** Deutsch, mit englischen Fachbegriffen
+> <span class="lang-en" style="display:none">**Level:** Beginners — Azure 101 is required or should be taken in parallel</span><span class="lang-de">**Niveau:** Beginners — Azure 101 wird vorausgesetzt oder parallel gemacht</span>  
+> <span class="lang-en" style="display:none">**Language:** English, with common technical terms</span><span class="lang-de">**Sprache:** Deutsch, mit englischen Fachbegriffen</span>
 
 ---
 
-## Inhaltsverzeichnis
+## <span class="lang-en" style="display:none">Table of contents</span><span class="lang-de">Inhaltsverzeichnis</span>
 
-1. [Modul A: Was ist Databricks?](#modul-a-was-ist-databricks)
-2. [Modul B: Databricks Workspace-Grundlagen](#modul-b-databricks-workspace-basics)
-3. [Modul C: VNet Injection](#modul-c-vnet-injection)
-4. [Modul D: Secure Cluster Connectivity (SCC)](#modul-d-secure-cluster-connectivity-scc)
-5. [Modul E: Private Link und Networking-Entscheidungen](#modul-e-private-link-und-networking)
-6. [Modul F: Terraform für Databricks und Capstone](#modul-f-terraform-für-databricks)
+1. <a href="#module-a-what-is-databricksmodul-a-was-ist-databricks"><span class="lang-en" style="display:none">Module A: What is Databricks?</span><span class="lang-de">Modul A: Was ist Databricks?</span></a>
+2. <a href="#module-b-databricks-workspace-basicsmodul-b-databricks-workspace-basics"><span class="lang-en" style="display:none">Module B: Databricks workspace basics</span><span class="lang-de">Modul B: Databricks Workspace-Grundlagen</span></a>
+3. <a href="#module-c-vnet-injectionmodul-c-vnet-injection"><span class="lang-en" style="display:none">Module C: VNet Injection</span><span class="lang-de">Modul C: VNet Injection</span></a>
+4. <a href="#module-d-secure-cluster-connectivity-sccmodul-d-secure-cluster-connectivity-scc"><span class="lang-en" style="display:none">Module D: Secure Cluster Connectivity (SCC)</span><span class="lang-de">Modul D: Secure Cluster Connectivity (SCC)</span></a>
+5. <a href="#module-e-private-link-and-network-decisionsmodul-e-private-link-und-networking-entscheidungen"><span class="lang-en" style="display:none">Module E: Private Link and networking decisions</span><span class="lang-de">Modul E: Private Link und Networking-Entscheidungen</span></a>
+6. <a href="#module-f-terraform-for-databricks-and-capstonemodul-f-terraform-für-databricks-und-capstone"><span class="lang-en" style="display:none">Module F: Terraform for Databricks and Capstone</span><span class="lang-de">Modul F: Terraform für Databricks und Capstone</span></a>
 
 ---
 
 ## <span class="lang-en" style="display:none">Glossary — Important Databricks terms</span><span class="lang-de">Glossar — Wichtige Databricks-Begriffe</span>
 
-| Deutsch | English | Bedeutung |
+| <span class="lang-en" style="display:none">German</span><span class="lang-de">Deutsch</span> | English | <span class="lang-en" style="display:none">Meaning</span><span class="lang-de">Bedeutung</span> |
 |---------|---------|-----------|
-| Workspace | Workspace | Databricks-Umgebung (deine Arbeitsoberfläche) |
-| Cluster | Cluster | Rechenressourcen für Data-Processing |
-| Virtual Network Injection | VNet Injection | Databricks läuft in deinem Azure VNet |
+| Workspace | Workspace | <span class="lang-en" style="display:none">Databricks environment (your workspace UI)</span><span class="lang-de">Databricks-Umgebung (deine Arbeitsoberfläche)</span> |
+| Cluster | Cluster | <span class="lang-en" style="display:none">Compute resources for data processing</span><span class="lang-de">Rechenressourcen für Data-Processing</span> |
+| Virtual Network Injection | VNet Injection | <span class="lang-en" style="display:none">Databricks runs in your Azure VNet</span><span class="lang-de">Databricks läuft in deinem Azure VNet</span> |
 | Compute Plane | Control Plane | Verwaltungsebene von Databricks |
 | Control Plane | Data Plane | Rechen-Ebene (Cluster, Jobs, Queries) |
-| Private Link | Private Link | Privater Zugriff ohne öffentliches Internet |
-| Secure Cluster Connectivity | Secure Cluster Connectivity (SCC) | Keine Public IP für Cluster |
-| Container Subnet | Container Subnet | Subnet für Cluster-VMs |
-| Host Subnet | Host Subnet | Subnet für Databricks-Infrastruktur |
+| Private Link | Private Link | <span class="lang-en" style="display:none">Private access without public internet</span><span class="lang-de">Privater Zugriff ohne öffentliches Internet</span> |
+| Secure Cluster Connectivity | Secure Cluster Connectivity (SCC) | <span class="lang-en" style="display:none">No public IP for clusters</span><span class="lang-de">Keine Public IP für Cluster</span> |
+| Container Subnet | Container Subnet | <span class="lang-en" style="display:none">Subnet for cluster VMs</span><span class="lang-de">Subnet für Cluster-VMs</span> |
+| Host Subnet | Host Subnet | <span class="lang-en" style="display:none">Subnet for Databricks infrastructure</span><span class="lang-de">Subnet für Databricks-Infrastruktur</span> |
 | NSG | Network Security Group | Firewall-Regeln |
 | User-Defined Route | UDR | Manuelle Routing-Regeln |
 
@@ -46,9 +46,9 @@ permalink: /courses/databricks-101.html
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst erklären, was Databricks ist, den Unterschied zwischen Databricks und Azure verstehen, und die Kernkonzepte Workspace, Cluster und Notebook benennen.
+<span class="lang-en" style="display:none">You can explain what Databricks is, understand the difference between Databricks and Azure, and name the core concepts workspace, cluster, and notebook.</span><span class="lang-de">Du kannst erklären, was Databricks ist, den Unterschied zwischen Databricks und Azure verstehen, und die Kernkonzepte Workspace, Cluster und Notebook benennen.</span>
 
-### 1.1 Was ist Databricks?
+### 1.1 <span class="lang-en" style="display:none">What is Databricks?</span><span class="lang-de">Was ist Databricks?</span>
 
 ```
 Databricks = Datenplattform auf Basis von Apache Spark
@@ -63,10 +63,10 @@ Was macht Databricks?
 
 **Databricks basiert auf:**
 - **Apache Spark** — Open-Source Daten-Processing-Engine
-- **Delta Lake** — Open-Source Storage-Layer (wie eine Datenbank für große Daten)
+- **Delta Lake** — <span class="lang-en" style="display:none">open-source storage layer (like a database for big data)</span><span class="lang-de">Open-Source Storage-Layer (wie eine Datenbank für große Daten)</span>
 - **MLflow** — Machine Learning Lifecycle Management
 
-### 1.2 Databricks vs. andere Azure-Dienste
+### 1.2 <span class="lang-en" style="display:none">Databricks vs. other Azure services</span><span class="lang-de">Databricks vs. andere Azure-Dienste</span>
 
 ```
 Azure SQL Database:
@@ -81,12 +81,12 @@ Azure Databricks:
 ```
 
 **Wann Databricks?**
-- 📊 **Große Datenmengen** (TB bis PB)
+- 📊 <span class="lang-en" style="display:none">**Large data volumes** (TB to PB)</span><span class="lang-de">**Große Datenmengen** (TB bis PB)</span>
 - 🔄 **Data Engineering** (Pipelines, Transformationen)
 - 🤖 **Machine Learning**
 - 📈 **Analytics & Business Intelligence**
 
-### 1.3 Kernkonzepte
+### 1.3 <span class="lang-en" style="display:none">Core concepts</span><span class="lang-de">Kernkonzepte</span>
 
 ```
 Workspace:
@@ -98,7 +98,7 @@ Workspace:
 │   └── Warehouse (SQL Analytics)
 ```
 
-### 1.4 Databricks-Tiers (Sku)
+### 1.4 <span class="lang-en" style="display:none">Databricks tiers (SKU)</span><span class="lang-de">Databricks-Tiers (SKU)</span>
 
 ```
 Developer Free    → Kostenlos, 14 Tage, für Testing
@@ -108,7 +108,7 @@ Premium           → Erweiterte Sicherheit, Governance
 Enterprise        → Größte Unternehmen, SLAs
 ```
 
-**Für den Kurs:** `Standard` ist die Mindestversion für VNet Injection. `Premium` wird für bestimmte Private-Link-Szenarien benötigt.
+<span class="lang-en" style="display:none">**For the course:** `Standard` is the minimum tier for VNet Injection. `Premium` is required for certain Private Link scenarios.</span><span class="lang-de">**Für den Kurs:** `Standard` ist die Mindestversion für VNet Injection. `Premium` wird für bestimmte Private-Link-Szenarien benötigt.</span>
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul A</span><span class="lang-de">Kurzes Quiz — Modul A</span>
 
@@ -117,14 +117,14 @@ Enterprise        → Größte Unternehmen, SLAs
    - b) Apache Spark ← **Richtig**
    - c) Docker
 
-2. Was ist ein Workspace?
-   - a) Eine VM in Azure
+2. <span class="lang-en" style="display:none">What is a workspace?</span><span class="lang-de">Was ist ein Workspace?</span>
+   - <span class="lang-en" style="display:none">a) A VM in Azure</span><span class="lang-de">a) Eine VM in Azure</span>
    - b) Deine Databricks-Arbeitsumgebung ← **Richtig**
-   - c) Ein Azure-Abonnement
+   - <span class="lang-en" style="display:none">c) An Azure subscription</span><span class="lang-de">c) Ein Azure-Abonnement</span>
 
-3. Wofür braucht man Databricks am ehesten?
+3. <span class="lang-en" style="display:none">What is Databricks most commonly used for?</span><span class="lang-de">Wofür braucht man Databricks am ehesten?</span>
    - a) E-Mails senden
-   - b) Große Datenmengen verarbeiten und analysieren ← **Richtig**
+   - <span class="lang-en" style="display:none">b) Process and analyze large data volumes ← **Correct**</span><span class="lang-de">b) Große Datenmengen verarbeiten und analysieren ← **Richtig**</span>
    - c) Web-Seiten hosten
 
 ---
@@ -133,7 +133,7 @@ Enterprise        → Größte Unternehmen, SLAs
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst einen Databricks Workspace erstellen, den Unterschied zwischen Control Plane und Compute Plane erklären, und die Terraform-Konfiguration dafür lesen.
+<span class="lang-en" style="display:none">You can create a Databricks workspace, explain the difference between control plane and compute plane, and read the Terraform configuration for it.</span><span class="lang-de">Du kannst einen Databricks Workspace erstellen, den Unterschied zwischen Control Plane und Compute Plane erklären, und die Terraform-Konfiguration dafür lesen.</span>
 
 ### 2.1 Databricks <span class="lang-en" style="display:none">Creating a workspace</span><span class="lang-de">Workspace erstellen</span>
 
@@ -166,7 +166,7 @@ resource "azurerm_databricks_workspace" "main" {
 }
 ```
 
-### 2.2 Control Plane vs. Compute Plane
+### 2.2 <span class="lang-en" style="display:none">Control Plane vs. Compute Plane</span><span class="lang-de">Control Plane vs. Compute Plane</span>
 
 ```
 Das ist eines der WICHTIGSTEN Konzepte für Databricks!
@@ -188,11 +188,11 @@ Control Plane    = Google verwaltet Gmail-Server
 Compute Plane    = Du speicherst deine E-Mails auf deinem Computer
 ```
 
-**Warum ist das wichtig?**
+<span class="lang-en" style="display:none">**Why is this important?**</span><span class="lang-de">**Warum ist das wichtig?**</span>
 - Netzwerkkonfiguration betrifft nur den **Compute Plane**
-- Der **Control Plane** kommuniziert mit deinem VNet, aber läuft nicht darin
+- <span class="lang-en" style="display:none">The **control plane** communicates with your VNet, but does not run inside it</span><span class="lang-de">Der **Control Plane** kommuniziert mit deinem VNet, aber läuft nicht darin</span>
 
-### 2.3 Databricks Network Topology (vereinfacht)
+### 2.3 <span class="lang-en" style="display:none">Databricks network topology (simplified)</span><span class="lang-de">Databricks Network Topology (vereinfacht)</span>
 
 ```
 Databricks in Azure (mit VNet Injection):
@@ -225,7 +225,7 @@ Azure Portal / Browser
 ─────────────────────────
 ```
 
-### 2.4 Subnet-Größen für Databricks
+### 2.4 <span class="lang-en" style="display:none">Subnet sizes for Databricks</span><span class="lang-de">Subnet-Größen für Databricks</span>
 
 ```
 WICHTIG: Databricks hat spezifische Subnet-Anforderungen!
@@ -247,7 +247,7 @@ Grund: Databricks benötigt IPs für:
   - Future Expansion
 ```
 
-### 2.5 Terraform-Konfiguration — VNet und Subnetze
+### 2.5 <span class="lang-en" style="display:none">Terraform configuration — VNet and subnets</span><span class="lang-de">Terraform-Konfiguration — VNet und Subnetze</span>
 
 ```hcl
 # Virtual Network
@@ -282,29 +282,29 @@ resource "azurerm_subnet" "databricks_container" {
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul B</span><span class="lang-de">Kurzes Quiz — Modul B</span>
 
-1. Was bedeutet VNet Injection bei Databricks?
+1. <span class="lang-en" style="display:none">What does VNet Injection mean in Databricks?</span><span class="lang-de">Was bedeutet VNet Injection bei Databricks?</span>
    - a) Databricks wird in dein Azure VNet eingebettet ← **Richtig**
-   - b) Databricks erstellt automatisch VNets
-   - c) Daten werden in ein VNet injiziert
+   - <span class="lang-en" style="display:none">b) Databricks creates VNets automatically</span><span class="lang-de">b) Databricks erstellt automatisch VNets</span>
+   - <span class="lang-en" style="display:none">c) Data is injected into a VNet</span><span class="lang-de">c) Daten werden in ein VNet injiziert</span>
 
-2. Was ist die Control Plane?
+2. <span class="lang-en" style="display:none">What is the control plane?</span><span class="lang-de">Was ist die Control Plane?</span>
    - a) Deine Cluster-VMs
    - b) Databricks' Verwaltungsebene (Web UI, etc.) ← **Richtig**
-   - c) Das Azure Portal
+   - <span class="lang-en" style="display:none">c) The Azure portal</span><span class="lang-de">c) Das Azure Portal</span>
 
-3. Wie groß muss mindestens ein Subnet für Databricks sein?
+3. <span class="lang-en" style="display:none">What is the minimum required subnet size for Databricks?</span><span class="lang-de">Wie groß muss mindestens ein Subnet für Databricks sein?</span>
    - a) /28
    - b) /26 ← **Richtig**
    - c) /16
 
 ### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul B</span><span class="lang-de">Praktische Übung — Modul B</span>
 
-**Aufgabe:** Erstelle:
-1. Eine Resource Group
-2. Ein VNet mit `/16`
+<span class="lang-en" style="display:none">**Task:** Create:</span><span class="lang-de">**Aufgabe:** Erstelle:</span>
+1. <span class="lang-en" style="display:none">A resource group</span><span class="lang-de">Eine Resource Group</span>
+2. <span class="lang-en" style="display:none">A VNet with `/16`</span><span class="lang-de">Ein VNet mit `/16`</span>
 3. Zwei Subnetze `/24`: `dbws-subnet-host` und `dbws-subnet-container`
 4. Einen Databricks Workspace (`standard`) mit VNet Injection Konfiguration
-5. Outputs für die Workspace-URL
+5. <span class="lang-en" style="display:none">Outputs for the workspace URL</span><span class="lang-de">Outputs für die Workspace-URL</span>
 
 ---
 
@@ -312,9 +312,9 @@ resource "azurerm_subnet" "databricks_container" {
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst VNet Injection erklären, die notwendigen Terraform-Parameter benennen und eine vollständige, sichere Databricks-Netzwerkkonfiguration erstellen.
+<span class="lang-en" style="display:none">You can explain VNet Injection, name the required Terraform parameters, and create a complete, secure Databricks network configuration.</span><span class="lang-de">Du kannst VNet Injection erklären, die notwendigen Terraform-Parameter benennen und eine vollständige, sichere Databricks-Netzwerkkonfiguration erstellen.</span>
 
-### 3.1 Warum VNet Injection?
+### 3.1 <span class="lang-en" style="display:none">Why VNet Injection?</span><span class="lang-de">Warum VNet Injection?</span>
 
 ```
 Ohne VNet Injection:
@@ -337,14 +337,14 @@ Mit VNet Injection:
 └──────────────────────────────────┘
 ```
 
-**Gründe für VNet Injection:**
-- 🔒 **Sicherheit** — Keine öffentliche IP für Cluster
+<span class="lang-en" style="display:none">**Reasons for VNet Injection:**</span><span class="lang-de">**Gründe für VNet Injection:**</span>
+- 🔒 <span class="lang-en" style="display:none">**Security** — no public IP for clusters</span><span class="lang-de">**Sicherheit** — Keine öffentliche IP für Cluster</span>
 - 🏢 **On-Premise Zugriff** — Zugriff aus dem Firmennetzwerk
 - 📊 **Traffic Inspection** — Firewall/UDR kontrollieren den Traffic
 - 🌐 **Custom DNS** — Eigene DNS-Regeln
 - ✅ **Compliance** — Viele Unternehmen ERZWEIDEN VNet Injection
 
-### 3.2 Terraform-Konfiguration — Komplettes Beispiel
+### 3.2 <span class="lang-en" style="display:none">Terraform configuration — complete example</span><span class="lang-de">Terraform-Konfiguration — Komplettes Beispiel</span>
 
 ```hcl
 # === Provider ===
@@ -449,7 +449,7 @@ output "databricks_workspace_id" {
 }
 ```
 
-### 3.3 custom_parameters — Die wichtigsten Felder
+### 3.3 <span class="lang-en" style="display:none">custom_parameters — the most important fields</span><span class="lang-de">custom_parameters — Die wichtigsten Felder</span>
 
 ```hcl
 custom_parameters {
@@ -477,9 +477,9 @@ custom_parameters {
 }
 ```
 
-**Wichtig:** `public_subnet_network_security_group_association_id` und `private_subnet_network_security_group_association_id` sind **Pflicht**, sobald `virtual_network_id` gesetzt ist!
+<span class="lang-en" style="display:none">**Important:** `public_subnet_network_security_group_association_id` and `private_subnet_network_security_group_association_id` are **required** as soon as `virtual_network_id` is set!</span><span class="lang-de">**Wichtig:** `public_subnet_network_security_group_association_id` und `private_subnet_network_security_group_association_id` sind **Pflicht**, sobald `virtual_network_id` gesetzt ist!</span>
 
-### 3.4 network_security_group_rules_required
+### 3.4 <span class="lang-en" style="display:none">network_security_group_rules_required</span><span class="lang-de">network_security_group_rules_required</span>
 
 ```hcl
 # Option 1: AzureDatabricksRules (Standard)
@@ -500,29 +500,29 @@ network_security_group_rules_required = "NoAzureDatabricksRules"
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul C</span><span class="lang-de">Kurzes Quiz — Modul C</span>
 
-1. Was bedeutet `no_public_ip = true` in custom_parameters?
+1. <span class="lang-en" style="display:none">What does `no_public_ip = true` mean in custom_parameters?</span><span class="lang-de">Was bedeutet `no_public_ip = true` in custom_parameters?</span>
    - a) Databricks ohne Internet
-   - b) Secure Cluster Connectivity — Keine Public IP ← **Richtig**
+   - <span class="lang-en" style="display:none">b) Secure Cluster Connectivity — no public IP ← **Correct**</span><span class="lang-de">b) Secure Cluster Connectivity — Keine Public IP ← **Richtig**</span>
    - c) Databricks wird deaktiviert
 
-2. Warum müssen NSG-Association-IDs in custom_parameters angegeben werden?
+2. <span class="lang-en" style="display:none">Why must NSG association IDs be specified in custom_parameters?</span><span class="lang-de">Warum müssen NSG-Association-IDs in custom_parameters angegeben werden?</span>
    - a) Weil Databricks NSG-Regeln braucht ← **Richtig**
    - b) Weil es optional ist
    - c) Weil Azure es nicht anders erlaubt
 
-3. Was macht `AzureDatabricksRules`?
+3. <span class="lang-en" style="display:none">What does `AzureDatabricksRules` do?</span><span class="lang-de">Was macht `AzureDatabricksRules`?</span>
    - a) Blockiert alle Regeln
-   - b) Databricks erstellt automatisch nötige NSG-Regeln ← **Richtig**
-   - c) Löscht alle NSG-Regeln
+   - <span class="lang-en" style="display:none">b) Databricks automatically creates required NSG rules ← **Correct**</span><span class="lang-de">b) Databricks erstellt automatisch nötige NSG-Regeln ← **Richtig**</span>
+   - <span class="lang-en" style="display:none">c) Deletes all NSG rules</span><span class="lang-de">c) Löscht alle NSG-Regeln</span>
 
 ### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul C</span><span class="lang-de">Praktische Übung — Modul C</span>
 
-**Aufgabe:** Erstelle:
-1. Eine Resource Group
-2. Ein VNet mit zwei Subnetzen (`dbws-subnet-host`, `dbws-subnet-container`)
-3. Eine NSG und verbinde sie mit beiden Subnetzen
+<span class="lang-en" style="display:none">**Task:** Create:</span><span class="lang-de">**Aufgabe:** Erstelle:</span>
+1. <span class="lang-en" style="display:none">A resource group</span><span class="lang-de">Eine Resource Group</span>
+2. <span class="lang-en" style="display:none">A VNet with two subnets (`dbws-subnet-host`, `dbws-subnet-container`)</span><span class="lang-de">Ein VNet mit zwei Subnetzen (`dbws-subnet-host`, `dbws-subnet-container`)</span>
+3. <span class="lang-en" style="display:none">An NSG and associate it with both subnets</span><span class="lang-de">Eine NSG und verbinde sie mit beiden Subnetzen</span>
 4. Einen Databricks Workspace mit VNet Injection
-5. Prüfe die Terraform-Ausgabe — die Workspace-URL sollte erscheinen!
+5. <span class="lang-en" style="display:none">Check the Terraform output — the workspace URL should appear!</span><span class="lang-de">Prüfe die Terraform-Ausgabe — die Workspace-URL sollte erscheinen!</span>
 
 ---
 
@@ -530,9 +530,9 @@ network_security_group_rules_required = "NoAzureDatabricksRules"
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst SCC erklären, den Unterschied zwischen Portal-Default und Terraform-Default verstehen, und SCC mit Terraform aktivieren.
+<span class="lang-en" style="display:none">You can explain SCC, understand the difference between portal defaults and Terraform defaults, and enable SCC with Terraform.</span><span class="lang-de">Du kannst SCC erklären, den Unterschied zwischen Portal-Default und Terraform-Default verstehen, und SCC mit Terraform aktivieren.</span>
 
-### 4.1 Was ist SCC?
+### 4.1 <span class="lang-en" style="display:none">What is SCC?</span><span class="lang-de">Was ist SCC?</span>
 
 ```
 Secure Cluster Connectivity (SCC):
@@ -553,11 +553,11 @@ Mit SCC (no_public_ip = true):
 ```
 
 **SCC-Vorteile:**
-- 🔒 Cluster sind **niemals** direkt über das Internet erreichbar
-- 🏢 Nur Zugriff aus dem VNet (oder On-Premise über ExpressRoute)
-- ✅ Erfüllt viele Compliance-Anforderungen
+- 🔒 <span class="lang-en" style="display:none">Clusters are **never** directly reachable from the internet</span><span class="lang-de">Cluster sind **niemals** direkt über das Internet erreichbar</span>
+- 🏢 <span class="lang-en" style="display:none">Access only from the VNet (or on-premises via ExpressRoute)</span><span class="lang-de">Nur Zugriff aus dem VNet (oder On-Premise über ExpressRoute)</span>
+- ✅ <span class="lang-en" style="display:none">Meets many compliance requirements</span><span class="lang-de">Erfüllt viele Compliance-Anforderungen</span>
 
-### 4.2 ⚠️ Die große Stolperfalle!
+### 4.2 ⚠️ <span class="lang-en" style="display:none">The big pitfall</span><span class="lang-de">Die große Stolperfalle</span>
 
 ```
 Portal (Azure Web) vs. Terraform — UNTERSCHIEDLICHE DEFAULTS!
@@ -576,9 +576,9 @@ nicht setzt, bekommst du einen Workspace MIT Public IP —
 auch wenn du dachtest, SCC sei standardmäßig an!
 ```
 
-**Merke:** `no_public_ip = true` muss **immer explizit** gesetzt werden!
+<span class="lang-en" style="display:none">**Remember:** `no_public_ip = true` must **always** be set explicitly!</span><span class="lang-de">**Merke:** `no_public_ip = true` muss **immer explizit** gesetzt werden!</span>
 
-### 4.3 SCC mit Terraform aktivieren
+### 4.3 <span class="lang-en" style="display:none">Enable SCC with Terraform</span><span class="lang-de">SCC mit Terraform aktivieren</span>
 
 ```hcl
 resource "azurerm_databricks_workspace" "main" {
@@ -600,7 +600,7 @@ resource "azurerm_databricks_workspace" "main" {
 }
 ```
 
-### 4.4 SCC und NSG-Regeln
+### 4.4 <span class="lang-en" style="display:none">SCC and NSG rules</span><span class="lang-de">SCC und NSG-Regeln</span>
 
 ```hcl
 # Wenn SCC aktiviert ist, braucht Databricks bestimmte NSG-Regeln:
@@ -645,7 +645,7 @@ resource "azurerm_network_security_rule" "databricks_spark" {
 }
 ```
 
-### 4.5 Outbound-Zugang für Databricks
+### 4.5 <span class="lang-en" style="display:none">Outbound access for Databricks</span><span class="lang-de">Outbound-Zugang für Databricks</span>
 
 ```hcl
 # Databricks-Cluster brauchen Outbound-Zugang:
@@ -682,7 +682,7 @@ resource "azurerm_network_security_rule" "databricks_outbound_dns" {
 # DU MUSS einen NAT Gateway oder Azure Firewall konfigurieren!
 ```
 
-### 4.6 Default Outbound Access Retirement — WAS IST DAS?
+### 4.6 <span class="lang-en" style="display:none">Default Outbound Access Retirement — what is it?</span><span class="lang-de">Default Outbound Access Retirement — was ist das?</span>
 
 ```
 ⚠️ AKTUELLE ÄNDERUNG (ab 31. März 2026) ⚠️
@@ -705,7 +705,7 @@ Alternativ: Azure Firewall
 ├── Subnet → UDR zu Firewall → Public IP → Internet
 ```
 
-**Was du tun musst:**
+<span class="lang-en" style="display:none">**What you need to do:**</span><span class="lang-de">**Was du tun musst:**</span>
 
 ```hcl
 # NAT Gateway konfigurieren
@@ -732,31 +732,31 @@ resource "azurerm_nat_gateway" "databricks" {
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul D</span><span class="lang-de">Kurzes Quiz — Modul D</span>
 
-1. Was ist die Stolperfalle bei SCC?
+1. <span class="lang-en" style="display:none">What is the SCC pitfall?</span><span class="lang-de">Was ist die Stolperfalle bei SCC?</span>
    - a) SCC funktioniert nur mit Premium Tier
    - b) Portal und Terraform haben verschiedene Defaults ← **Richtig**
    - c) SCC funktioniert nicht mit VNet Injection
 
-2. Was muss in Terraform explizit gesetzt werden für SCC?
+2. <span class="lang-en" style="display:none">What must be set explicitly in Terraform for SCC?</span><span class="lang-de">Was muss in Terraform explizit gesetzt werden für SCC?</span>
    - a) `no_public_ip = true` ← **Richtig**
    - b) `enable_scc = true`
    - c) `security = "cluster"`
 
-3. Warum ist die Default Outbound Access Retirement wichtig?
+3. <span class="lang-en" style="display:none">Why is Default Outbound Access Retirement important?</span><span class="lang-de">Warum ist die Default Outbound Access Retirement wichtig?</span>
    - a) Databricks funktioniert danach nicht mehr
    - b) Neue VNets brauchen expliziten Outbound-Zugang (NAT Gateway) ← **Richtig**
-   - c) Alte VNets werden automatisch gelöscht
+   - <span class="lang-en" style="display:none">c) Old VNets are deleted automatically</span><span class="lang-de">c) Alte VNets werden automatisch gelöscht</span>
 
-4. Welches spezielle Azure-Tag wird für Databricks-NSG-Quellen verwendet?
+4. <span class="lang-en" style="display:none">Which special Azure tag is used for Databricks NSG sources?</span><span class="lang-de">Welches spezielle Azure-Tag wird für Databricks-NSG-Quellen verwendet?</span>
    - a) `Databricks`
    - b) `AzureDatabricks` ← **Richtig**
    - c) `Azure-DBX`
 
 ### 📝 <span class="lang-en" style="display:none">Homework</span><span class="lang-de">Hausaufgabe</span>
 
-- Erstelle einen Databricks Workspace mit SCC (`no_public_ip = true`)
-- Konfiguriere NSG-Regeln für Databricks
-- Dokumentiere, welche NSG-Regeln Databricks benötigt
+- <span class="lang-en" style="display:none">Create a Databricks workspace with SCC (`no_public_ip = true`)</span><span class="lang-de">Erstelle einen Databricks Workspace mit SCC (`no_public_ip = true`)</span>
+- <span class="lang-en" style="display:none">Configure NSG rules for Databricks</span><span class="lang-de">Konfiguriere NSG-Regeln für Databricks</span>
+- <span class="lang-en" style="display:none">Document which NSG rules Databricks requires</span><span class="lang-de">Dokumentiere, welche NSG-Regeln Databricks benötigt</span>
 
 ---
 
@@ -764,9 +764,9 @@ resource "azurerm_nat_gateway" "databricks" {
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst die verschiedenen Databricks-Netzwerkoptionen erklären, verstehen, wann welche Option sinnvoll ist, und eine Entscheidungsmatrix anwenden.
+<span class="lang-en" style="display:none">You can explain the different Databricks networking options, understand when each option makes sense, and apply a decision matrix.</span><span class="lang-de">Du kannst die verschiedenen Databricks-Netzwerkoptionen erklären, verstehen, wann welche Option sinnvoll ist, und eine Entscheidungsmatrix anwenden.</span>
 
-### 5.1 Databricks-Netzwerk-Optionen
+### 5.1 <span class="lang-en" style="display:none">Databricks network options</span><span class="lang-de">Databricks-Netzwerk-Optionen</span>
 
 ```
 Databricks kann auf verschiedene Weisen ins Netzwerk eingebettet werden:
@@ -796,7 +796,7 @@ Option 5: User-Defined Routes (UDR)
 └── Für Compliance / Traffic Inspection
 ```
 
-### 5.2 Entscheidungsmatrix
+### 5.2 <span class="lang-en" style="display:none">Decision matrix</span><span class="lang-de">Entscheidungsmatrix</span>
 
 ```
 Welche Option brauchst du?
@@ -853,7 +853,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "databricks" {
 }
 ```
 
-### 5.4 Browser Authentication Workspace
+### 5.4 <span class="lang-en" style="display:none">Browser authentication workspace</span><span class="lang-de">Browser Authentication Workspace</span>
 
 ```hcl
 # Für Front-End <span class="lang-en" style="display:none">Private Link: extra Workspace mit browser_endpoint</span><span class="lang-de">Private Link: extra Workspace mit browser_endpoint</span>
@@ -877,9 +877,9 @@ resource "azurerm_databricks_workspace" "browser_auth" {
 }
 ```
 
-**Merke:** Browser Authentication ist **Pflicht**, wenn das Transit-VNet (Hub) keinen Internet-Zugang hat!
+<span class="lang-en" style="display:none">**Remember:** Browser authentication is **required** if the transit VNet (hub) has no internet access!</span><span class="lang-de">**Merke:** Browser Authentication ist **Pflicht**, wenn das Transit-VNet (Hub) keinen Internet-Zugang hat!</span>
 
-### 5.5 Zusammenfassung: Was gehört in einen 101-Kurs?
+### 5.5 <span class="lang-en" style="display:none">Summary: what belongs in a 101 course?</span><span class="lang-de">Zusammenfassung: Was gehört in einen 101-Kurs?</span>
 
 ```
 Pflicht-Kern (alle Anfänger):
@@ -897,28 +897,28 @@ Optional / Vertiefung:
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul E</span><span class="lang-de">Kurzes Quiz — Modul E</span>
 
-1. Welche Option ist der Standard für Anfänger?
+1. <span class="lang-en" style="display:none">Which option is the default for beginners?</span><span class="lang-de">Welche Option ist der Standard für Anfänger?</span>
    - a) Front-End Private Link
    - b) VNet Injection + SCC ← **Richtig**
    - c) Back-End Private Link
 
-2. Welches Tier wird für Front-End Private Link benötigt?
+2. <span class="lang-en" style="display:none">Which tier is required for front-end Private Link?</span><span class="lang-de">Welches Tier wird für Front-End Private Link benötigt?</span>
    - a) Single
    - b) Standard
    - c) Premium ← **Richtig**
 
-3. Warum ist Browser Authentication bei Transit-VNet ohne Internet nötig?
+3. <span class="lang-en" style="display:none">Why is browser authentication needed for a transit VNet without internet?</span><span class="lang-de">Warum ist Browser Authentication bei Transit-VNet ohne Internet nötig?</span>
    - a) Weil Databricks es automatisch macht
    - b) Weil Benutzer sonst nicht zur Workspace-URL kommen ← **Richtig**
    - c) Weil Azure es verlangt
 
 ### 📝 <span class="lang-en" style="display:none">Homework</span><span class="lang-de">Hausaufgabe</span>
 
-- Erstelle eine Entscheidungsmatrix für drei Szenarien:
+- <span class="lang-en" style="display:none">Create a decision matrix for three scenarios:</span><span class="lang-de">Erstelle eine Entscheidungsmatrix für drei Szenarien:</span>
   1. Lernumgebung
   2. Produktionsumgebung mit Compliance
   3. On-Premise-Anbindung
-- Welchen Netzwerkpfad würdest du wählen und warum?
+- <span class="lang-en" style="display:none">Which network path would you choose and why?</span><span class="lang-de">Welchen Netzwerkpfad würdest du wählen und warum?</span>
 
 ---
 
@@ -926,9 +926,9 @@ Optional / Vertiefung:
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst einen vollständigen Databricks Workspace mit Networking und Security mit Terraform erstellen, und weißt, wie die verschiedenen Konzepte zusammenhängen.
+<span class="lang-en" style="display:none">You can create a complete Databricks workspace with networking and security using Terraform, and know how the different concepts fit together.</span><span class="lang-de">Du kannst einen vollständigen Databricks Workspace mit Networking und Security mit Terraform erstellen, und weißt, wie die verschiedenen Konzepte zusammenhängen.</span>
 
-### 6.1 Komplettes Terraform-Beispiel
+### 6.1 <span class="lang-en" style="display:none">Complete Terraform example</span><span class="lang-de">Komplettes Terraform-Beispiel</span>
 
 ```hcl
 # main.tf — Komplettes Databricks-Beispiel
@@ -1096,7 +1096,7 @@ output "container_subnet_id" {
 }
 ```
 
-### 6.2 Vollständiger Ablauf
+### 6.2 <span class="lang-en" style="display:none">Complete flow</span><span class="lang-de">Vollständiger Ablauf</span>
 
 ```bash
 # 1. In das Verzeichnis wechseln
@@ -1132,7 +1132,7 @@ terraform destroy
 
 ### 6.3 🏆 <span class="lang-en" style="display:none">Capstone project</span><span class="lang-de">Capstone-Projekt</span>
 
-**Aufgabe:** Erstelle eine vollständige Databricks-Infrastruktur:
+<span class="lang-en" style="display:none">**Task:** Create a complete Databricks infrastructure:</span><span class="lang-de">**Aufgabe:** Erstelle eine vollständige Databricks-Infrastruktur:</span>
 
 ```
 Pflicht:
@@ -1156,11 +1156,11 @@ Optional (Bonus):
 └── Remote State konfiguriert
 ```
 
-**Checkliste:**
-- [ ] `terraform init` läuft
-- [ ] `terraform validate` sagt "valid"
-- [ ] `terraform fmt -check` keine Änderungen
-- [ ] `terraform plan` zeigt alle erwarteten Ressourcen
+<span class="lang-en" style="display:none">**Checklist:**</span><span class="lang-de">**Checkliste:**</span>
+- [ ] <span class="lang-en" style="display:none">`terraform init` runs</span><span class="lang-de">`terraform init` läuft</span>
+- [ ] <span class="lang-en" style="display:none">`terraform validate` says "valid"</span><span class="lang-de">`terraform validate` sagt "valid"</span>
+- [ ] <span class="lang-en" style="display:none">`terraform fmt -check` has no changes</span><span class="lang-de">`terraform fmt -check` keine Änderungen</span>
+- [ ] <span class="lang-en" style="display:none">`terraform plan` shows all expected resources</span><span class="lang-de">`terraform plan` zeigt alle erwarteten Ressourcen</span>
 - [ ] Workspace URL erscheint als Output
 - [ ] SCC ist aktiviert (`no_public_ip = true`)
 - [ ] NSG-Regeln sind korrekt
@@ -1177,7 +1177,7 @@ Fertig mit Databricks 101? Weiter zu:
 4. Databricks ML    → Machine Learning auf Databricks
 ```
 
-### 6.5 Überblick: Alle drei Kurse kombiniert
+### 6.5 <span class="lang-en" style="display:none">Overview: all three courses combined</span><span class="lang-de">Überblick: Alle drei Kurse kombiniert</span>
 
 ```
 Terraform 101          → IaC, HCL, State, Module
@@ -1191,23 +1191,23 @@ Integration 101        → Alles zusammen: Terraform + Azure + Databricks
 
 ### 📝 <span class="lang-en" style="display:none">Final Quiz — Kurs-Ende</span><span class="lang-de">Letztes Quiz — Kurs-Ende</span>
 
-1. Nenne die zwei Subnet-Typen, die Databricks braucht.
-   **Muster:** Host Subnet und Container Subnet
+1. <span class="lang-en" style="display:none">Name the two subnet types Databricks needs.</span><span class="lang-de">Nenne die zwei Subnet-Typen, die Databricks braucht.</span>
+   <span class="lang-en" style="display:none">**Sample:** host subnet and container subnet</span><span class="lang-de">**Muster:** Host Subnet und Container Subnet</span>
 
-2. Warum ist `no_public_ip = true` in Terraform wichtig?
-   **Muster:** Aktiviert SCC — Cluster haben keine öffentliche IP
+2. <span class="lang-en" style="display:none">Why is `no_public_ip = true` important in Terraform?</span><span class="lang-de">Warum ist `no_public_ip = true` in Terraform wichtig?</span>
+   <span class="lang-en" style="display:none">**Sample:** enables SCC — clusters have no public IP</span><span class="lang-de">**Muster:** Aktiviert SCC — Cluster haben keine öffentliche IP</span>
 
-3. Was bedeutet `AzureDatabricksRules`?
-   **Muster:** Databricks erstellt automatisch nötige NSG-Regeln
+3. <span class="lang-en" style="display:none">What does `AzureDatabricksRules` mean?</span><span class="lang-de">Was bedeutet `AzureDatabricksRules`?</span>
+   <span class="lang-en" style="display:none">**Sample:** Databricks automatically creates required NSG rules</span><span class="lang-de">**Muster:** Databricks erstellt automatisch nötige NSG-Regeln</span>
 
-4. Was ist die Default-Outbound-Retirement?
-   **Muster:** Ab März 2026 brauchen neue VNets expliziten Outbound-Pfad (NAT Gateway)
+4. <span class="lang-en" style="display:none">What is Default Outbound Retirement?</span><span class="lang-de">Was ist die Default-Outbound-Retirement?</span>
+   <span class="lang-en" style="display:none">**Sample:** from March 2026, new VNets need an explicit outbound path (NAT Gateway)</span><span class="lang-de">**Muster:** Ab März 2026 brauchen neue VNets expliziten Outbound-Pfad (NAT Gateway)</span>
 
 ---
 
 ## <span class="lang-en" style="display:none">Appendix: Databricks port reference</span><span class="lang-de">Anhang: Databricks-Portreferenz</span>
 
-| Port | Richtung | Zweck | NSG-Regel |
+| Port | <span class="lang-en" style="display:none">Direction</span><span class="lang-de">Richtung</span> | <span class="lang-en" style="display:none">Purpose</span><span class="lang-de">Zweck</span> | NSG-Regel |
 |------|----------|-------|-----------|
 | 443 | Inbound | HTTPS (Web UI, API) | Von AzureDatabricks |
 | 11211 | Inbound | MongoDB (Cluster-Zugriff) | Von AzureDatabricks |
@@ -1218,11 +1218,11 @@ Integration 101        → Alles zusammen: Terraform + Azure + Databricks
 
 ## <span class="lang-en" style="display:none">Appendix: Common errors</span><span class="lang-de">Anhang: Häufige Fehler</span>
 
-| Fehler | Lösung |
+| <span class="lang-en" style="display:none">Error</span><span class="lang-de">Fehler</span> | <span class="lang-en" style="display:none">Solution</span><span class="lang-de">Lösung</span> |
 |--------|--------|
-| `no_public_ip nicht gesetzt` | Immer `no_public_ip = true` setzen! |
-| `NSG Association fehlt` | Beide Associations in custom_parameters nötig |
+| <span class="lang-en" style="display:none">`no_public_ip` not set</span><span class="lang-de">`no_public_ip nicht gesetzt`</span> | <span class="lang-en" style="display:none">Always set `no_public_ip = true`!</span><span class="lang-de">Immer `no_public_ip = true` setzen!</span> |
+| <span class="lang-en" style="display:none">NSG association missing</span><span class="lang-de">`NSG Association fehlt`</span> | <span class="lang-en" style="display:none">Both associations are required in custom_parameters</span><span class="lang-de">Beide Associations in custom_parameters nötig</span> |
 | `Subnet zu klein` | Mindestens /26, empfohlen /24 |
 | `Portal vs. Terraform Default` | Terraform: `no_public_ip = false`! Explizit setzen! |
-| `Outbound nach März 2026` | NAT Gateway oder Azure Firewall konfigurieren |
-| `Premium für Private Link` | Front-End Private Link braucht Premium Tier |
+| <span class="lang-en" style="display:none">Outbound after March 2026</span><span class="lang-de">`Outbound nach März 2026`</span> | <span class="lang-en" style="display:none">Configure NAT Gateway or Azure Firewall</span><span class="lang-de">NAT Gateway oder Azure Firewall konfigurieren</span> |
+| <span class="lang-en" style="display:none">Premium for Private Link</span><span class="lang-de">`Premium für Private Link`</span> | <span class="lang-en" style="display:none">Front-end Private Link needs Premium tier</span><span class="lang-de">Front-End Private Link braucht Premium Tier</span> |

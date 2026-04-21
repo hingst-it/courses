@@ -8,34 +8,34 @@ permalink: /courses/azure-101.html
 # 🟦 Azure 101 — <span class="lang-en" style="display:none">Cloud fundamentals for Terraform users</span><span class="lang-de">Cloud-Grundlagen für Terraform-Nutzer</span>
 
 
-> **Niveau:** Absolute Beginners — keine Azure-Vorkenntnisse nötig  
-> **Sprache:** Deutsch, mit englischen Fachbegriffen
+> <span class="lang-en" style="display:none">**Level:** Absolute beginners — no Azure prior knowledge needed</span><span class="lang-de">**Niveau:** Absolute Beginners — keine Azure-Vorkenntnisse nötig</span>  
+> <span class="lang-en" style="display:none">**Language:** English, with common technical terms</span><span class="lang-de">**Sprache:** Deutsch, mit englischen Fachbegriffen</span>
 
 ---
 
-## Inhaltsverzeichnis
+## <span class="lang-en" style="display:none">Table of contents</span><span class="lang-de">Inhaltsverzeichnis</span>
 
-1. [Modul A: Azure-Grundlagen](#modul-a-azure-basics)
-2. [Modul B: Ressourcengruppen und Ressourcen](#modul-b-ressourcengruppen-und-ressourcen)
-3. [Modul C: Virtual Networks (VNet)](#modul-c-virtual-networks-vnet)
-4. [Modul D: Hub-and-Spoke Architektur](#modul-d-hub-and-spoke-architektur)
-5. [Modul E: Sicherheit mit NSGs](#modul-e-sicherheit-mit-nsgs)
-6. [Modul F: Terraform-Integration und Capstone](#modul-f-terraform-integration-und-capstone)
+1. <a href="#module-a-azure-basicsmodul-a-azure-basics"><span class="lang-en" style="display:none">Module A: Azure basics</span><span class="lang-de">Modul A: Azure-Grundlagen</span></a>
+2. <a href="#module-b-resource-groups-and-resourcesmodul-b-ressourcengruppen-und-ressourcen"><span class="lang-en" style="display:none">Module B: Resource groups and resources</span><span class="lang-de">Modul B: Ressourcengruppen und Ressourcen</span></a>
+3. <a href="#module-c-virtual-networks-vnetmodul-c-virtual-networks-vnet"><span class="lang-en" style="display:none">Module C: Virtual Networks (VNet)</span><span class="lang-de">Modul C: Virtual Networks (VNet)</span></a>
+4. <a href="#module-d-hub-and-spoke-architecturemodul-d-hub-and-spoke-architektur"><span class="lang-en" style="display:none">Module D: Hub-and-Spoke architecture</span><span class="lang-de">Modul D: Hub-and-Spoke Architektur</span></a>
+5. <a href="#module-e-security-with-nsgsmodul-e-sicherheit-mit-nsgs"><span class="lang-en" style="display:none">Module E: Security with NSGs</span><span class="lang-de">Modul E: Sicherheit mit NSGs</span></a>
+6. <a href="#module-f-terraform-integration-and-capstonemodul-f-terraform-integration-und-capstone"><span class="lang-en" style="display:none">Module F: Terraform integration and Capstone</span><span class="lang-de">Modul F: Terraform-Integration und Capstone</span></a>
 
 ---
 
 ## <span class="lang-en" style="display:none">Glossary — Important Azure terms</span><span class="lang-de">Glossar — Wichtige Azure-Begriffe</span>
 
-| Deutsch | English | Bedeutung |
+| <span class="lang-en" style="display:none">German</span><span class="lang-de">Deutsch</span> | English | <span class="lang-en" style="display:none">Meaning</span><span class="lang-de">Bedeutung</span> |
 |---------|---------|-----------|
-| Abonnement | Subscription | Dein Azure-Konto / Zahlungseinheit |
-| Ressourcengruppe | Resource Group | Container für Ressourcen |
+| Abonnement | Subscription | <span class="lang-en" style="display:none">Your Azure account / billing unit</span><span class="lang-de">Dein Azure-Konto / Zahlungseinheit</span> |
+| Ressourcengruppe | Resource Group | <span class="lang-en" style="display:none">Container for resources</span><span class="lang-de">Container für Ressourcen</span> |
 | Region | Region | Geografischer Standort (z. B. Germany West Central) |
 | Virtuelles Netzwerk | Virtual Network (VNet) | Isoliertes Netzwerk in Azure |
 | Subnetz | Subnet | Unterbereich eines VNets |
-| Netzwerk-Sicherheitsgruppe | Network Security Group (NSG) | Firewall-Regeln für Subnetze/Ressourcen |
+| Netzwerk-Sicherheitsgruppe | Network Security Group (NSG) | <span class="lang-en" style="display:none">Firewall rules for subnets/resources</span><span class="lang-de">Firewall-Regeln für Subnetze/Ressourcen</span> |
 | Peering | Virtual Network Peering | Verbindung zwischen VNets |
-| Public IP | Public IP Address | Öffentliche IP-Adresse |
+| Public IP | Public IP Address | <span class="lang-en" style="display:none">Public IP address</span><span class="lang-de">Öffentliche IP-Adresse</span> |
 | NAT Gateway | NAT Gateway | Kontrollierter Ausgangszugang ins Internet |
 
 ---
@@ -44,7 +44,7 @@ permalink: /courses/azure-101.html
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst Azure-Konzepte wie Subscription, Resource Group, Region und Azure Portal erklären.
+<span class="lang-en" style="display:none">You can explain Azure concepts such as subscription, resource group, region, and the Azure portal.</span><span class="lang-de">Du kannst Azure-Konzepte wie Subscription, Resource Group, Region und Azure Portal erklären.</span>
 
 ### 1.1 <span class="lang-en" style="display:none">How Azure is organized</span><span class="lang-de">Wie Azure organisiert ist</span>
 
@@ -64,9 +64,9 @@ Subscription (Abonnement)
 ```
 
 **Wichtige Regeln:**
-1. **Ressourcen gehören immer zu genau einer Resource Group**
-2. **Resource Groups gehören genau einer Subscription**
-3. **Resource Groups können Regionen gemischt haben** (aber: gleiche Region ist einfacher)
+1. <span class="lang-en" style="display:none">**Resources always belong to exactly one resource group**</span><span class="lang-de">**Ressourcen gehören immer zu genau einer Resource Group**</span>
+2. <span class="lang-en" style="display:none">**Resource groups belong to exactly one subscription**</span><span class="lang-de">**Resource Groups gehören genau einer Subscription**</span>
+3. <span class="lang-en" style="display:none">**Resource groups can contain mixed regions** (but using one region is simpler)</span><span class="lang-de">**Resource Groups können Regionen gemischt haben** (aber: gleiche Region ist einfacher)</span>
 
 ### 1.2 <span class="lang-en" style="display:none">Regions in Azure</span><span class="lang-de">Regionen in Azure</span>
 
@@ -80,14 +80,14 @@ North Europe (Irland)                 ← Europa
 West Europe (Niederlande)             ← Europa
 ```
 
-**Regeln für Anfänger:**
-- Wähle die Region, die am nächsten zu deinen Nutzern liegt
-- Für deutschsprachige Kurse: `Germany West Central` (Frankfurt)
-- Alle Ressourcen in einer Resource Group sollten idealerweise in derselben Region sein
+<span class="lang-en" style="display:none">**Beginner rules:**</span><span class="lang-de">**Regeln für Anfänger:**</span>
+- <span class="lang-en" style="display:none">Choose the region closest to your users</span><span class="lang-de">Wähle die Region, die am nächsten zu deinen Nutzern liegt</span>
+- <span class="lang-en" style="display:none">For German-language courses: `Germany West Central` (Frankfurt)</span><span class="lang-de">Für deutschsprachige Kurse: `Germany West Central` (Frankfurt)</span>
+- <span class="lang-en" style="display:none">All resources in a resource group should ideally be in the same region</span><span class="lang-de">Alle Ressourcen in einer Resource Group sollten idealerweise in derselben Region sein</span>
 
 ### 1.3 <span class="lang-en" style="display:none">The Azure Portal</span><span class="lang-de">Das Azure Portal</span>
 
-Das Portal ist die Webseite, mit der du Azure manuell bedienen kannst:
+<span class="lang-en" style="display:none">The portal is the website you can use to operate Azure manually:</span><span class="lang-de">Das Portal ist die Webseite, mit der du Azure manuell bedienen kannst:</span>
 
 ```
 portal.azure.com
@@ -99,7 +99,7 @@ Dort kannst du:
 - Fehler diagnostizieren
 ```
 
-**Aber:** Manuelles Arbeiten im Portal ist **nicht reproduzierbar** und **nicht versionierbar**. Genau dafür brauchen wir Terraform!
+<span class="lang-en" style="display:none">**But:** Manual work in the portal is **not reproducible** and **not versionable**. That is exactly why we need Terraform!</span><span class="lang-de">**Aber:** Manuelles Arbeiten im Portal ist **nicht reproduzierbar** und **nicht versionierbar**. Genau dafür brauchen wir Terraform!</span>
 
 ### 1.4 <span class="lang-en" style="display:none">Azure CLI — the command line</span><span class="lang-de">Azure CLI — Die Befehlszeile</span>
 
@@ -124,20 +124,20 @@ az group list --output table
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul A</span><span class="lang-de">Kurzes Quiz — Modul A</span>
 
-1. Was ist eine Resource Group?
-   - a) Eine Datei auf deinem Computer
-   - b) Ein Container für zusammengehörige Azure-Ressourcen ← **Richtig**
-   - c) Ein Azure-Dienst für Backups
+1. <span class="lang-en" style="display:none">What is a resource group?</span><span class="lang-de">Was ist eine Resource Group?</span>
+   - <span class="lang-en" style="display:none">a) A file on your computer</span><span class="lang-de">a) Eine Datei auf deinem Computer</span>
+   - <span class="lang-en" style="display:none">b) A container for related Azure resources ← **Correct**</span><span class="lang-de">b) Ein Container für zusammengehörige Azure-Ressourcen ← **Richtig**</span>
+   - <span class="lang-en" style="display:none">c) An Azure service for backups</span><span class="lang-de">c) Ein Azure-Dienst für Backups</span>
 
-2. Warum sollte man Ressourcen in Resource Groups organisieren?
+2. <span class="lang-en" style="display:none">Why should resources be organized in resource groups?</span><span class="lang-de">Warum sollte man Ressourcen in Resource Groups organisieren?</span>
    - a) Weil es Pflicht ist
-   - b) Zum einfachen Verwalten, Löschen und Kosten-Tracking ← **Richtig**
+   - <span class="lang-en" style="display:none">b) For easier management, deletion, and cost tracking ← **Correct**</span><span class="lang-de">b) Zum einfachen Verwalten, Löschen und Kosten-Tracking ← **Richtig**</span>
    - c) Weil Azure es verlangt
 
 3. Wo befindet sich `Germany West Central`?
    - a) Berlin
    - b) Frankfurt am Main ← **Richtig**
-   - c) München
+   - <span class="lang-en" style="display:none">c) Munich</span><span class="lang-de">c) München</span>
 
 ---
 
@@ -145,7 +145,7 @@ az group list --output table
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst Resource Groups und verschiedene Azure-Ressourcen manuell und mit Terraform erstellen.
+<span class="lang-en" style="display:none">You can create resource groups and different Azure resources manually and with Terraform.</span><span class="lang-de">Du kannst Resource Groups und verschiedene Azure-Ressourcen manuell und mit Terraform erstellen.</span>
 
 ### 2.1 <span class="lang-en" style="display:none">Creating a resource group</span><span class="lang-de">Resource Group erstellen</span>
 
@@ -194,9 +194,9 @@ resource "azurerm_storage_account" "learning" {
 
 **Storage Account-Regeln:**
 - Name: 3-24 Zeichen, nur kleinbuchstaben und Zahlen
-- `LRS` = 3 Kopien im selben Rechenzentrum (günstig)
+- `LRS` = <span class="lang-en" style="display:none">3 copies in the same data center (cheap)</span><span class="lang-de">3 Kopien im selben Rechenzentrum (günstig)</span>
 - `GRS` = 3 Kopien im selben + 3 im benachbarten (teurer, aber sicherer)
-- `Standard` = HDD (günstig), `Premium` = SSD (schneller)
+- `Standard` = <span class="lang-en" style="display:none">HDD (cheap), `Premium` = SSD (faster)</span><span class="lang-de">HDD (günstig), `Premium` = SSD (schneller)</span>
 
 ### 2.3 <span class="lang-en" style="display:none">Virtual machine (VM)</span><span class="lang-de">Virtuelle Maschine (VM)</span>
 
@@ -247,14 +247,14 @@ resource "azurerm_linux_virtual_machine" "main" {
 }
 ```
 
-**VM-Größen (vereinfacht):**
+<span class="lang-en" style="display:none">**VM sizes (simplified):**</span><span class="lang-de">**VM-Größen (vereinfacht):**</span>
 
-| Größe | vCPU | RAM | Verwendung |
+| <span class="lang-en" style="display:none">Size</span><span class="lang-de">Größe</span> | vCPU | RAM | <span class="lang-en" style="display:none">Use</span><span class="lang-de">Verwendung</span> |
 |-------|------|-----|-----------|
 | `Standard_B1s` | 1 | 0,5 GB | Testing / Learning |
 | `Standard_B2s` | 2 | 4 GB | Kleine Workloads |
 | `Standard_D2s_v3` | 2 | 8 GB | Allgemein |
-| `Standard_D4s_v3` | 4 | 16 GB | Größere Workloads |
+| `Standard_D4s_v3` | 4 | 16 GB | <span class="lang-en" style="display:none">Larger workloads</span><span class="lang-de">Größere Workloads</span> |
 
 ### 2.4 <span class="lang-en" style="display:none">Terraform + Azure CLI — complete flow</span><span class="lang-de">Terraform + Azure CLI — Vollständiger Ablauf</span>
 
@@ -285,7 +285,7 @@ terraform destroy
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul B</span><span class="lang-de">Kurzes Quiz — Modul B</span>
 
-1. Was bedeutet `LRS` beim Storage Account?
+1. <span class="lang-en" style="display:none">What does `LRS` mean for a storage account?</span><span class="lang-de">Was bedeutet `LRS` beim Storage Account?</span>
    - a) Low Replication Storage
    - b) Locally-Redundant Storage (3 Kopien im selben Rechenzentrum) ← **Richtig**
    - c) Large Regional Storage
@@ -295,18 +295,18 @@ terraform destroy
    - b) 2 ← **Richtig**
    - c) 4
 
-3. Wo siehst du deine erstellten Ressourcen, wenn du Terraform verwendet hast?
+3. <span class="lang-en" style="display:none">Where do you see the resources you created when you used Terraform?</span><span class="lang-de">Wo siehst du deine erstellten Ressourcen, wenn du Terraform verwendet hast?</span>
    - a) Nur in der Konsole
    - b) Im Azure Portal und mit `az` CLI ← **Richtig**
    - c) Auf einem Papierbericht
 
 ### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul B</span><span class="lang-de">Praktische Übung — Modul B</span>
 
-**Aufgabe:** Erstelle eine Resource Group mit:
+<span class="lang-en" style="display:none">**Task:** Create a resource group with:</span><span class="lang-de">**Aufgabe:** Erstelle eine Resource Group mit:</span>
 1. Einem Storage Account (`Standard`, `LRS`)
 2. Zwei Tags: `Environment = "Learning"` und `Course = "Azure101"`
-3. Prüfe im Azure Portal, ob alles angelegt wurde
-4. Lösche alles mit `terraform destroy`
+3. <span class="lang-en" style="display:none">Check in the Azure portal whether everything was created</span><span class="lang-de">Prüfe im Azure Portal, ob alles angelegt wurde</span>
+4. <span class="lang-en" style="display:none">Delete everything with `terraform destroy`</span><span class="lang-de">Lösche alles mit `terraform destroy`</span>
 
 ---
 
@@ -314,7 +314,7 @@ terraform destroy
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst VNets, Subnetze, Public IPs und NSGs erstellen und verstehen, wie sie zusammenarbeiten.
+<span class="lang-en" style="display:none">You can create VNets, subnets, public IPs, and NSGs, and understand how they work together.</span><span class="lang-de">Du kannst VNets, Subnetze, Public IPs und NSGs erstellen und verstehen, wie sie zusammenarbeiten.</span>
 
 ### 3.1 <span class="lang-en" style="display:none">What is a VNet?</span><span class="lang-de">Was ist ein VNet?</span>
 
@@ -329,7 +329,7 @@ VNet: 10.0.0.0/16  (65.536 IP-Adressen!)
 Dein VNet ist isoliert von anderen Azure-Kunden!
 ```
 
-**CIDR-Notation erklärt:**
+<span class="lang-en" style="display:none">**CIDR notation explained:**</span><span class="lang-de">**CIDR-Notation erklärt:**</span>
 
 ```
 /16 = 2^(32-16) = 2^16 = 65.536 IPs
@@ -338,13 +338,13 @@ Dein VNet ist isoliert von anderen Azure-Kunden!
 /28 = 2^(32-28) = 2^4  = 16 IPs
 ```
 
-**Wichtig:** Azure reserviert immer 5 IPs pro Subnet!
+<span class="lang-en" style="display:none">**Important:** Azure always reserves 5 IPs per subnet!</span><span class="lang-de">**Wichtig:** Azure reserviert immer 5 IPs pro Subnet!</span>
 - 1× Network Address
 - 1× Default Gateway
 - 2× DNS
 - 1× Broadcast
 
-**Empfehlung für Anfänger:** Verwende keine kleineren als `/26` Subnetze.
+<span class="lang-en" style="display:none">**Recommendation for beginners:** Do not use subnets smaller than `/26`.</span><span class="lang-de">**Empfehlung für Anfänger:** Verwende keine kleineren als `/26` Subnetze.</span>
 
 ### 3.2 <span class="lang-en" style="display:none">Creating VNet and subnets</span><span class="lang-de">VNet und Subnetze erstellen</span>
 
@@ -428,7 +428,7 @@ resource "azurerm_nat_gateway_public_ip_association" "main" {
 }
 ```
 
-**NAT Gateway erklärt:**
+<span class="lang-en" style="display:none">**NAT Gateway explained:**</span><span class="lang-de">**NAT Gateway erklärt:**</span>
 
 ```
 Ohne NAT Gateway:
@@ -499,14 +499,14 @@ resource "azurerm_subnet_network_security_group_association" "web" {
 
 **NSG-Regeln — Wichtige Begriffe:**
 
-| Begriff | Bedeutung |
+| <span class="lang-en" style="display:none">Term</span><span class="lang-de">Begriff</span> | <span class="lang-en" style="display:none">Meaning</span><span class="lang-de">Bedeutung</span> |
 |---------|-----------|
-| `Inbound` | Eingehender Traffic (von außen → deine Ressourcen) |
-| `Outbound` | Ausgehender Traffic (von deinen Ressourcen → außen) |
+| `Inbound` | <span class="lang-en" style="display:none">Incoming traffic (from outside → your resources)</span><span class="lang-de">Eingehender Traffic (von außen → deine Ressourcen)</span> |
+| `Outbound` | <span class="lang-en" style="display:none">Outgoing traffic (from your resources → outside)</span><span class="lang-de">Ausgehender Traffic (von deinen Ressourcen → außen)</span> |
 | `priority` | Zahl 100-4096 — niedrigere Zahlen zuerst |
 | `access` | `Allow` = erlauben, `Deny` = verbieten |
 | `source_address_prefix` | Woher kommt der Traffic? |
-| `destination_port_range` | Welcher Port? (80, 443, 22, ...) |
+| `destination_port_range` | <span class="lang-en" style="display:none">Which port? (80, 443, 22, ...)</span><span class="lang-de">Welcher Port? (80, 443, 22, ...)</span> |
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul C</span><span class="lang-de">Kurzes Quiz — Modul C</span>
 
@@ -520,25 +520,25 @@ resource "azurerm_subnet_network_security_group_association" "web" {
    - b) 5 ← **Richtig**
    - c) 10
 
-3. Was passiert, wenn keine NSG-Regel einen Port erlaubt?
-   - a) Der Port bleibt offen
-   - b) Alle Ports werden automatisch geöffnet
-   - c) Der Traffic wird standardmäßig blockiert (implizite DROP-Regel) ← **Richtig**
+3. <span class="lang-en" style="display:none">What happens if no NSG rule allows a port?</span><span class="lang-de">Was passiert, wenn keine NSG-Regel einen Port erlaubt?</span>
+   - <span class="lang-en" style="display:none">a) The port stays open</span><span class="lang-de">a) Der Port bleibt offen</span>
+   - <span class="lang-en" style="display:none">b) All ports are opened automatically</span><span class="lang-de">b) Alle Ports werden automatisch geöffnet</span>
+   - <span class="lang-en" style="display:none">c) Traffic is blocked by default (implicit DROP rule) ← **Correct**</span><span class="lang-de">c) Der Traffic wird standardmäßig blockiert (implizite DROP-Regel) ← **Richtig**</span>
 
 4. Wozu brauchst du einen NAT Gateway?
    - a) Damit Server im Internet erreichbar sind
-   - b) Damit Server im privaten Subnet das Internet erreichen können ← **Richtig**
+   - <span class="lang-en" style="display:none">b) So servers in the private subnet can reach the internet ← **Correct**</span><span class="lang-de">b) Damit Server im privaten Subnet das Internet erreichen können ← **Richtig**</span>
    - c) Zum Schutz vor Hackern
 
 ### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul C</span><span class="lang-de">Praktische Übung — Modul C</span>
 
-**Aufgabe:** Erstelle:
-1. Eine Resource Group
-2. Ein VNet mit `/16` Address Space
+<span class="lang-en" style="display:none">**Task:** Create:</span><span class="lang-de">**Aufgabe:** Erstelle:</span>
+1. <span class="lang-en" style="display:none">A resource group</span><span class="lang-de">Eine Resource Group</span>
+2. <span class="lang-en" style="display:none">A VNet with `/16` address space</span><span class="lang-de">Ein VNet mit `/16` Address Space</span>
 3. Drei Subnetze (`web`, `database`, `management`)
-4. Eine NSG mit HTTPS-Regel (Port 443 von überall) und SSH-Regel (nur aus dem VNet)
-5. Ein NAT Gateway mit Public IP
-6. Outputs für alle IDs
+4. <span class="lang-en" style="display:none">An NSG with an HTTPS rule (port 443 from everywhere) and an SSH rule (only from the VNet)</span><span class="lang-de">Eine NSG mit HTTPS-Regel (Port 443 von überall) und SSH-Regel (nur aus dem VNet)</span>
+5. <span class="lang-en" style="display:none">A NAT Gateway with public IP</span><span class="lang-de">Ein NAT Gateway mit Public IP</span>
+6. <span class="lang-en" style="display:none">Outputs for all IDs</span><span class="lang-de">Outputs für alle IDs</span>
 
 ---
 
@@ -546,7 +546,7 @@ resource "azurerm_subnet_network_security_group_association" "web" {
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst Hub-and-Spoke erklären, begründen, wann es sinnvoll ist, und eine einfache Hub-and-Spoke-Architektur mit Terraform erstellen.
+<span class="lang-en" style="display:none">You can explain hub-and-spoke, justify when it makes sense, and create a simple hub-and-spoke architecture with Terraform.</span><span class="lang-de">Du kannst Hub-and-Spoke erklären, begründen, wann es sinnvoll ist, und eine einfache Hub-and-Spoke-Architektur mit Terraform erstellen.</span>
 
 ### 4.1 <span class="lang-en" style="display:none">What is Hub-and-Spoke?</span><span class="lang-de">Was ist Hub-and-Spoke?</span>
 
@@ -566,9 +566,9 @@ Hub-and-Spoke:
 **Vorteile von Hub-and-Spoke:**
 
 1. **Zentrale Services** — Firewall, DNS, Monitoring im Hub
-2. **Isolation** — Spokes können nicht direkt miteinander kommunizieren
+2. <span class="lang-en" style="display:none">**Isolation** — spokes cannot communicate directly with each other</span><span class="lang-de">**Isolation** — Spokes können nicht direkt miteinander kommunizieren</span>
 3. **Kosten** — Nur eine Firewall im Hub, nicht in jedem Spoke
-4. **Sicherheit** — Alle Traffic-Flüsse gehen durch den Hub
+4. <span class="lang-en" style="display:none">**Security** — all traffic flows go through the hub</span><span class="lang-de">**Sicherheit** — Alle Traffic-Flüsse gehen durch den Hub</span>
 5. **Governance** — Zentrale Policies im Hub anwendbar
 
 ### 4.2 <span class="lang-en" style="display:none">VNet Peering</span><span class="lang-de">VNet Peering</span>
@@ -676,7 +676,7 @@ Richtung Spoke → Hub:
 └─ allow_gateway_transit        = true   ← Spoke darf über Hub-Gateway gehen
 ```
 
-**Merke:** Jedes Peering braucht **zwei** `azurerm_virtual_network_peering`-Ressourcen!
+<span class="lang-en" style="display:none">**Remember:** Every peering needs **two** `azurerm_virtual_network_peering` resources!</span><span class="lang-de">**Merke:** Jedes Peering braucht **zwei** `azurerm_virtual_network_peering`-Ressourcen!</span>
 
 ### 4.5 <span class="lang-en" style="display:none">Subnets in Hub and Spokes</span><span class="lang-de">Subnetze im Hub und in den Spokes</span>
 
@@ -715,34 +715,34 @@ resource "azurerm_subnet" "spoke2_data" {
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul D</span><span class="lang-de">Kurzes Quiz — Modul D</span>
 
-1. Warum ist Hub-and-Spoke besser als eine flache Architektur?
-   - a) Es ist immer günstiger
+1. <span class="lang-en" style="display:none">Why is hub-and-spoke better than a flat architecture?</span><span class="lang-de">Warum ist Hub-and-Spoke besser als eine flache Architektur?</span>
+   - <span class="lang-en" style="display:none">a) It is always cheaper</span><span class="lang-de">a) Es ist immer günstiger</span>
    - b) Zentrale Kontrolle, Isolation und skalierbarer ← **Richtig**
    - c) Es ist komplizierter
 
-2. Braucht ein VNet Peering eine oder zwei Ressourcen in Terraform?
-   - a) Eine
+2. <span class="lang-en" style="display:none">Does VNet peering need one or two resources in Terraform?</span><span class="lang-de">Braucht ein VNet Peering eine oder zwei Ressourcen in Terraform?</span>
+   - <span class="lang-en" style="display:none">a) One</span><span class="lang-de">a) Eine</span>
    - b) Zwei (jeweils eine Richtung) ← **Richtig**
    - c) Drei
 
-3. Was ist der Name des speziellen Subnetzes für Gateways?
+3. <span class="lang-en" style="display:none">What is the name of the special subnet for gateways?</span><span class="lang-de">Was ist der Name des speziellen Subnetzes für Gateways?</span>
    - a) `GatewaySubnet` ← **Richtig**
    - b) `Subnet-Gateway`
    - c) `vnet-gateway`
 
-4. Was muss im Spoke-Peering auf `true` gesetzt werden, damit der Spoke über das Hub-Gateway gehen darf?
+4. <span class="lang-en" style="display:none">What must be set to `true` in spoke peering so the spoke can use the hub gateway?</span><span class="lang-de">Was muss im Spoke-Peering auf `true` gesetzt werden, damit der Spoke über das Hub-Gateway gehen darf?</span>
    - a) `allow_virtual_network_access`
    - b) `allow_forwarded_traffic`
    - c) `allow_gateway_transit` ← **Richtig**
 
 ### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul D</span><span class="lang-de">Praktische Übung — Modul D</span>
 
-**Aufgabe:** Erstelle eine Hub-and-Spoke-Architektur mit:
+<span class="lang-en" style="display:none">**Task:** Create a hub-and-spoke architecture with:</span><span class="lang-de">**Aufgabe:** Erstelle eine Hub-and-Spoke-Architektur mit:</span>
 1. Einer Resource Group
 2. Einem Hub-VNet (`10.0.0.0/16`) mit `GatewaySubnet` und `AzureFirewallSubnet`
 3. Zwei Spoke-VNet (`10.1.0.0/16` und `10.2.0.0/16`) mit je einem Subnet
 4. Bidirektionalem Peering zwischen Hub und beiden Spokes
-5. Outputs für alle VNet-IDs
+5. <span class="lang-en" style="display:none">Outputs for all VNet IDs</span><span class="lang-de">Outputs für alle VNet-IDs</span>
 
 ---
 
@@ -750,7 +750,7 @@ resource "azurerm_subnet" "spoke2_data" {
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst NSG-Regeln erstellen, verstehen, wie Prioritäten funktionieren, und eine sichere Netzwerk-Konfiguration aufbauen.
+<span class="lang-en" style="display:none">You can create NSG rules, understand how priorities work, and build a secure network configuration.</span><span class="lang-de">Du kannst NSG-Regeln erstellen, verstehen, wie Prioritäten funktionieren, und eine sichere Netzwerk-Konfiguration aufbauen.</span>
 
 ### 5.1 <span class="lang-en" style="display:none">NSG priorities</span><span class="lang-de">NSG-Prioritäten</span>
 
@@ -764,9 +764,9 @@ Priority 4090: Deny All (Inbound, implicit) ← Immer am Ende
 ```
 
 **Regeln:**
-- Niedrigere Zahlen = höhere Priorität
+- <span class="lang-en" style="display:none">Lower numbers = higher priority</span><span class="lang-de">Niedrigere Zahlen = höhere Priorität</span>
 - Bereich: 100–4100
-- Keine doppelten Prioritäten!
+- <span class="lang-en" style="display:none">No duplicate priorities!</span><span class="lang-de">Keine doppelten Prioritäten!</span>
 
 ### 5.2 <span class="lang-en" style="display:none">Security best practices</span><span class="lang-de">Security-Best-Practices</span>
 
@@ -875,14 +875,14 @@ resource "azurerm_network_security_rule" "databricks" {
 }
 ```
 
-**Wichtig:** `source_address_prefix = "AzureDatabricks"` ist ein spezieller Azure-Tag — du kannst keinen IP-Range dafür eingeben!
+<span class="lang-en" style="display:none">**Important:** `source_address_prefix = "AzureDatabricks"` is a special Azure tag — you cannot enter an IP range for it!</span><span class="lang-de">**Wichtig:** `source_address_prefix = "AzureDatabricks"` ist ein spezieller Azure-Tag — du kannst keinen IP-Range dafür eingeben!</span>
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul E</span><span class="lang-de">Kurzes Quiz — Modul E</span>
 
-1. Was bedeutet eine niedrigere Prioritätszahl in einer NSG-Regel?
-   - a) Sie wird später geprüft
-   - b) Sie wird zuerst geprüft ← **Richtig**
-   - c) Sie hat keine Bedeutung
+1. <span class="lang-en" style="display:none">What does a lower priority number mean in an NSG rule?</span><span class="lang-de">Was bedeutet eine niedrigere Prioritätszahl in einer NSG-Regel?</span>
+   - <span class="lang-en" style="display:none">a) It is checked later</span><span class="lang-de">a) Sie wird später geprüft</span>
+   - <span class="lang-en" style="display:none">b) It is checked first ← **Correct**</span><span class="lang-de">b) Sie wird zuerst geprüft ← **Richtig**</span>
+   - <span class="lang-en" style="display:none">c) It has no meaning</span><span class="lang-de">c) Sie hat keine Bedeutung</span>
 
 2. Wie lautet die implizite Standardregel am Ende einer NSG?
    - a) Allow All
@@ -890,19 +890,19 @@ resource "azurerm_network_security_rule" "databricks" {
    - c) Allow DNS
 
 3. Wozu brauchst du Outbound-NSG-Regeln?
-   - a) Damit Ressourcen das Internet erreichen können ← **Richtig**
-   - b) Damit von außen auf Ressourcen zugegriffen werden kann
+   - <span class="lang-en" style="display:none">a) So resources can reach the internet ← **Correct**</span><span class="lang-de">a) Damit Ressourcen das Internet erreichen können ← **Richtig**</span>
+   - <span class="lang-en" style="display:none">b) So resources can be accessed from outside</span><span class="lang-de">b) Damit von außen auf Ressourcen zugegriffen werden kann</span>
    - c) Zum Schutz vor Hackern
 
 ### 📝 <span class="lang-en" style="display:none">Homework</span><span class="lang-de">Hausaufgabe</span>
 
-- Erstelle eine NSG mit folgenden Regeln:
-  1. HTTPS (443) Inbound von überall
+- <span class="lang-en" style="display:none">Create an NSG with the following rules:</span><span class="lang-de">Erstelle eine NSG mit folgenden Regeln:</span>
+  1. <span class="lang-en" style="display:none">HTTPS (443) inbound from everywhere</span><span class="lang-de">HTTPS (443) Inbound von überall</span>
   2. SSH (22) Inbound nur aus einem spezifischen CIDR
-  3. DNS (53) Outbound von überall
+  3. <span class="lang-en" style="display:none">DNS (53) outbound to everywhere</span><span class="lang-de">DNS (53) Outbound von überall</span>
   4. MySQL (3306) Inbound nur aus einem spezifischen Subnet
-- Verbinde die NSG mit einem Subnet
-- Erstelle Outputs
+- <span class="lang-en" style="display:none">Associate the NSG with a subnet</span><span class="lang-de">Verbinde die NSG mit einem Subnet</span>
+- <span class="lang-en" style="display:none">Create outputs</span><span class="lang-de">Erstelle Outputs</span>
 
 ---
 
@@ -910,7 +910,7 @@ resource "azurerm_network_security_rule" "databricks" {
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst ein komplettes Azure-Netzwerk mit Terraform erstellen, formatieren, validieren und einen ersten Überblick über Databricks-Netzwerke geben.
+<span class="lang-en" style="display:none">You can create, format, and validate a complete Azure network with Terraform, and give a first overview of Databricks networking.</span><span class="lang-de">Du kannst ein komplettes Azure-Netzwerk mit Terraform erstellen, formatieren, validieren und einen ersten Überblick über Databricks-Netzwerke geben.</span>
 
 ### 6.1 <span class="lang-en" style="display:none">Terraform fmt and validate</span><span class="lang-de">Terraform fmt und validate</span>
 
@@ -957,7 +957,7 @@ terraform plan
 
 ### 6.3 🏆 <span class="lang-en" style="display:none">Capstone project</span><span class="lang-de">Capstone-Projekt</span>
 
-**Aufgabe:** Erstelle eine komplette Hub-and-Spoke-Architektur:
+<span class="lang-en" style="display:none">**Task:** Create a complete hub-and-spoke architecture:</span><span class="lang-de">**Aufgabe:** Erstelle eine komplette Hub-and-Spoke-Architektur:</span>
 
 ```
 Anforderungen:
@@ -978,15 +978,15 @@ Anforderungen:
 └── Format und Validierung
 ```
 
-**Checkliste:**
-- [ ] `terraform init` läuft
-- [ ] `terraform validate` sagt "valid"
-- [ ] `terraform fmt -check` sagt keine Änderungen nötig
-- [ ] `terraform plan` zeigt die erwarteten 20+ Ressourcen
-- [ ] Alle Variablen haben `description`
-- [ ] Alle Outputs haben `description`
-- [ ] NSG-Regeln sind sicher (SSH nicht offen)
-- [ ] Peering ist bidirektional
+<span class="lang-en" style="display:none">**Checklist:**</span><span class="lang-de">**Checkliste:**</span>
+- [ ] <span class="lang-en" style="display:none">`terraform init` runs</span><span class="lang-de">`terraform init` läuft</span>
+- [ ] <span class="lang-en" style="display:none">`terraform validate` says "valid"</span><span class="lang-de">`terraform validate` sagt "valid"</span>
+- [ ] <span class="lang-en" style="display:none">`terraform fmt -check` says no changes are needed</span><span class="lang-de">`terraform fmt -check` sagt keine Änderungen nötig</span>
+- [ ] <span class="lang-en" style="display:none">`terraform plan` shows the expected 20+ resources</span><span class="lang-de">`terraform plan` zeigt die erwarteten 20+ Ressourcen</span>
+- [ ] <span class="lang-en" style="display:none">All variables have a `description`</span><span class="lang-de">Alle Variablen haben `description`</span>
+- [ ] <span class="lang-en" style="display:none">All outputs have a `description`</span><span class="lang-de">Alle Outputs haben `description`</span>
+- [ ] <span class="lang-en" style="display:none">NSG rules are secure (SSH is not open)</span><span class="lang-de">NSG-Regeln sind sicher (SSH nicht offen)</span>
+- [ ] <span class="lang-en" style="display:none">Peering is bidirectional</span><span class="lang-de">Peering ist bidirektional</span>
 
 ### 6.4 <span class="lang-en" style="display:none">What's next?</span><span class="lang-de">Was kommt als Nächstes?</span>
 
@@ -1018,21 +1018,21 @@ Wichtige Konzepte für Databricks:
 • NSG Rules — Databricks braucht spezielle Regeln
 ```
 
-→ Mehr dazu im [Databricks 101 Kurs](databricks-101.md)
+<span class="lang-en" style="display:none">→ More about this in the [Databricks 101 course](databricks-101.md)</span><span class="lang-de">→ Mehr dazu im [Databricks 101 Kurs](databricks-101.md)</span>
 
 ### 📝 <span class="lang-en" style="display:none">Final Quiz — Kurs-Ende</span><span class="lang-de">Letztes Quiz — Kurs-Ende</span>
 
-1. Nenne drei Vorteile von Hub-and-Spoke.
-   **Muster:** Zentrale Services, Isolation, Kostenersparnis
+1. <span class="lang-en" style="display:none">Name three benefits of hub-and-spoke.</span><span class="lang-de">Nenne drei Vorteile von Hub-and-Spoke.</span>
+   <span class="lang-en" style="display:none">**Sample:** central services, isolation, cost savings</span><span class="lang-de">**Muster:** Zentrale Services, Isolation, Kostenersparnis</span>
 
-2. Warum braucht VNet Peering zwei Ressourcen?
-   **Muster:** Peering funktioniert nicht automatisch in beide Richtungen
+2. <span class="lang-en" style="display:none">Why does VNet peering need two resources?</span><span class="lang-de">Warum braucht VNet Peering zwei Ressourcen?</span>
+   <span class="lang-en" style="display:none">**Sample:** peering does not automatically work in both directions</span><span class="lang-de">**Muster:** Peering funktioniert nicht automatisch in beide Richtungen</span>
 
-3. Was macht `terraform fmt`?
-   **Muster:** Formatiert HCL-Dateien für Konsistenz
+3. <span class="lang-en" style="display:none">What does `terraform fmt` do?</span><span class="lang-de">Was macht `terraform fmt`?</span>
+   <span class="lang-en" style="display:none">**Sample:** formats HCL files for consistency</span><span class="lang-de">**Muster:** Formatiert HCL-Dateien für Konsistenz</span>
 
 4. Wie viele IPs reserviert Azure im Subnet?
-   **Muster:** 5 IPs (Network, Gateway, 2× DNS, Broadcast)
+   <span class="lang-en" style="display:none">**Sample:** 5 IPs (network, gateway, 2× DNS, broadcast)</span><span class="lang-de">**Muster:** 5 IPs (Network, Gateway, 2× DNS, Broadcast)</span>
 
 ---
 
@@ -1059,11 +1059,11 @@ terraform state list            # Alle Ressourcen
 
 ## <span class="lang-en" style="display:none">Appendix: Common errors</span><span class="lang-de">Anhang: Häufige Fehler</span>
 
-| Fehler | Lösung |
+| <span class="lang-en" style="display:none">Error</span><span class="lang-de">Fehler</span> | <span class="lang-en" style="display:none">Solution</span><span class="lang-de">Lösung</span> |
 |--------|--------|
-| `AuthorizationDenied` | `az login` und richtige Subscription wählen |
+| `AuthorizationDenied` | <span class="lang-en" style="display:none">Run `az login` and choose the correct subscription</span><span class="lang-de">`az login` und richtige Subscription wählen</span> |
 | `StorageAccountNameInvalid` | Name: nur Kleinbuchstaben + Zahlen, 3-24 Zeichen |
-| `InvalidSubnetId` | GatewaySubnet muss genau so heißen |
-| `NSG Rule Duplicate Priority` | Jede Priorität darf nur einmal vorkommen |
-| `Peering not working both ways` | Zwei Peering-Ressourcen erstellen! |
+| `InvalidSubnetId` | <span class="lang-en" style="display:none">GatewaySubnet must be named exactly like this</span><span class="lang-de">GatewaySubnet muss genau so heißen</span> |
+| `NSG Rule Duplicate Priority` | <span class="lang-en" style="display:none">Each priority may be used only once</span><span class="lang-de">Jede Priorität darf nur einmal vorkommen</span> |
+| `Peering not working both ways` | <span class="lang-en" style="display:none">Create two peering resources!</span><span class="lang-de">Zwei Peering-Ressourcen erstellen!</span> |
 | `Subscription not found` | `az account set --subscription "Name"` |

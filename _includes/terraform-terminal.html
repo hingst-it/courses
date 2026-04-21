@@ -1,0 +1,660 @@
+<!-- Terraform Interactive Terminal v2 — mit Schema-Validator -->
+<!-- Voraussetzung: assets/js/terraform-provider-schema.js im Layout laden -->
+<!-- Einbinden im Kurs via Jekyll-Include terraform-terminal.html -->
+
+<style>
+  .tf-terminal-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 580px;
+    background: #1a1d23;
+    border: 1px solid #2c313a;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    color: #abb2bf;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+  .tf-titlebar {
+    background: #21252b;
+    border-bottom: 1px solid #181a1f;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 38px;
+    flex-shrink: 0;
+    user-select: none;
+  }
+  .tf-dots { display: flex; gap: 6px; }
+  .tf-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .tf-title-label { font-size: 11px; color: #636d83; margin-left: 6px; }
+  .tf-badges { margin-left: auto; display: flex; gap: 6px; align-items: center; }
+  .tf-badge { font-size: 10px; padding: 2px 8px; border-radius: 4px; font-family: inherit; display: none; }
+  .tf-badge-plan  { color: #e5c07b; background: #2a2416; border: 1px solid #e5c07b44; }
+  .tf-badge-apply { color: #98c379; background: #182416; border: 1px solid #98c37944; }
+  .tf-split { display: flex; flex: 1; overflow: hidden; }
+  .tf-editor-pane { width: 50%; display: flex; flex-direction: column; border-right: 1px solid #181a1f; }
+  .tf-pane-header {
+    background: #21252b;
+    border-bottom: 1px solid #181a1f;
+    padding: 5px 14px;
+    font-size: 11px;
+    color: #636d83;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .tf-editor-inner { position: relative; flex: 1; overflow: hidden; }
+  .tf-textarea {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    background: transparent; color: transparent; caret-color: #528bff;
+    border: none; outline: none; resize: none;
+    padding: 10px 14px; font-family: inherit; font-size: 12.5px; line-height: 1.6;
+    z-index: 2; white-space: pre; overflow-wrap: normal; overflow: auto;
+    box-sizing: border-box; tab-size: 2;
+  }
+  .tf-highlight {
+    position: absolute; inset: 0; margin: 0;
+    padding: 10px 14px; font-family: inherit; font-size: 12.5px; line-height: 1.6;
+    color: #abb2bf; white-space: pre; overflow-wrap: normal; overflow: auto;
+    pointer-events: none; z-index: 1; box-sizing: border-box;
+  }
+  /* Squiggly error underlines via background gradient */
+  .tf-error-gutter {
+    position: absolute; left: 0; top: 0; width: 3px; height: 100%;
+    pointer-events: none; z-index: 3;
+  }
+  .tf-btn-bar {
+    background: #21252b; border-top: 1px solid #181a1f;
+    padding: 7px 10px; display: flex; gap: 5px; flex-wrap: wrap; flex-shrink: 0;
+  }
+  .tf-btn {
+    background: transparent; border-radius: 4px; padding: 3px 9px;
+    font-size: 10.5px; cursor: pointer; font-family: inherit; transition: background 0.12s;
+  }
+  .tf-btn:hover { filter: brightness(1.2); }
+  .tf-btn:disabled { opacity: 0.4; cursor: default; }
+  .tf-term-pane { width: 50%; display: flex; flex-direction: column; }
+  .tf-output {
+    flex: 1; overflow: auto; padding: 10px 14px; cursor: text; background: #1a1d23;
+  }
+  .tf-line {
+    font-family: inherit; font-size: 12px; line-height: 1.55;
+    white-space: pre-wrap; word-break: break-all; min-height: 1em;
+  }
+  .tf-input-bar {
+    border-top: 1px solid #181a1f; background: #21252b;
+    padding: 7px 10px; display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+  }
+  .tf-prompt { color: #4ec994; font-size: 13px; user-select: none; }
+  .tf-input {
+    flex: 1; background: transparent; border: none; outline: none;
+    color: #abb2bf; font-family: inherit; font-size: 12.5px; caret-color: #528bff;
+  }
+  .tf-input::placeholder { color: #4b5263; }
+  /* Schema tooltip */
+  .tf-schema-pill {
+    display: inline-block; font-size: 9.5px; padding: 1px 6px;
+    border-radius: 10px; margin-left: 4px; vertical-align: middle; cursor: help;
+  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #3e4451; border-radius: 3px; }
+</style>
+
+<div class="tf-terminal-wrap" id="tf-wrap">
+  <div class="tf-titlebar">
+    <div class="tf-dots">
+      <div class="tf-dot" style="background:#e06c75"></div>
+      <div class="tf-dot" style="background:#e5c07b"></div>
+      <div class="tf-dot" style="background:#98c379"></div>
+    </div>
+    <span class="tf-title-label">🟩 Terraform Interactive Lab — azurerm · databricks schema validator</span>
+    <div class="tf-badges">
+      <span class="tf-badge tf-badge-plan"  id="tf-badge-plan">● Plan ready</span>
+      <span class="tf-badge tf-badge-apply" id="tf-badge-apply">⟳ Applying...</span>
+    </div>
+  </div>
+
+  <div class="tf-split">
+    <!-- ── Editor ── -->
+    <div class="tf-editor-pane">
+      <div class="tf-pane-header">
+        <span style="color:#e5c07b">📄</span>
+        <span>main.tf</span>
+        <span id="tf-schema-indicator" style="margin-left:auto;font-size:10px;color:#4b5263">azurerm · databricks</span>
+      </div>
+      <div class="tf-editor-inner">
+        <textarea class="tf-textarea" id="tf-code" spellcheck="false"
+                  autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+        <pre class="tf-highlight" id="tf-highlight" aria-hidden="true"></pre>
+      </div>
+      <div class="tf-btn-bar">
+        <button class="tf-btn" style="color:#4ec994;border:1px solid #4ec99444" onclick="tfRun('terraform validate')">✓ validate</button>
+        <button class="tf-btn" style="color:#56b6c2;border:1px solid #56b6c244" onclick="tfRun('terraform fmt')">⎄ fmt</button>
+        <button class="tf-btn" style="color:#e5c07b;border:1px solid #e5c07b44" onclick="tfRun('terraform plan')">▶ plan</button>
+        <button class="tf-btn" style="color:#98c379;border:1px solid #98c37944" onclick="tfRun('terraform apply')">🚀 apply</button>
+        <button class="tf-btn" style="color:#c678dd;border:1px solid #c678dd44" onclick="tfRun('terraform init')">⚙ init</button>
+        <button class="tf-btn" style="color:#636d83;border:1px solid #63638344;margin-left:auto" onclick="tfClearTerm()">clear</button>
+      </div>
+    </div>
+
+    <!-- ── Terminal ── -->
+    <div class="tf-term-pane">
+      <div class="tf-pane-header">
+        <span style="color:#4ec994">▶</span>
+        <span>Terminal</span>
+      </div>
+      <div class="tf-output" id="tf-output" onclick="document.getElementById('tf-input').focus()"></div>
+      <div class="tf-input-bar">
+        <span class="tf-prompt">$</span>
+        <input class="tf-input" id="tf-input" type="text"
+               placeholder="terraform validate / fmt / plan / apply ..."
+               onkeydown="tfKeyDown(event)"
+               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  function initTerraformTerminal() {
+  // ── Default Starter Code ──────────────────────────────────────────────────
+  var DEFAULT_CODE = [
+    'terraform {',
+    '  required_providers {',
+    '    azurerm = {',
+    '      source  = "hashicorp/azurerm"',
+    '      version = "~> 3.0"',
+    '    }',
+    '  }',
+    '}',
+    '',
+    'variable "location" {',
+    '  description = "Azure Region"',
+    '  default     = "West Europe"',
+    '}',
+    '',
+    'resource "azurerm_resource_group" "main" {',
+    '  name     = "rg-demo"',
+    '  location = var.location',
+    '}',
+    '',
+    'resource "azurerm_virtual_network" "vnet" {',
+    '  name                = "vnet-demo"',
+    '  location            = var.location',
+    '  resource_group_name = azurerm_resource_group.main.name',
+    '  address_space       = ["10.0.0.0/16"]',
+    '}',
+    '',
+    'output "vnet_id" {',
+    '  value = azurerm_virtual_network.vnet.id',
+    '}',
+  ].join('\n');
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  var cmdHistory = [], histIdx = -1;
+  var planned = false, applying = false;
+
+  // ── DOM ───────────────────────────────────────────────────────────────────
+  var codeEl   = document.getElementById('tf-code');
+  var hiEl     = document.getElementById('tf-highlight');
+  var outEl    = document.getElementById('tf-output');
+  var inputEl  = document.getElementById('tf-input');
+  var badgePlan  = document.getElementById('tf-badge-plan');
+  var badgeApply = document.getElementById('tf-badge-apply');
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  codeEl.value = DEFAULT_CODE;
+  updateHighlight();
+  addLines([
+    {t:'Terraform Interactive Terminal v2.0  (azurerm + databricks schema validator)', c:'cyan', b:true},
+    {t:'Schema-Datenbank: ' + Object.keys(window.TF_SCHEMA||{}).length + ' Ressourcen geladen (' +
+       [...new Set(Object.values(window.TF_SCHEMA||{}).map(function(s){return s.provider;}))] .join(', ') + ')', c:'gray'},
+    {t:'Befehle: validate | fmt | plan | apply | init | schema <typ> | help', c:'gray'},
+    {t:'', c:''},
+  ]);
+
+  // ── Syntax Highlighting ───────────────────────────────────────────────────
+  function esc(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function updateHighlight() {
+    var raw = codeEl.value;
+    var out = esc(raw);
+    out = out.replace(/(#[^\n]*)/g,
+      '<span style="color:#636d83;font-style:italic">$1</span>');
+    out = out.replace(/\b(resource|variable|output|provider|terraform|locals|module|data|backend|required_providers|required_version)\b/g,
+      '<span style="color:#c678dd">$1</span>');
+    out = out.replace(/\b(source|version|features|description|default|type|sensitive|value|condition|error_message|depends_on)\b/g,
+      '<span style="color:#56b6c2">$1</span>');
+    out = out.replace(/\b(true|false|null)\b/g,
+      '<span style="color:#d19a66">$1</span>');
+    out = out.replace(/\b(\d+)\b/g,
+      '<span style="color:#d19a66">$1</span>');
+    // Resource-Typ-Namen farbig wenn bekannt
+    if (window.TF_SCHEMA) {
+      Object.keys(window.TF_SCHEMA).forEach(function(rtype) {
+        var icon = window.TF_SCHEMA[rtype].icon || '';
+        out = out.replace(new RegExp('("' + rtype + '")', 'g'),
+          '<span style="color:#e5c07b">$1</span>');
+      });
+    }
+    out = out.replace(/"([^"<]*)"/g, function(m, inner) {
+      if (m.indexOf('style=') !== -1) return m;
+      return '<span style="color:#98c379">' + m + '</span>';
+    });
+    hiEl.innerHTML = out;
+  }
+
+  codeEl.addEventListener('input', function() {
+    updateHighlight(); planned = false;
+    badgePlan.style.display = 'none';
+    syncScroll();
+  });
+  codeEl.addEventListener('scroll', syncScroll);
+  function syncScroll() {
+    hiEl.scrollTop = codeEl.scrollTop;
+    hiEl.scrollLeft = codeEl.scrollLeft;
+  }
+  codeEl.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      var s = codeEl.selectionStart;
+      codeEl.value = codeEl.value.substring(0,s) + '  ' + codeEl.value.substring(codeEl.selectionEnd);
+      codeEl.selectionStart = codeEl.selectionEnd = s + 2;
+      updateHighlight();
+    }
+  });
+
+  // ── HCL Basis-Parser (Klammern, var-refs, Variablen) ────────────────────
+  function parseBasic(code) {
+    var errors = [], variables = [], outputs = [], providers = [];
+    // Klammerbalance
+    var depth = 0, inStr = false;
+    for (var i = 0; i < code.length; i++) {
+      var c = code[i];
+      if (c === '"' && code[i-1] !== '\\') inStr = !inStr;
+      if (inStr) continue;
+      if (c === '{') depth++;
+      if (c === '}') depth--;
+    }
+    if (depth !== 0) errors.push(
+      'Unbalancierte Klammern: ' + (depth>0 ? depth+' öffnende(r) { nicht geschlossen'
+                                            : Math.abs(depth)+' zu viele schließende }'));
+    var m;
+    var vv = /variable\s+"([^"]+)"\s*\{/g;
+    while ((m=vv.exec(code))!==null) variables.push(m[1]);
+    var oo = /output\s+"([^"]+)"\s*\{/g;
+    while ((m=oo.exec(code))!==null) outputs.push(m[1]);
+    var pp = /provider\s+"([^"]+)"\s*\{/g;
+    while ((m=pp.exec(code))!==null) providers.push(m[1]);
+    // Undeclared var refs
+    var vref = /var\.(\w+)/g;
+    while ((m=vref.exec(code))!==null) {
+      if (variables.indexOf(m[1]) === -1)
+        errors.push('Referenz auf undeklarierte Variable "var.' + m[1] + '"');
+    }
+    return {errors:errors, variables:variables, outputs:outputs, providers:providers};
+  }
+
+  // ── Formatter ─────────────────────────────────────────────────────────────
+  function fmtHCL(code) {
+    var lines = code.split('\n'), depth = 0, out = [];
+    for (var i=0; i<lines.length; i++) {
+      var t = lines[i].trim();
+      if (!t) { out.push(''); continue; }
+      if (t==='}' || t==='})') depth = Math.max(0, depth-1);
+      out.push('  '.repeat(depth) + t);
+      if (t.endsWith('{') || t.endsWith('= {')) depth++;
+    }
+    return out.join('\n');
+  }
+
+  // ── Output helpers ────────────────────────────────────────────────────────
+  var C = {
+    green:'#4ec994', yellow:'#e5c07b', red:'#e06c75',
+    cyan:'#56b6c2', gray:'#636d83', dimmed:'#4b5263', text:'#abb2bf', orange:'#d19a66'
+  };
+
+  function addLines(lines) {
+    lines.forEach(function(l) {
+      var div = document.createElement('div');
+      div.className = 'tf-line';
+      div.style.color = C[l.c] || C.text;
+      if (l.b) div.style.fontWeight = '600';
+      div.textContent = l.t || '\u00a0';
+      outEl.appendChild(div);
+    });
+    outEl.scrollTop = outEl.scrollHeight;
+  }
+
+  function addDelayed(lines, idx, cb) {
+    if (idx >= lines.length) { if (cb) cb(); return; }
+    var l = lines[idx];
+    setTimeout(function() {
+      addLines([l]);
+      addDelayed(lines, idx+1, cb);
+    }, l.d||0);
+  }
+
+  // ── Commands ──────────────────────────────────────────────────────────────
+  function runCmd(raw) {
+    var cmd = raw.trim(); if (!cmd) return;
+    cmdHistory.unshift(cmd); histIdx = -1;
+    addLines([{t:'$ '+cmd, c:'green'},{t:'',c:''}]);
+
+    var parts = cmd.toLowerCase().split(/\s+/);
+
+    // ── terraform validate ────────────────────────────────────────────────
+    if (parts[0]==='terraform' && parts[1]==='validate') {
+      var basic = parseBasic(codeEl.value);
+
+      // Schema-Validierung via TF_VALIDATOR
+      var schemaResult = window.TF_VALIDATOR ? window.TF_VALIDATOR.validate(codeEl.value)
+                                             : {errors:[],warnings:[],infos:[],resources:[]};
+
+      var allErrors = basic.errors.concat(schemaResult.errors);
+      var allWarnings = schemaResult.warnings;
+
+      if (allErrors.length) {
+        var out = [{t:'╷', c:'red'}, {t:'│ Error: Konfiguration ungültig', c:'red', b:true}];
+        allErrors.forEach(function(e){ out.push({t:'│   ✗ '+e, c:'red'}); });
+        out.push({t:'╵', c:'red'});
+        addLines(out);
+      } else {
+        if (allWarnings.length) {
+          allWarnings.forEach(function(w){ addLines([{t:'⚠  '+w, c:'yellow'}]); });
+        }
+        addLines([
+          {t:'✓ Success! The configuration is valid.', c:'green', b:true},
+        ]);
+        var resCount = schemaResult.resources.length;
+        if (resCount) {
+          addLines([{t:'  Schema-Check: ' + resCount + ' Ressource(n) gegen Provider-Schema geprüft', c:'gray'}]);
+          schemaResult.resources.forEach(function(r) {
+            var schema = window.TF_SCHEMA[r.type];
+            var provLabel = schema ? '['+schema.provider+']' : '[unbekannt]';
+            var color = schema ? 'gray' : 'yellow';
+            addLines([{t:'  ' + (schema ? schema.icon : '❓') + ' ' + provLabel + ' ' + r.type+'.'+r.name, c:color}]);
+          });
+        }
+        if (schemaResult.infos.length) {
+          addLines([{t:'', c:''}]);
+          addLines([{t:'  📖 Dokumentation:', c:'gray'}]);
+          schemaResult.infos.forEach(function(i){ addLines([{t:'    '+i, c:'dimmed'}]); });
+        }
+      }
+    }
+
+    // ── terraform fmt ─────────────────────────────────────────────────────
+    else if (parts[0]==='terraform' && parts[1]==='fmt') {
+      var formatted = fmtHCL(codeEl.value);
+      if (formatted === codeEl.value) {
+        addLines([{t:'main.tf — bereits korrekt formatiert', c:'gray'}]);
+      } else {
+        codeEl.value = formatted; updateHighlight();
+        addLines([{t:'main.tf', c:'text'},{t:'✓ Formatierung angewendet.', c:'green'}]);
+      }
+    }
+
+    // ── terraform plan ────────────────────────────────────────────────────
+    else if (parts[0]==='terraform' && parts[1]==='plan') {
+      var basic2 = parseBasic(codeEl.value);
+      var schema2 = window.TF_VALIDATOR ? window.TF_VALIDATOR.validate(codeEl.value)
+                                        : {errors:[],warnings:[],resources:[]};
+      var planErrors = basic2.errors.concat(schema2.errors);
+
+      if (planErrors.length) {
+        addLines([
+          {t:'╷', c:'red'},
+          {t:'│ Error: Kann keinen Plan erstellen — Konfiguration hat Fehler:', c:'red', b:true},
+        ]);
+        planErrors.forEach(function(e){ addLines([{t:'│   ✗ '+e, c:'red'}]); });
+        addLines([{t:'╵', c:'red'},{t:'',c:''}]);
+        addLines([{t:'  → Führe "terraform validate" aus um Details zu sehen.', c:'yellow'}]);
+      } else if (!schema2.resources.length) {
+        addLines([{t:'No changes. Infrastruktur entspricht der Konfiguration.', c:'cyan'}]);
+      } else {
+        var pLines = [
+          {t:'Refreshing Terraform state in-memory prior to plan...', c:'gray'},
+          {t:'', c:''},
+          {t:'Terraform used the selected providers to generate the following execution plan.', c:'text'},
+          {t:'Resource actions are indicated with the following symbols:', c:'text'},
+          {t:'  + create', c:'green'},
+          {t:'', c:''},
+          {t:'Terraform will perform the following actions:', c:'text'},
+          {t:'', c:''},
+        ];
+
+        schema2.resources.forEach(function(res) {
+          var schema = window.TF_SCHEMA[res.type];
+          var attrs = schema ? Object.keys(schema.attrs) : ['name'];
+          pLines.push({t:'  # '+res.type+'.'+res.name+' will be created', c:'green'});
+          pLines.push({t:'  + resource "'+res.type+'" "'+res.name+'" {', c:'green'});
+          attrs.forEach(function(a){
+            var def = schema && schema.attrs[a];
+            var hint = def && def.allowed ? ' # allowed: '+def.allowed.slice(0,3).join('|')+(def.allowed.length>3?'|…':'') : '';
+            pLines.push({t:'      + '+a+' = (known after apply)'+hint, c:'green'});
+          });
+          pLines.push({t:'    }', c:'green'});
+          pLines.push({t:'', c:''});
+        });
+
+        pLines.push({t:'Plan: '+schema2.resources.length+' to add, 0 to change, 0 to destroy.', c:'cyan', b:true});
+        if (basic2.outputs.length) {
+          pLines.push({t:'', c:''});
+          pLines.push({t:'Changes to Outputs:', c:'text'});
+          basic2.outputs.forEach(function(o){ pLines.push({t:'  + '+o+' = (known after apply)', c:'green'}); });
+        }
+        addLines(pLines);
+        planned = true;
+        badgePlan.style.display = '';
+      }
+    }
+
+    // ── terraform apply ───────────────────────────────────────────────────
+    else if (parts[0]==='terraform' && parts[1]==='apply') {
+      if (!planned) {
+        addLines([{t:'⚠ Zuerst `terraform plan` ausführen.', c:'yellow'}]);
+        addLines([{t:'',c:''}]); return;
+      }
+      if (applying) return;
+
+      var ar = window.TF_VALIDATOR ? window.TF_VALIDATOR.validate(codeEl.value)
+                                   : {errors:[],resources:[]};
+      var basic3 = parseBasic(codeEl.value);
+      var applyErrors = basic3.errors.concat(ar.errors);
+      if (applyErrors.length) {
+        addLines([{t:'Cannot apply: Konfiguration hat Fehler.', c:'red'}]);
+        addLines([{t:'',c:''}]); return;
+      }
+
+      applying = true; inputEl.disabled = true;
+      badgeApply.style.display = '';
+
+      addLines([
+        {t:'Do you want to perform these actions?', c:'text'},
+        {t:'  Only "yes" will be accepted to approve.', c:'text'},
+        {t:'  Enter a value: yes  (Lab-Modus — automatisch bestätigt)', c:'green'},
+        {t:'', c:''},
+      ]);
+
+      var aLines = [];
+      ar.resources.forEach(function(res) {
+        var schema = window.TF_SCHEMA[res.type];
+        var icon = schema ? schema.icon : '🔧';
+        var provider = schema ? '['+schema.provider+'] ' : '';
+        aLines.push({t:icon+' '+provider+res.type+'.'+res.name+': Creating...', c:'yellow', d:200});
+        aLines.push({t:icon+' '+provider+res.type+'.'+res.name+': Still creating... [5s elapsed]', c:'yellow', d:1000});
+        aLines.push({t:icon+' '+provider+res.type+'.'+res.name+': Creation complete after 8s', c:'green', d:700});
+        aLines.push({t:'', c:'', d:0});
+      });
+      aLines.push({t:'─────────────────────────────────────────────────────────', c:'dimmed', d:100});
+      aLines.push({t:'Apply complete! Resources: '+ar.resources.length+' added, 0 changed, 0 destroyed.', c:'green', b:true, d:0});
+
+      addDelayed(aLines, 0, function() {
+        applying = false; planned = false;
+        inputEl.disabled = false;
+        badgeApply.style.display = 'none';
+        badgePlan.style.display = 'none';
+        addLines([{t:'',c:''}]);
+        inputEl.focus();
+      });
+      return;
+    }
+
+    // ── terraform init ────────────────────────────────────────────────────
+    else if (parts[0]==='terraform' && parts[1]==='init') {
+      var providers = [];
+      if (codeEl.value.indexOf('azurerm') !== -1) providers.push({name:'hashicorp/azurerm', ver:'3.99.0'});
+      if (codeEl.value.indexOf('databricks') !== -1) providers.push({name:'databricks/databricks', ver:'1.38.0'});
+      if (codeEl.value.indexOf('random') !== -1) providers.push({name:'hashicorp/random', ver:'3.6.0'});
+
+      var initLines = [
+        {t:'Initializing the backend...', c:'text'},{t:'',c:''},
+        {t:'Initializing provider plugins...', c:'text'},
+      ];
+      providers.forEach(function(p){
+        initLines.push({t:'- Finding '+p.name+' versions matching the constraints...', c:'text'});
+        initLines.push({t:'- Installing '+p.name+' v'+p.ver+'...', c:'text'});
+        initLines.push({t:'- Installed '+p.name+' v'+p.ver+' (signed by HashiCorp)', c:'green'});
+      });
+      if (!providers.length) initLines.push({t:'- Keine externen Provider gefunden', c:'gray'});
+      initLines.push({t:'', c:''});
+      initLines.push({t:'Terraform has been successfully initialized!', c:'green', b:true});
+      initLines.push({t:'', c:''});
+      initLines.push({t:'You may now begin working with Terraform. Try "terraform plan".', c:'gray'});
+      addLines(initLines);
+    }
+
+    // ── schema <resource_type> ────────────────────────────────────────────
+    else if (parts[0]==='schema') {
+      var rtype = parts[1];
+      if (!rtype) {
+        addLines([{t:'Verwendung: schema <resource_type>  z.B.: schema azurerm_storage_account', c:'yellow'}]);
+        if (window.TF_SCHEMA) {
+          var byProvider = {};
+          Object.keys(window.TF_SCHEMA).forEach(function(k){
+            var p = window.TF_SCHEMA[k].provider || 'other';
+            if (!byProvider[p]) byProvider[p] = [];
+            byProvider[p].push(k);
+          });
+          Object.keys(byProvider).forEach(function(p){
+            addLines([{t:'', c:''}, {t:'['+p+']', c:'cyan', b:true}]);
+            addLines(byProvider[p].map(function(k){ return {t:'  '+(window.TF_SCHEMA[k].icon||'·')+' '+k, c:'text'}; }));
+          });
+        }
+      } else if (!window.TF_SCHEMA || !window.TF_SCHEMA[rtype]) {
+        addLines([{t:'Kein Schema für "'+rtype+'" — unbekannter Resource-Typ', c:'red'}]);
+      } else {
+        var s = window.TF_SCHEMA[rtype];
+        addLines([
+          {t:(s.icon||'·')+' '+rtype+'  ['+s.provider+' provider]', c:'cyan', b:true},
+          {t:'', c:''},
+          {t:'ATTRIBUTE:', c:'text', b:true},
+        ]);
+        var required = [], optional = [];
+        Object.keys(s.attrs).forEach(function(a) {
+          (s.attrs[a].required ? required : optional).push(a);
+        });
+        if (required.length) {
+          addLines([{t:'  Required:', c:'green'}]);
+          required.forEach(function(a) {
+            var d = s.attrs[a];
+            addLines([{t:'    '+a+' ('+d.type+')'+(d.desc?' — '+d.desc:''), c:'green'}]);
+            if (d.allowed) addLines([{t:'      erlaubte Werte: '+d.allowed.join(' | '), c:'gray'}]);
+          });
+        }
+        if (optional.length) {
+          addLines([{t:'  Optional:', c:'text'}]);
+          optional.forEach(function(a) {
+            var d = s.attrs[a];
+            addLines([{t:'    '+a+' ('+d.type+')'+(d.desc?' — '+d.desc:''), c:'dimmed'}]);
+            if (d.allowed) addLines([{t:'      erlaubte Werte: '+d.allowed.join(' | '), c:'dimmed'}]);
+          });
+        }
+        if (s.docs) addLines([{t:'', c:''},{t:'  Docs: '+s.docs, c:'dimmed'}]);
+      }
+    }
+
+    // ── terraform destroy ─────────────────────────────────────────────────
+    else if (parts[0]==='terraform' && parts[1]==='destroy') {
+      addLines([
+        {t:'⚠ terraform destroy ist im Lab-Modus deaktiviert.', c:'yellow'},
+        {t:'  Das schützt deine Lernumgebung.', c:'gray'},
+      ]);
+    }
+
+    // ── terraform state list ──────────────────────────────────────────────
+    else if (parts[0]==='terraform' && parts[1]==='state' && parts[2]==='list') {
+      var sl = window.TF_VALIDATOR ? window.TF_VALIDATOR.validate(codeEl.value) : {resources:[]};
+      if (!sl.resources.length) addLines([{t:'Kein State — führe zuerst `terraform apply` aus.', c:'gray'}]);
+      else addLines(sl.resources.map(function(r){ return {t:r.type+'.'+r.name, c:'text'}; }));
+    }
+
+    // ── help ──────────────────────────────────────────────────────────────
+    else if (cmd==='help' || (parts[0]==='terraform' && parts[1]==='--help')) {
+      addLines([
+        {t:'Verfügbare Befehle:', c:'cyan', b:true},
+        {t:'  terraform init         Provider herunterladen', c:'text'},
+        {t:'  terraform validate     Konfiguration + Schema prüfen', c:'text'},
+        {t:'  terraform fmt          Code formatieren', c:'text'},
+        {t:'  terraform plan         Ausführungsplan anzeigen', c:'text'},
+        {t:'  terraform apply        Konfiguration anwenden', c:'text'},
+        {t:'  terraform state list   Ressourcen auflisten', c:'text'},
+        {t:'  schema <typ>           Schema einer Ressource anzeigen', c:'text'},
+        {t:'  schema                 Alle bekannten Ressourcen auflisten', c:'text'},
+        {t:'  clear                  Terminal leeren', c:'text'},
+        {t:'', c:''},
+        {t:'Schema-Datenbank: azurerm (Core, Networking, Compute, Storage, Identity) +', c:'gray'},
+        {t:'  databricks (Cluster, Job, SQL Warehouse, Unity Catalog, Secrets) + random', c:'gray'},
+      ]);
+    }
+
+    // ── clear ─────────────────────────────────────────────────────────────
+    else if (cmd==='clear') {
+      outEl.innerHTML = '';
+      addLines([{t:'Terminal geleert.',c:'gray'},{t:'',c:''}]); return;
+    }
+
+    else {
+      addLines([{t:'Befehl nicht gefunden: '+cmd+' — tippe "help"', c:'red'}]);
+    }
+
+    addLines([{t:'', c:''}]);
+  }
+
+  // ── Input ─────────────────────────────────────────────────────────────────
+  function tfKeyDown(e) {
+    if (e.key==='Enter') {
+      var v=inputEl.value; inputEl.value=''; runCmd(v);
+    } else if (e.key==='ArrowUp') {
+      e.preventDefault();
+      histIdx = Math.min(histIdx+1, cmdHistory.length-1);
+      inputEl.value = cmdHistory[histIdx]||'';
+    } else if (e.key==='ArrowDown') {
+      e.preventDefault();
+      histIdx = Math.max(histIdx-1, -1);
+      inputEl.value = histIdx===-1 ? '' : cmdHistory[histIdx];
+    }
+  }
+
+  // ── Globals ───────────────────────────────────────────────────────────────
+  window.tfRun       = function(c){ runCmd(c); inputEl.focus(); };
+  window.tfClearTerm = function(){ outEl.innerHTML=''; addLines([{t:'Terminal geleert.',c:'gray'},{t:'',c:''}]); };
+  window.tfKeyDown   = tfKeyDown;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTerraformTerminal);
+  } else {
+    initTerraformTerminal();
+  }
+})();
+</script>

@@ -8,23 +8,23 @@ permalink: /courses/integration-101.html
 # 🚀 Integration 101 — <span class="lang-en" style="display:none">Terraform × Azure × Databricks combined</span><span class="lang-de">Terraform × Azure × Databricks kombiniert</span>
 
 
-> **Niveau:** Intermediate — Terraform 101 und Azure 101 werden vorausgesetzt  
-> **Sprache:** Deutsch, mit englischen Fachbegriffen
+> <span class="lang-en" style="display:none">**Level:** Intermediate — Terraform 101 and Azure 101 are required</span><span class="lang-de">**Niveau:** Intermediate — Terraform 101 und Azure 101 werden vorausgesetzt</span>  
+> <span class="lang-en" style="display:none">**Language:** English, with common technical terms</span><span class="lang-de">**Sprache:** Deutsch, mit englischen Fachbegriffen</span>
 
 ---
 
-## Inhaltsverzeichnis
+## <span class="lang-en" style="display:none">Table of contents</span><span class="lang-de">Inhaltsverzeichnis</span>
 
-1. [Modul A: Gesamtsystem-Architektur](#modul-a-gesamtsystem-architektur)
-2. [Modul B: Projektstruktur und Organisation](#modul-b-projektstruktur-und-organisation)
-3. [Modul C: Infrastruktur-Code — Schritt für Schritt](#modul-c-infrastruktur-code--schritt-für-schritt)
-4. [Modul D: Security, Compliance und Best Practices](#modul-d-security-compliance-und-best-practices)
-5. [Modul E: CI/CD und Automatisierung](#modul-e-cicd-und-automatisierung)
-6. [Modul F: Capstone und Deployment](#modul-f-capstone-und-deployment)
+1. <a href="#module-a-full-system-architecturemodul-a-gesamtsystem-architektur"><span class="lang-en" style="display:none">Module A: Overall system architecture</span><span class="lang-de">Modul A: Gesamtsystem-Architektur</span></a>
+2. <a href="#module-b-project-structure-and-organizationmodul-b-projektstruktur-und-organisation"><span class="lang-en" style="display:none">Module B: Project structure and organization</span><span class="lang-de">Modul B: Projektstruktur und Organisation</span></a>
+3. <a href="#module-c-infrastructure-code--schritt-für-schrittmodul-c-infrastruktur-code--schritt-für-schritt"><span class="lang-en" style="display:none">Module C: Infrastructure code — step by step</span><span class="lang-de">Modul C: Infrastruktur-Code — Schritt für Schritt</span></a>
+4. <a href="#module-d-security-compliance-and-best-practicesmodul-d-security-compliance-und-best-practices"><span class="lang-en" style="display:none">Module D: Security, compliance and best practices</span><span class="lang-de">Modul D: Security, Compliance und Best Practices</span></a>
+5. <a href="#module-e-cicd-and-automationmodul-e-cicd-und-automatisierung"><span class="lang-en" style="display:none">Module E: CI/CD and automation</span><span class="lang-de">Modul E: CI/CD und Automatisierung</span></a>
+6. <a href="#module-f-capstone-and-deploymentmodul-f-capstone-und-deployment"><span class="lang-en" style="display:none">Module F: Capstone and deployment</span><span class="lang-de">Modul F: Capstone und Deployment</span></a>
 
 ---
 
-## Überblick: Was verbinden wir?
+## <span class="lang-en" style="display:none">Overview: what are we connecting?</span><span class="lang-de">Überblick: Was verbinden wir?</span>
 
 ```
 ─────────────────────────────────────────────────────────────────
@@ -44,9 +44,9 @@ Databricks läuft in Azure-Netzwerken.
 ### <span class="lang-en" style="display:none">Learning Objectivee dieses Kurses</span><span class="lang-de">Lernziele dieses Kurses</span>
 
 Am Ende kannst du:
-1. Eine vollständige Databricks-Infrastruktur mit Terraform erstellen
+1. <span class="lang-en" style="display:none">Create a complete Databricks infrastructure with Terraform</span><span class="lang-de">Eine vollständige Databricks-Infrastruktur mit Terraform erstellen</span>
 2. Hub-and-Spoke + VNet Injection + SCC kombinieren
-3. Eine professionelle Projektstruktur aufbauen
+3. <span class="lang-en" style="display:none">Build a professional project structure</span><span class="lang-de">Eine professionelle Projektstruktur aufbauen</span>
 4. Security Scanning und CI/CD einrichten
 5. Einen produktionsreifen Deployment-Pipeline entwerfen
 
@@ -56,7 +56,7 @@ Am Ende kannst du:
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst die komplette Architektur von Terraform + Azure + Databricks erklären und die Beziehung zwischen allen Komponenten verstehen.
+<span class="lang-en" style="display:none">You can explain the complete Terraform + Azure + Databricks architecture and understand the relationship between all components.</span><span class="lang-de">Du kannst die komplette Architektur von Terraform + Azure + Databricks erklären und die Beziehung zwischen allen Komponenten verstehen.</span>
 
 ### 1.1 Die <span class="lang-en" style="display:none">Overall architecture</span><span class="lang-de">Gesamtarchitektur</span>
 
@@ -154,18 +154,18 @@ Reihenfolge der Erstellung:
 7. Outputs                  (benötigen Workspace)
 ```
 
-**Terraform merkt sich diese Reihenfolge automatisch** über die Referenzen im Code!
+<span class="lang-en" style="display:none">**Terraform remembers this order automatically** through references in the code!</span><span class="lang-de">**Terraform merkt sich diese Reihenfolge automatisch** über die Referenzen im Code!</span>
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul A</span><span class="lang-de">Kurzes Quiz — Modul A</span>
 
-1. Welche drei Technologien verbinden wir?
-   **Muster:** Terraform (IaC), Azure (Cloud), Databricks (Datenplattform)
+1. <span class="lang-en" style="display:none">Which three technologies are we connecting?</span><span class="lang-de">Welche drei Technologien verbinden wir?</span>
+   <span class="lang-en" style="display:none">**Sample:** Terraform (IaC), Azure (cloud), Databricks (data platform)</span><span class="lang-de">**Muster:** Terraform (IaC), Azure (Cloud), Databricks (Datenplattform)</span>
 
-2. Warum muss die Resource Group vor dem VNet erstellt werden?
-   **Muster:** Das VNet gehört zur Resource Group (Abhängigkeit)
+2. <span class="lang-en" style="display:none">Why must the resource group be created before the VNet?</span><span class="lang-de">Warum muss die Resource Group vor dem VNet erstellt werden?</span>
+   <span class="lang-en" style="display:none">**Sample:** the VNet belongs to the resource group (dependency)</span><span class="lang-de">**Muster:** Das VNet gehört zur Resource Group (Abhängigkeit)</span>
 
-3. Was merkt sich Terraform?
-   **Muster:** Den State — welche Ressourcen existieren und wie sie konfiguriert sind
+3. <span class="lang-en" style="display:none">What does Terraform remember?</span><span class="lang-de">Was merkt sich Terraform?</span>
+   <span class="lang-en" style="display:none">**Sample:** the state — which resources exist and how they are configured</span><span class="lang-de">**Muster:** Den State — welche Ressourcen existieren und wie sie konfiguriert sind</span>
 
 ---
 
@@ -173,7 +173,7 @@ Reihenfolge der Erstellung:
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst eine professionelle Terraform-Projektstruktur aufbauen, Module organisieren und Remote State konfigurieren.
+<span class="lang-en" style="display:none">You can build a professional Terraform project structure, organize modules, and configure remote state.</span><span class="lang-de">Du kannst eine professionelle Terraform-Projektstruktur aufbauen, Module organisieren und Remote State konfigurieren.</span>
 
 ### 2.1 <span class="lang-en" style="display:none">Project structure</span><span class="lang-de">Projektstruktur</span>
 
@@ -424,7 +424,7 @@ output "nsg_id" {
 }
 ```
 
-### 2.4 Environment-Level: dev/main.tf
+### 2.4 <span class="lang-en" style="display:none">Environment level: dev/main.tf</span><span class="lang-de">Environment-Level: dev/main.tf</span>
 
 ```hcl
 # environments/dev/main.tf
@@ -489,14 +489,14 @@ output "databricks_id" {
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul B</span><span class="lang-de">Kurzes Quiz — Modul B</span>
 
-1. Warum trennen wir Module von Environment-Config?
-   **Muster:** Module sind wiederverwendbar, Environment-Config ist umwelt-spezifisch
+1. <span class="lang-en" style="display:none">Why do we separate modules from environment config?</span><span class="lang-de">Warum trennen wir Module von Environment-Config?</span>
+   <span class="lang-en" style="display:none">**Sample:** modules are reusable; environment config is environment-specific</span><span class="lang-de">**Muster:** Module sind wiederverwendbar, Environment-Config ist umwelt-spezifisch</span>
 
-2. Was ist der Unterschied zwischen `modules/` und `environments/`?
-   **Muster:** `modules/` = generische Bausteine, `environments/` = konkrete Kombinationen
+2. <span class="lang-en" style="display:none">What is the difference between `modules/` and `environments/`?</span><span class="lang-de">Was ist der Unterschied zwischen `modules/` und `environments/`?</span>
+   <span class="lang-en" style="display:none">**Sample:** `modules/` = generic building blocks, `environments/` = concrete combinations</span><span class="lang-de">**Muster:** `modules/` = generische Bausteine, `environments/` = konkrete Kombinationen</span>
 
-3. Warum sollte `terraform.tfvars` nicht in Commits landen?
-   **Muster:** Kann sensible Werte enthalten
+3. <span class="lang-en" style="display:none">Why should `terraform.tfvars` not be committed?</span><span class="lang-de">Warum sollte `terraform.tfvars` nicht in Commits landen?</span>
+   <span class="lang-en" style="display:none">**Sample:** it can contain sensitive values</span><span class="lang-de">**Muster:** Kann sensible Werte enthalten</span>
 
 ---
 
@@ -504,9 +504,9 @@ output "databricks_id" {
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst eine komplette Databricks-Infrastruktur mit einem monolithischen Terraform-Projekt erstellen.
+<span class="lang-en" style="display:none">You can create a complete Databricks infrastructure with a monolithic Terraform project.</span><span class="lang-de">Du kannst eine komplette Databricks-Infrastruktur mit einem monolithischen Terraform-Projekt erstellen.</span>
 
-### 3.1 Schritt 1: Provider und Resource Group
+### 3.1 <span class="lang-en" style="display:none">Step 1: provider and resource group</span><span class="lang-de">Schritt 1: Provider und Resource Group</span>
 
 ```hcl
 # main.tf
@@ -553,7 +553,7 @@ resource "azurerm_resource_group" "integration" {
 }
 ```
 
-### 3.2 Schritt 2: Virtual Network und Subnetze
+### 3.2 <span class="lang-en" style="display:none">Step 2: virtual network and subnets</span><span class="lang-de">Schritt 2: Virtual Network und Subnetze</span>
 
 ```hcl
 resource "azurerm_virtual_network" "integration" {
@@ -582,7 +582,7 @@ resource "azurerm_subnet" "databricks_container" {
 }
 ```
 
-### 3.3 Schritt 3: NSGs und Regeln
+### 3.3 <span class="lang-en" style="display:none">Step 3: NSGs and rules</span><span class="lang-de">Schritt 3: NSGs und Regeln</span>
 
 ```hcl
 resource "azurerm_network_security_group" "integration" {
@@ -637,7 +637,7 @@ resource "azurerm_network_security_rule" "databricks" {
 }
 ```
 
-### 3.4 Schritt 4: NAT Gateway
+### 3.4 <span class="lang-en" style="display:none">Step 4: NAT Gateway</span><span class="lang-de">Schritt 4: NAT Gateway</span>
 
 ```hcl
 resource "azurerm_public_ip" "databricks" {
@@ -664,7 +664,7 @@ resource "azurerm_nat_gateway" "databricks" {
 }
 ```
 
-### 3.5 Schritt 5: Databricks Workspace
+### 3.5 <span class="lang-en" style="display:none">Step 5: Databricks workspace</span><span class="lang-de">Schritt 5: Databricks Workspace</span>
 
 ```hcl
 resource "azurerm_databricks_workspace" "main" {
@@ -687,7 +687,7 @@ resource "azurerm_databricks_workspace" "main" {
 }
 ```
 
-### 3.6 Schritt 6: Outputs
+### 3.6 <span class="lang-en" style="display:none">Step 6: outputs</span><span class="lang-de">Schritt 6: Outputs</span>
 
 ```hcl
 output "resource_group_id" {
@@ -716,7 +716,7 @@ output "nsg_id" {
 }
 ```
 
-### 3.7 Vollständiger Ablauf
+### 3.7 <span class="lang-en" style="display:none">Complete flow</span><span class="lang-de">Vollständiger Ablauf</span>
 
 ```bash
 # 1. Verzeichnis erstellen
@@ -757,18 +757,18 @@ terraform destroy
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul C</span><span class="lang-de">Kurzes Quiz — Modul C</span>
 
-1. Warum verwenden wir `for_each` für NSG-Regeln?
-   **Muster:** Weil es stable resource addresses liefert und Regeln leichter zu erweitern sind
+1. <span class="lang-en" style="display:none">Why do we use `for_each` for NSG rules?</span><span class="lang-de">Warum verwenden wir `for_each` für NSG-Regeln?</span>
+   <span class="lang-en" style="display:none">**Sample:** because it provides stable resource addresses and rules are easier to extend</span><span class="lang-de">**Muster:** Weil es stable resource addresses liefert und Regeln leichter zu erweitern sind</span>
 
-2. Was bedeutet `no_public_ip = true` in `custom_parameters`?
-   **Muster:** Aktiviert Secure Cluster Connectivity — Cluster ohne öffentliche IP
+2. <span class="lang-en" style="display:none">What does `no_public_ip = true` mean in `custom_parameters`?</span><span class="lang-de">Was bedeutet `no_public_ip = true` in `custom_parameters`?</span>
+   <span class="lang-en" style="display:none">**Sample:** enables Secure Cluster Connectivity — clusters without public IP</span><span class="lang-de">**Muster:** Aktiviert Secure Cluster Connectivity — Cluster ohne öffentliche IP</span>
 
-3. Wie viele NSG-Regeln werden im Beispiel mindestens erstellt?
-   **Muster:** 5 (MongoDB, Spark, Spark2, HTTPS-Out, DNS-Out)
+3. <span class="lang-en" style="display:none">How many NSG rules are created at minimum in the example?</span><span class="lang-de">Wie viele NSG-Regeln werden im Beispiel mindestens erstellt?</span>
+   <span class="lang-en" style="display:none">**Sample:** 5 (MongoDB, Spark, Spark2, HTTPS-Out, DNS-Out)</span><span class="lang-de">**Muster:** 5 (MongoDB, Spark, Spark2, HTTPS-Out, DNS-Out)</span>
 
 ### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul C</span><span class="lang-de">Praktische Übung — Modul C</span>
 
-**Aufgabe:** Erstelle einen vollständigen monolithischen Terraform-Code (alle Schritte 1-6 in einer `main.tf`), der eine Resource Group, ein VNet, zwei Subnetze, eine NSG mit Regeln, ein NAT Gateway und einen Databricks Workspace mit SCC erstellt.
+<span class="lang-en" style="display:none">**Task:** Create complete monolithic Terraform code (all steps 1-6 in one `main.tf`) that creates a resource group, a VNet, two subnets, an NSG with rules, a NAT Gateway, and a Databricks workspace with SCC.</span><span class="lang-de">**Aufgabe:** Erstelle einen vollständigen monolithischen Terraform-Code (alle Schritte 1-6 in einer `main.tf`), der eine Resource Group, ein VNet, zwei Subnetze, eine NSG mit Regeln, ein NAT Gateway und einen Databricks Workspace mit SCC erstellt.</span>
 
 ---
 
@@ -776,9 +776,9 @@ terraform destroy
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst Security Scanning einrichten, Best Practices anwenden und häufige Fehler vermeiden.
+<span class="lang-en" style="display:none">You can set up security scanning, apply best practices, and avoid common mistakes.</span><span class="lang-de">Du kannst Security Scanning einrichten, Best Practices anwenden und häufige Fehler vermeiden.</span>
 
-### 4.1 Security Scanning in Terraform
+### 4.1 <span class="lang-en" style="display:none">Security scanning in Terraform</span><span class="lang-de">Security Scanning in Terraform</span>
 
 ```bash
 # Checkov — Static Analysis
@@ -791,7 +791,7 @@ trivy config .
 npx tflint --init && npx tflint
 ```
 
-### 4.2 Häufige Fehler und ihre Lösungen
+### 4.2 <span class="lang-en" style="display:none">Common mistakes and their fixes</span><span class="lang-de">Häufige Fehler und ihre Lösungen</span>
 
 ```hcl
 # ❌ Fehlers 1: Hardcoded Werte
@@ -836,7 +836,7 @@ resource "azurerm_databricks_workspace" "main" { ... }
 resource "azurerm_databricks_workspace" "analytics" { ... }
 ```
 
-### 4.3 Remote State konfigurieren
+### 4.3 <span class="lang-en" style="display:none">Configure remote state</span><span class="lang-de">Remote State konfigurieren</span>
 
 ```hcl
 # backend.tf
@@ -852,13 +852,13 @@ terraform {
 ```
 
 **State-Security:**
-- ✅ Storage Account private (kein öffentlicher Zugriff)
+- ✅ <span class="lang-en" style="display:none">Storage account private (no public access)</span><span class="lang-de">Storage Account private (kein öffentlicher Zugriff)</span>
 - ✅ Versioning aktiviert
-- ✅ Verschlüsselt
+- ✅ <span class="lang-en" style="display:none">Encrypted</span><span class="lang-de">Verschlüsselt</span>
 - ✅ Pro Environment separater State Key
 - ✅ OIDC Authentication (keine Access Keys)
 
-### 4.4 Tagging-Strategie
+### 4.4 <span class="lang-en" style="display:none">Tagging strategy</span><span class="lang-de">Tagging-Strategie</span>
 
 ```hcl
 locals {
@@ -875,13 +875,13 @@ locals {
 }
 ```
 
-**Warum Tags?**
+<span class="lang-en" style="display:none">**Why tags?**</span><span class="lang-de">**Warum Tags?**</span>
 - 💰 Kostenverfolgung
-- 🔍 Ressourcen-Suche
+- 🔍 <span class="lang-en" style="display:none">Resource search</span><span class="lang-de">Ressourcen-Suche</span>
 - 📋 Compliance-Audits
 - 🏷️ Berechtigungen (RBAC)
 
-### 4.5 Version-Pinning
+### 4.5 <span class="lang-en" style="display:none">Version pinning</span><span class="lang-de">Version-Pinning</span>
 
 ```hcl
 terraform {
@@ -896,18 +896,18 @@ terraform {
 }
 ```
 
-**Merke:** `~> 4.0` erlaubt Patch-Updates (4.0.1, 4.1.0), blockiert aber Breaking Changes (5.0.0).
+<span class="lang-en" style="display:none">**Remember:** `~> 4.0` allows patch/minor updates (4.0.1, 4.1.0), but blocks breaking changes (5.0.0).</span><span class="lang-de">**Merke:** `~> 4.0` erlaubt Patch-Updates (4.0.1, 4.1.0), blockiert aber Breaking Changes (5.0.0).</span>
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul D</span><span class="lang-de">Kurzes Quiz — Modul D</span>
 
-1. Warum ist `~> 4.0` besser als `>= 4.0`?
-   **Muster:** Blockiert Breaking Changes von Major-Version 5
+1. <span class="lang-en" style="display:none">Why is `~> 4.0` better than `>= 4.0`?</span><span class="lang-de">Warum ist `~> 4.0` besser als `>= 4.0`?</span>
+   <span class="lang-en" style="display:none">**Sample:** blocks breaking changes from major version 5</span><span class="lang-de">**Muster:** Blockiert Breaking Changes von Major-Version 5</span>
 
-2. Was macht Checkov?
-   **Muster:** Static Analysis für Terraform-Konfigurationen
+2. <span class="lang-en" style="display:none">What does Checkov do?</span><span class="lang-de">Was macht Checkov?</span>
+   <span class="lang-en" style="display:none">**Sample:** static analysis for Terraform configurations</span><span class="lang-de">**Muster:** Static Analysis für Terraform-Konfigurationen</span>
 
-3. Warum sollte jeder Environment seinen eigenen State-Key haben?
-   **Muster:** Isolation — ein Fehler in dev löscht nicht prod
+3. <span class="lang-en" style="display:none">Why should each environment have its own state key?</span><span class="lang-de">Warum sollte jeder Environment seinen eigenen State-Key haben?</span>
+   <span class="lang-en" style="display:none">**Sample:** isolation — an error in dev does not delete prod</span><span class="lang-de">**Muster:** Isolation — ein Fehler in dev löscht nicht prod</span>
 
 ---
 
@@ -915,7 +915,7 @@ terraform {
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst eine GitHub Actions Pipeline für Terraform erstellen und OIDC-Authentifizierung einrichten.
+<span class="lang-en" style="display:none">You can create a GitHub Actions pipeline for Terraform and set up OIDC authentication.</span><span class="lang-de">Du kannst eine GitHub Actions Pipeline für Terraform erstellen und OIDC-Authentifizierung einrichten.</span>
 
 ### 5.1 <span class="lang-en" style="display:none">GitHub Actions workflow</span><span class="lang-de">GitHub Actions Workflow</span>
 
@@ -1004,7 +1004,7 @@ jobs:
         run: terraform apply -auto-approve tfplan
 ```
 
-### 5.2 OIDC-Setup (One-Time)
+### 5.2 <span class="lang-en" style="display:none">OIDC setup (one-time)</span><span class="lang-de">OIDC-Setup (einmalig)</span>
 
 ```
 GitHub OIDC zu Azure — Setup:
@@ -1019,9 +1019,9 @@ GitHub OIDC zu Azure — Setup:
    - AZURE_SUBSCRIPTION_ID
 ```
 
-**Keine Secrets mehr im Code!** OIDC erzeugt kurzlebige Tokens.
+<span class="lang-en" style="display:none">**No more secrets in code!** OIDC creates short-lived tokens.</span><span class="lang-de">**Keine Secrets mehr im Code!** OIDC erzeugt kurzlebige Tokens.</span>
 
-### 5.3 Workflow-Pipeline
+### 5.3 <span class="lang-en" style="display:none">Workflow pipeline</span><span class="lang-de">Workflow-Pipeline</span>
 
 ```
 PR geöffnet:
@@ -1039,14 +1039,14 @@ Main-Branch Merge:
 
 ### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul E</span><span class="lang-de">Kurzes Quiz — Modul E</span>
 
-1. Warum ist OIDC besser als Access Keys?
-   **Muster:** OIDC erzeugt kurzlebige Tokens — keine langlebigen Secrets im Code
+1. <span class="lang-en" style="display:none">Why is OIDC better than access keys?</span><span class="lang-de">Warum ist OIDC besser als Access Keys?</span>
+   <span class="lang-en" style="display:none">**Sample:** OIDC creates short-lived tokens — no long-lived secrets in code</span><span class="lang-de">**Muster:** OIDC erzeugt kurzlebige Tokens — keine langlebigen Secrets im Code</span>
 
-2. Welche drei Schritte hat die Pipeline bei einem PR?
-   **Muster:** Format prüfen, Syntax prüfen, Security scan
+2. <span class="lang-en" style="display:none">Which three steps does the pipeline run for a PR?</span><span class="lang-de">Welche drei Schritte hat die Pipeline bei einem PR?</span>
+   <span class="lang-en" style="display:none">**Sample:** check formatting, check syntax, security scan</span><span class="lang-de">**Muster:** Format prüfen, Syntax prüfen, Security scan</span>
 
-3. Wann wird `terraform apply` ausgeführt?
-   **Muster:** Nur bei Merge in main (nicht bei PRs)
+3. <span class="lang-en" style="display:none">When is `terraform apply` executed?</span><span class="lang-de">Wann wird `terraform apply` ausgeführt?</span>
+   <span class="lang-en" style="display:none">**Sample:** only on merge to main (not for PRs)</span><span class="lang-de">**Muster:** Nur bei Merge in main (nicht bei PRs)</span>
 
 ---
 
@@ -1054,11 +1054,11 @@ Main-Branch Merge:
 
 ### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
-Du kannst ein vollständiges, produktionsähnliches Projekt erstellen und deployen.
+<span class="lang-en" style="display:none">You can create and deploy a complete production-like project.</span><span class="lang-de">Du kannst ein vollständiges, produktionsähnliches Projekt erstellen und deployen.</span>
 
 ### 6.1 🏆 <span class="lang-en" style="display:none">Capstone project</span><span class="lang-de">Capstone-Projekt</span>
 
-**Aufgabe:** Erstelle eine vollständige, produktionsähnliche Databricks-Infrastruktur:
+<span class="lang-en" style="display:none">**Task:** Create a complete, production-like Databricks infrastructure:</span><span class="lang-de">**Aufgabe:** Erstelle eine vollständige, produktionsähnliche Databricks-Infrastruktur:</span>
 
 ```
 Anforderungen:
@@ -1080,11 +1080,11 @@ Anforderungen:
     └── .github/workflows/terraform.yml
 ```
 
-**Checkliste:**
+<span class="lang-en" style="display:none">**Checklist:**</span><span class="lang-de">**Checkliste:**</span>
 - [ ] Projektstruktur korrekt
 - [ ] `terraform fmt -check` bestanden
 - [ ] `terraform validate` sagt "valid"
-- [ ] `terraform plan` zeigt alle Ressourcen
+- [ ] <span class="lang-en" style="display:none">`terraform plan` shows all resources</span><span class="lang-de">`terraform plan` zeigt alle Ressourcen</span>
 - [ ] Databricks Workspace URL als Output
 - [ ] SCC aktiviert (`no_public_ip = true`)
 - [ ] NSG-Regeln mit `for_each`
@@ -1092,7 +1092,7 @@ Anforderungen:
 - [ ] Tags konsistent
 - [ ] README.md vorhanden
 
-### 6.2 Deployment-Checkliste
+### 6.2 <span class="lang-en" style="display:none">Deployment checklist</span><span class="lang-de">Deployment-Checkliste</span>
 
 ```bash
 # Vor dem Deployment:
@@ -1110,7 +1110,7 @@ terraform output databricks_workspace_url  # URL kopieren
 portal.azure.com                    # Portal prüfen
 ```
 
-### 6.3 Troubleshooting
+### 6.3 <span class="lang-en" style="display:none">Troubleshooting</span><span class="lang-de">Fehlerbehebung</span>
 
 ```bash
 # Problem: State lock timeout
@@ -1127,7 +1127,7 @@ terraform refresh
 # → Terraform merkt, dass Ressourcen fehlen
 ```
 
-### 6.4 Transfer — Was jetzt?
+### 6.4 <span class="lang-en" style="display:none">Transfer — what's next?</span><span class="lang-de">Transfer — Was jetzt?</span>
 
 ```
 🎓 KURS ABSCHLIESSUNG — Was kannst du jetzt?
@@ -1162,17 +1162,17 @@ NÄCHSTE SCHRITTE:
 
 ### 📝 <span class="lang-en" style="display:none">Final Quiz — Kurs-Ende</span><span class="lang-de">Letztes Quiz — Kurs-Ende</span>
 
-1. Nenne die drei Säulen dieses Kurses.
-   **Muster:** Terraform (IaC), Azure (Cloud), Databricks (Datenplattform)
+1. <span class="lang-en" style="display:none">Name the three pillars of this course.</span><span class="lang-de">Nenne die drei Säulen dieses Kurses.</span>
+   <span class="lang-en" style="display:none">**Sample:** Terraform (IaC), Azure (cloud), Databricks (data platform)</span><span class="lang-de">**Muster:** Terraform (IaC), Azure (Cloud), Databricks (Datenplattform)</span>
 
-2. Warum ist `for_each` bei NSG-Regeln besser als `count`?
-   **Muster:** Stable resource addresses — Regeln können hinzugefügt/entfernt werden ohne Recreates
+2. <span class="lang-en" style="display:none">Why is `for_each` better than `count` for NSG rules?</span><span class="lang-de">Warum ist `for_each` bei NSG-Regeln besser als `count`?</span>
+   <span class="lang-en" style="display:none">**Sample:** stable resource addresses — rules can be added/removed without recreates</span><span class="lang-de">**Muster:** Stable resource addresses — Regeln können hinzugefügt/entfernt werden ohne Recreates</span>
 
-3. Was ist der wichtigste Unterschied zwischen Portal- und Terraform-Default bei Databricks?
-   **Muster:** Portal: SCC standardmäßig an, Terraform: SCC standardmäßig aus — muss explizit aktiviert werden!
+3. <span class="lang-en" style="display:none">What is the most important difference between portal and Terraform defaults for Databricks?</span><span class="lang-de">Was ist der wichtigste Unterschied zwischen Portal- und Terraform-Default bei Databricks?</span>
+   <span class="lang-en" style="display:none">**Sample:** portal: SCC on by default; Terraform: SCC off by default — it must be enabled explicitly!</span><span class="lang-de">**Muster:** Portal: SCC standardmäßig an, Terraform: SCC standardmäßig aus — muss explizit aktiviert werden!</span>
 
-4. Warum ist OIDC in CI/CD besser als Access Keys?
-   **Muster:** Kurzlebige Tokens, keine langlebigen Secrets, sicherer
+4. <span class="lang-en" style="display:none">Why is OIDC better than access keys in CI/CD?</span><span class="lang-de">Warum ist OIDC in CI/CD besser als Access Keys?</span>
+   <span class="lang-en" style="display:none">**Sample:** short-lived tokens, no long-lived secrets, more secure</span><span class="lang-de">**Muster:** Kurzlebige Tokens, keine langlebigen Secrets, sicherer</span>
 
 ---
 
@@ -1217,7 +1217,7 @@ terraform-azure-databricks/
 
 ## <span class="lang-en" style="display:none">Appendix: Quick reference</span><span class="lang-de">Anhang: Quick Reference</span>
 
-### Terraform Befehle
+### <span class="lang-en" style="display:none">Terraform commands</span><span class="lang-de">Terraform Befehle</span>
 
 ```bash
 terraform init              # Initialisieren
@@ -1231,7 +1231,7 @@ terraform state show <res>  # Resource anzeigen
 terraform output            # Outputs sehen
 ```
 
-### Azure CLI Befehle
+### <span class="lang-en" style="display:none">Azure CLI commands</span><span class="lang-de">Azure CLI Befehle</span>
 
 ```bash
 az login                    # Anmelden
@@ -1240,7 +1240,7 @@ az group list               # Resource Groups
 az resource list --group <name>  # Ressourcen
 ```
 
-### Security Tools
+### <span class="lang-en" style="display:none">Security tools</span><span class="lang-de">Security Tools</span>
 
 ```bash
 checkov -d . --framework terraform  # Static Analysis
