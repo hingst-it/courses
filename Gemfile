@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'jekyll'
+gem 'jekyll-default-layouts'
+gem 'jekyll-gist'
+gem 'jekyll-last-modified-at'
+gem 'jekyll-feed'
+gem 'jekyll-compose'
+gem 'jekyll-paginate'
+gem 'jekyll-sitemap'
