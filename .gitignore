@@ -1,0 +1,17 @@
+# Jekyll
+_site/
+.tmp/
+
+# Ruby gems
+*.gem
+
+# Bundler
+.bundler/
+Gemfile.lock
+
+# Sass
+*.css.bak
+
+# OS
+.DS_Store
+Thumbs.db
