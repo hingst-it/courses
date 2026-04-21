@@ -62,4 +62,4 @@ Kurse basieren auf [terraform-skill](https://github.com/antonbabenko/terraform-s
 
 ---
 
-*Infomotion — Kursmaterialien für moderne Cloud-Infrastruktur*
+*Kursmaterialien basierend auf terraform-skill (Apache 2.0).*
