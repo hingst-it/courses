@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,10 +16,14 @@
     <div class="nav-inner">
       <a href="{{ '/' | relative_url }}" class="logo"><span>☁️</span> Cloud Courses</a>
       <nav>
-        <a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a>
-        <a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a>
-        <a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a>
-        <a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a>
+        <span class="lang-en" style="display:none"><a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a></span>
+        <span class="lang-de"><a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a></span>
+        <span class="lang-en" style="display:none"><a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a></span>
+        <span class="lang-de"><a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a></span>
+        <span class="lang-en" style="display:none"><a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a></span>
+        <span class="lang-de"><a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a></span>
+        <span class="lang-en" style="display:none"><a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a></span>
+        <span class="lang-de"><a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a></span>
       </nav>
     </div>
   </header>
@@ -29,21 +33,31 @@
   </main>
 
   <footer class="site-footer">
-    <p>Kursmaterialien basierend auf terraform-skill (Apache 2.0).</p>
-    <p style="margin-top:8px;"><a href="{{ '/' | relative_url }}" style="color:var(--clr-accent);">← Zurück zur Übersicht</a></p>
+    <p>
+      <span class="lang-en" style="display:none">Kursmaterialien basierend auf terraform-skill (Apache 2.0).</span>
+      <span class="lang-de">Kursmaterialien basierend auf terraform-skill (Apache 2.0).</span>
+      <span class="lang-en" style="display:none">Course materials based on terraform-skill (Apache 2.0).</span>
+      <span class="lang-de" style="display:none">Course materials based on terraform-skill (Apache 2.0).</span>
+    </p>
+    <p style="margin-top:8px;">
+      <a href="{{ '/' | relative_url }}" style="color:var(--clr-accent);">
+        <span class="lang-en" style="display:none">← Zurück zur Übersicht</span>
+        <span class="lang-de" style="display:none">← Zurück zur Übersicht</span>
+        <span class="lang-en">← Back to overview</span>
+        <span class="lang-de">← Zurück zur Übersicht</span>
+      </a>
+    </p>
   </footer>
 
+  <script src="{{ '/assets/js/i18n.js' | relative_url }}"></script>
   <script>
-    const layers = document.querySelectorAll('.parallax-bg .layer');
+    const layers = document.querySelector('.parallax-bg .layer');
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {
         requestAnimationFrame(() => {
           const scrollY = window.scrollY;
-          layers.forEach((l, i) => {
-            const speed = (i + 1) * 0.02;
-            l.style.transform = `translate(${scrollY * speed}px, ${scrollY * speed * 0.5}px)`;
-          });
+          layers.style.transform = `translate(${scrollY * 0.02}px, ${scrollY * 0.01}px)`;
           ticking = false;
         });
         ticking = true;

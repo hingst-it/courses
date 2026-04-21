@@ -5,7 +5,7 @@ description: IaC und Terraform von Grund auf — 8 Stunden, absolute Beginners
 permalink: /courses/terraform-101.html
 ---
 
-# 🟩 Terraform 101 — Infrastruktur als Code für Anfänger
+# 🟩 Terraform 101 — <span class="lang-en" style="display:none">Infrastructure as Code for Beginners</span><span class="lang-de">Infrastruktur als Code für Anfänger</span>
 
 > **Dauer:** 8 Stunden (1 voller Tag)  
 > **Niveau:** Absolute Beginners — keine Vorkenntnisse nötig  
@@ -24,13 +24,13 @@ permalink: /courses/terraform-101.html
 
 ---
 
-## Modul A: Was ist IaC?
+## <span class="lang-en" style="display:none">Module A: What is IaC?</span><span class="lang-de">Modul A: Was ist IaC?</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst erklären, **was** Infrastructure as Code ist, **warum** es nötig ist, und den Unterschied zwischen manueller und automatisierter Infrastruktur-erstellung benennen.
 
-### 1.1 Das Problem: Manuelles Klicken
+### 1.1 <span class="lang-en" style="display:none">The problem: manual clicking</span><span class="lang-de">Das Problem: Manuelles Klicken</span>
 
 Stell dir vor, du müsstest ein neues Büro einrichten:
 
@@ -53,7 +53,7 @@ Manuell (ohne IaC):
 - 📝 **Nicht dokumentiert** — wer weiß genau, was gemacht wurde?
 - 🔄 **Nicht wiederholbar** — das zweite Büro sieht anders aus als das erste
 
-### 1.2 Die Lösung: Infrastructure as Code
+### 1.2 <span class="lang-en" style="display:none">The solution: Infrastructure as Code</span><span class="lang-de">Die Lösung: Infrastructure as Code</span>
 
 ```
 Mit IaC:
@@ -70,7 +70,7 @@ Mit IaC:
 - ✅ **Versioniert** — jeder Stand nachvollziehbar (Git)
 - ✅ **Kollaborativ** — mehrere Personen können am Code arbeiten
 
-### 1.3 Terraform — Das Tool
+### 1.3 <span class="lang-en" style="display:none">Terraform — the tool</span><span class="lang-de">Terraform — Das Tool</span>
 
 Terraform (von HashiCorp) ist das beliebteste IaC-Tool der Welt.
 
@@ -97,7 +97,7 @@ Was Terraform macht:
 └──────────────────────────────────────────┘
 ```
 
-### 1.4 Die drei wichtigsten Terraform-Befehle
+### 1.4 <span class="lang-en" style="display:none">The three most important Terraform commands</span><span class="lang-de">Die drei wichtigsten Terraform-Befehle</span>
 
 ```bash
 terraform init       # Vorbereitung — Plugins herunterladen
@@ -110,7 +110,7 @@ terraform apply      # Umsetzung — ändert die Infrastruktur
 - `plan` = Bauplan prüfen, bevor du schraubst
 - `apply` = Bauen
 
-### 🧪 Kurzes Quiz — Modul A
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul A</span><span class="lang-de">Kurzes Quiz — Modul A</span>
 
 1. Was bedeutet IaC?
    - a) Internet of Cloud
@@ -126,7 +126,7 @@ terraform apply      # Umsetzung — ändert die Infrastruktur
    - Nenne zwei Gründe.
    - **Musterantwort:** Wiederholbar + dokumentiert (oder: schnell + konsistent)
 
-### 📝 Hausaufgabe
+### 📝 <span class="lang-en" style="display:none">Homework</span><span class="lang-de">Hausaufgabe</span>
 
 - Lies das Glossar in der Kurs-README
 - Installiere Terraform (falls noch nicht geschehen):
@@ -149,13 +149,13 @@ terraform apply      # Umsetzung — ändert die Infrastruktur
 
 ---
 
-## Modul B: Erste Schritte mit Terraform
+## <span class="lang-en" style="display:none">Module B: Getting started with Terraform</span><span class="lang-de">Modul B: Erste Schritte mit Terraform</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst ein erstes Terraform-Projekt erstellen, eine Resource Group in Azure definieren und den ersten `plan` ausführen.
 
-### 2.1 Projektstruktur
+### 2.1 <span class="lang-en" style="display:none">Project structure</span><span class="lang-de">Projektstruktur</span>
 
 ```
 mein-terraform-projekt/
@@ -165,7 +165,7 @@ mein-terraform-projekt/
 └── versions.tf     # Versionsbeschränkungen
 ```
 
-### 2.2 Provider konfigurieren
+### 2.2 <span class="lang-en" style="display:none">Provider configuration</span><span class="lang-de">Provider konfigurieren</span>
 
 Ein **Provider** ist das Plugin, das mit einer Cloud spricht.
 
@@ -188,7 +188,7 @@ terraform {
 - `azurerm` → Der Azure Provider (hashicorp/azurerm)
 - `~> 4.0` → Major 4.x, aber nicht 5.x (sicher vor Breaking Changes)
 
-### 2.3 Authentifizierung
+### 2.3 <span class="lang-en" style="display:none">Authentication</span><span class="lang-de">Authentifizierung</span>
 
 Es gibt mehrere Wege, sich bei Azure anzumelden. Für den Anfang reicht:
 
@@ -200,7 +200,7 @@ az login
 az login --use-device-code
 ```
 
-### 2.4 Erstes Ressource-Beispiel
+### 2.4 <span class="lang-en" style="display:none">First resource example</span><span class="lang-de">Erstes Ressource-Beispiel</span>
 
 ```hcl
 # main.tf
@@ -236,7 +236,7 @@ resource "AZURE-TYP" "INTERNER_NAME" {
 | `location = "..."` | Region | Wo in der Welt? |
 | `tags = {}` | Metadaten | Organisation / Zuordnung |
 
-### 2.5 Variablen — Code parametrisieren
+### 2.5 <span class="lang-en" style="display:none">Variables — parameterize code</span><span class="lang-de">Variablen — Code parametrisieren</span>
 
 Statt harte Werte im Code zu verwenden, nutzen wir Variablen:
 
@@ -278,7 +278,7 @@ resource "azurerm_resource_group" "example" {
 - 📝 **Dokumentiert** — `description` sagt, was die Variable macht
 - ✅ **Gep validiert** — `validation` blockiert falsche Werte
 
-### 2.6 Outputs — Ergebnisse anzeigen
+### 2.6 <span class="lang-en" style="display:none">Outputs — display results</span><span class="lang-de">Outputs — Ergebnisse anzeigen</span>
 
 ```hcl
 # outputs.tf
@@ -293,7 +293,7 @@ output "resource_group_name" {
 }
 ```
 
-### 2.7 Erster Durchlauf — Schritt für Schritt
+### 2.7 <span class="lang-en" style="display:none">First run — step by step</span><span class="lang-de">Erster Durchlauf — Schritt für Schritt</span>
 
 ```bash
 # Schritt 1: Projektverzeichnis erstellen
@@ -322,14 +322,14 @@ terraform apply
 # resource_group_name = "rg-terraform-101"
 ```
 
-### 2.8 Aufräumen
+### 2.8 <span class="lang-en" style="display:none">Cleanup</span><span class="lang-de">Aufräumen</span>
 
 ```bash
 terraform destroy
 # Löscht alle Ressourcen, die Terraform erstellt hat
 ```
 
-### 🧪 Kurzes Quiz — Modul B
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul B</span><span class="lang-de">Kurzes Quiz — Modul B</span>
 
 1. Was macht `terraform init`?
    - a) Löscht alle Ressourcen
@@ -344,7 +344,7 @@ terraform destroy
 3. Was ist der Unterschied zwischen `name` und `example` in `resource "azurerm_resource_group" "example"`?
    - `name` ist der Name in Azure, `example` ist der interne Terraform-Name
 
-### 🧪 Praktische Übung — Modul B
+### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul B</span><span class="lang-de">Praktische Übung — Modul B</span>
 
 **Aufgabe:** Erstelle eine Terraform-Konfiguration, die:
 1. Eine Resource Group in einer beliebigen Region erstellt
@@ -389,13 +389,13 @@ output "rg_name" {
 
 ---
 
-## Modul C: Die Terraform-Sprache HCL
+## <span class="lang-en" style="display:none">Module C: The Terraform language HCL</span><span class="lang-de">Modul C: Die Terraform-Sprache HCL</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst HCL-Dateien lesen und schreiben, Variablen, Locals und Outputs korrekt einsetzen, und den Unterschied zwischen `count` und `for_each` verstehen.
 
-### 3.1 HCL — HashiCorp Configuration Language
+### 3.1 <span class="lang-en" style="display:none">HCL — HashiCorp Configuration Language</span><span class="lang-de">HCL — HashiCorp Configuration Language</span>
 
 HCL sieht aus wie JSON, ist aber menschenlesbarer:
 
@@ -432,7 +432,7 @@ resource "azurerm_resource_group" "example" {
 - `{}` für maps
 - `[]` für lists
 
-### 3.2 Lokale Werte — Locals
+### 3.2 <span class="lang-en" style="display:none">Local values — Locals</span><span class="lang-de">Lokale Werte — Locals</span>
 
 Locals sind Hilfsvariablen **innerhalb** von Terraform. Sie sind nicht von außen einstellbar.
 
@@ -461,7 +461,7 @@ resource "azurerm_resource_group" "main" {
 - 🏷️ **Zentrale Tags** — Alle Ressourcen bekommen dieselben Tags
 - 📋 **Lesbarkeit** — Komplexe Logik aus den Resources entfernen
 
-### 3.3 Count vs For_Each — Ressourcen wiederholen
+### 3.3 <span class="lang-en" style="display:none">Count vs For_Each — repeat resources</span><span class="lang-de">Count vs For_Each — Ressourcen wiederholen</span>
 
 Zwei Wege, mehrere ähnliche Ressourcen zu erstellen:
 
@@ -508,7 +508,7 @@ resource "azurerm_public_ip" "example" {
 | Items werden hinzugefügt/entfernt | `for_each` | Stabile Adressen |
 | Nach Namen zugreifen | `for_each` | `aws_public_ip["web"]` |
 
-### 3.4 Datenquellen — Bestehende Ressourcen lesen
+### 3.4 <span class="lang-en" style="display:none">Data sources — read existing resources</span><span class="lang-de">Datenquellen — Bestehende Ressourcen lesen</span>
 
 Manchmal willst du nicht erstellen, sondern **lesen**:
 
@@ -522,7 +522,7 @@ output "existing_rg_location" {
 }
 ```
 
-### 3.5 Komplettes Beispiel — Zwei Subnetze
+### 3.5 <span class="lang-en" style="display:none">Complete example — two subnets</span><span class="lang-de">Komplettes Beispiel — Zwei Subnetze</span>
 
 ```hcl
 # main.tf
@@ -567,7 +567,7 @@ output "subnet_names" {
 }
 ```
 
-### 🧪 Kurzes Quiz — Modul C
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul C</span><span class="lang-de">Kurzes Quiz — Modul C</span>
 
 1. Was sind Locals?
    - a) Variablen von außen
@@ -584,7 +584,7 @@ output "subnet_names" {
    - b) Liest bestehende Ressourcen ← **Richtig**
    - c) Löscht Ressourcen
 
-### 🧪 Praktische Übung — Modul C
+### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul C</span><span class="lang-de">Praktische Übung — Modul C</span>
 
 **Aufgabe:** Erstelle eine Konfiguration mit:
 1. Einer Resource Group
@@ -595,13 +595,13 @@ output "subnet_names" {
 
 ---
 
-## Modul D: State — Terraforms Gedächtnis
+## <span class="lang-en" style="display:none">Module D: State — Terraform's memory</span><span class="lang-de">Modul D: State — Terraforms Gedächtnis</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst das State-Konzept erklären, den Unterschied zwischen lokalem und Remote State benennen, und verstehen, warum Remote State in Teams unverzichtbar ist.
 
-### 4.1 Was ist State?
+### 4.1 <span class="lang-en" style="display:none">What is State?</span><span class="lang-de">Was ist State?</span>
 
 ```
 Terraform muss sich merken:
@@ -625,7 +625,7 @@ Terraform muss sich merken:
 
 **Ohne State** würde Terraform bei jedem `apply` alle Ressourcen neu erstellen!
 
-### 4.2 Lokaler State — Das Problem
+### 4.2 <span class="lang-en" style="display:none">Local State — the problem</span><span class="lang-de">Lokaler State — Das Problem</span>
 
 Standardmäßig speichert Terraform State lokal:
 
@@ -639,7 +639,7 @@ terraform.tfstate
 - 🔒 **Keine Sperrung** — Zwei Personen können gleichzeitig ändern
 - 📜 **Kein Versionsverlauf** — Wer hat was geändert?
 
-### 4.3 Remote State — Die Lösung (Azure)
+### 4.3 <span class="lang-en" style="display:none">Remote State — the solution (Azure)</span><span class="lang-de">Remote State — Die Lösung (Azure)</span>
 
 ```hcl
 # backend.tf (oder in main.tf)
@@ -661,7 +661,7 @@ terraform {
 - 🔐 **Verschlüsselt** — State wird verschlüsselt gespeichert
 - ☁️ **Überlebt Hardware-Crash**
 
-### 4.4 Sensible Daten im State
+### 4.4 <span class="lang-en" style="display:none">Sensitive data in State</span><span class="lang-de">Sensible Daten im State</span>
 
 ```hcl
 # Variablen als sensitive markieren
@@ -680,7 +680,7 @@ output "connection_string" {
 
 **Achtung:** `sensitive = true` schützt nur die Ausgabe von `terraform plan`. Der Wert ist trotzdem im State-File gespeichert!
 
-### 4.5 State-Manipulation (Falls nötig)
+### 4.5 <span class="lang-en" style="display:none">State manipulation (if needed)</span><span class="lang-de">State-Manipulation (Falls nötig)</span>
 
 ```bash
 # Resource umbenennen (ohne Neu-Erstellung)
@@ -693,7 +693,7 @@ terraform state rm azurerm_resource_group.orphan
 terraform import azurerm_resource_group.main /subscriptions/.../resourceGroups/rg-existing
 ```
 
-### 🧪 Kurzes Quiz — Modul D
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul D</span><span class="lang-de">Kurzes Quiz — Modul D</span>
 
 1. Warum braucht Terraform State?
    - a) Für schöne Grafiken
@@ -710,7 +710,7 @@ terraform import azurerm_resource_group.main /subscriptions/.../resourceGroups/r
    - b) Verbirgt den Wert in der Plan-Ausgabe ← **Richtig**
    - c) Löscht den Wert aus dem State
 
-### 📝 Hausaufgabe
+### 📝 <span class="lang-en" style="display:none">Homework</span><span class="lang-de">Hausaufgabe</span>
 
 - Erstelle ein Azure Storage Account und Container für Remote State (manuell im Portal)
 - Ändere deine Konfiguration von Modul B, um Remote State zu verwenden
@@ -718,13 +718,13 @@ terraform import azurerm_resource_group.main /subscriptions/.../resourceGroups/r
 
 ---
 
-## Modul E: Module und Wiederverwendbarkeit
+## <span class="lang-en" style="display:none">Module E: Modules and reusability</span><span class="lang-de">Modul E: Module und Wiederverwendbarkeit</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst erklären, was Module sind, den Unterschied zwischen Resource Module und Composition verstehen, und ein simples eigenes Modul erstellen.
 
-### 5.1 Was sind Module?
+### 5.1 <span class="lang-en" style="display:none">What are Modules?</span><span class="lang-de">Was sind Module?</span>
 
 ```
 Module = Wiederverwendbare Terraform-Bausteine
@@ -735,7 +735,7 @@ Ein Modul ist wie eine Funktion in der Programmierung:
   Modul:     create-vpc(cidr, subnets) → erstellt VPC + Subnetze
 ```
 
-### 5.2 Module-Struktur
+### 5.2 <span class="lang-en" style="display:none">Module structure</span><span class="lang-de">Module-Struktur</span>
 
 ```
 modules/
@@ -746,7 +746,7 @@ modules/
     └── README.md       # Dokumentation
 ```
 
-### 5.3 Eigenes Modul erstellen
+### 5.3 <span class="lang-en" style="display:none">Creating your own module</span><span class="lang-de">Eigenes Modul erstellen</span>
 
 ```hcl
 # modules/vnet/variables.tf
@@ -786,7 +786,7 @@ output "vnet_id" {
 }
 ```
 
-### 5.4 Modul verwenden
+### 5.4 <span class="lang-en" style="display:none">Using a module</span><span class="lang-de">Modul verwenden</span>
 
 ```hcl
 # main.tf (Root-Modul)
@@ -805,7 +805,7 @@ output "networking_vnet_id" {
 }
 ```
 
-### 5.5 Drei Modulebenen (vereinfacht)
+### 5.5 <span class="lang-en" style="display:none">Three module levels (simplified)</span><span class="lang-de">Drei Modulebenen (vereinfacht)</span>
 
 ```
 Resource Module:    vnet/, security-group/, subnet/
@@ -818,7 +818,7 @@ Composition:        environments/prod/, environments/dev/
                     → Konkrete Umgebung mit konkreten Werten
 ```
 
-### 5.6 Azure Verified Modules (AVM) — Ausblick
+### 5.6 <span class="lang-en" style="display:none">Azure Verified Modules (AVM)</span><span class="lang-de">Azure Verified Modules (AVM) — Ausblick</span>
 
 Azure bietet offizielle Module an, die du直接使用 verwenden kannst:
 
@@ -837,7 +837,7 @@ module "vnet" {
 - **AVM:** Offiziell, gepflegt, aber noch pre-1.0 (kann breaking changes haben)
 - **Selbst geschrieben:** Voll Kontrolle, lernt mehr, aber Wartung selbst
 
-### 🧪 Kurzes Quiz — Modul E
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul E</span><span class="lang-de">Kurzes Quiz — Modul E</span>
 
 1. Was ist ein Terraform-Modul?
    - a) Ein Azure-Dienst
@@ -852,7 +852,7 @@ module "vnet" {
 3. Was ist der Unterschied zwischen einem Resource Module und einer Composition?
    - Resource Module ist allgemein und wiederverwendbar, Composition ist konkret und umwelt-spezifisch
 
-### 🧪 Praktische Übung — Modul E
+### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul E</span><span class="lang-de">Praktische Übung — Modul E</span>
 
 **Aufgabe:** Erstelle ein simples Modul, das:
 1. Eine Resource Group erstellt
@@ -862,13 +862,13 @@ module "vnet" {
 
 ---
 
-## Modul F: Best Practices und Capstone
+## <span class="lang-en" style="display:none">Module F: Best practices and Capstone</span><span class="lang-de">Modul F: Best Practices und Capstone</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kennst die häufigsten Anfängerfehler, kannst `terraform fmt` und `terraform validate` verwenden, und hast ein eigenes Projekt erstellt.
 
-### 6.1 Die 5 wichtigsten Best Practices
+### 6.1 <span class="lang-en" style="display:none">The 5 most important best practices</span><span class="lang-de">Die 5 wichtigsten Best Practices</span>
 
 ```
 1. Immer fmt und validate vor dem Commit:
@@ -886,7 +886,7 @@ Du kennst die häufigsten Anfängerfehler, kannst `terraform fmt` und `terraform
    → Verhindert unerwartete Breaking Changes
 ```
 
-### 6.2 Häufige Anfängerfehler
+### 6.2 <span class="lang-en" style="display:none">Common beginner mistakes</span><span class="lang-de">Häufige Anfängerfehler</span>
 
 | Fehler | Korrektur |
 |--------|-----------|
@@ -896,7 +896,7 @@ Du kennst die häufigsten Anfängerfehler, kannst `terraform fmt` und `terraform
 | `count` statt `for_each` | `for_each` für Collections, `count` nur für 0/1 |
 | Keine Description bei Variablen | Immer `description` schreiben |
 
-### 6.3 Formatting und Validierung
+### 6.3 <span class="lang-en" style="display:none">Formatting and validation</span><span class="lang-de">Formatting und Validierung</span>
 
 ```bash
 # Dateien formatieren
@@ -910,7 +910,7 @@ terraform validate
 terraform fmt -check -recursive
 ```
 
-### 6.4 🏆 Capstone-Projekt
+### 6.4 🏆 <span class="lang-en" style="display:none">Capstone project</span><span class="lang-de">Capstone-Projekt</span>
 
 **Aufgabe:** Erstelle eine vollständige Infrastruktur mit Terraform:
 
@@ -944,7 +944,7 @@ capstone/
 - [ ] Locals werden für Tags verwendet
 - [ ] Outputs haben alle `description`
 
-### 6.5 Was kommt als Nächstes?
+### 6.5 <span class="lang-en" style="display:none">What's next?</span><span class="lang-de">Was kommt als Nächstes?</span>
 
 ```
 Fertig mit Terraform 101? Weiter zu:
@@ -955,7 +955,7 @@ Fertig mit Terraform 101? Weiter zu:
 4. Terraform Security → Scanning und Compliance
 ```
 
-### 📝 Letztes Quiz — Kurs-Ende
+### 📝 <span class="lang-en" style="display:none">Final Quiz — Kurs-Ende</span><span class="lang-de">Letztes Quiz — Kurs-Ende</span>
 
 1. Nenne die drei wichtigsten Terraform-Befehle.
    **Muster:** `init`, `plan`, `apply`
@@ -971,7 +971,7 @@ Fertig mit Terraform 101? Weiter zu:
 
 ---
 
-## Anhang: Command Cheat Sheet
+## <span class="lang-en" style="display:none">Appendix: Command Cheat Sheet</span><span class="lang-de">Anhang: Command Cheat Sheet</span>
 
 ```bash
 # Grundbefehle
@@ -990,7 +990,7 @@ terraform console       # Interaktiver Konsole
 terraform providers     # Installierte Provider
 ```
 
-## Anhang: Fehlerbehebung
+## <span class="lang-en" style="display:none">Appendix: Troubleshooting</span><span class="lang-de">Anhang: Fehlerbehebung</span>
 
 | Fehler | Mögliche Lösung |
 |--------|-----------------|

@@ -5,7 +5,7 @@ description: Databricks-Infrastruktur und Networking — 8 Stunden, Azure-Vorken
 permalink: /courses/databricks-101.html
 ---
 
-# 🟨 Databricks 101 — Databricks-Infrastruktur und Networking
+# 🟨 Databricks 101 — <span class="lang-en" style="display:none">Databricks infrastructure and networking</span><span class="lang-de">Databricks-Infrastruktur und Networking</span>
 
 > **Dauer:** 8 Stunden (1 voller Tag)  
 > **Niveau:** Beginners — Azure 101 wird vorausgesetzt oder parallel gemacht  
@@ -24,7 +24,7 @@ permalink: /courses/databricks-101.html
 
 ---
 
-## Glossar — Wichtige Databricks-Begriffe
+## <span class="lang-en" style="display:none">Glossary — Important Databricks terms</span><span class="lang-de">Glossar — Wichtige Databricks-Begriffe</span>
 
 | Deutsch | English | Bedeutung |
 |---------|---------|-----------|
@@ -42,9 +42,9 @@ permalink: /courses/databricks-101.html
 
 ---
 
-## Modul A: Was ist Databricks?
+## <span class="lang-en" style="display:none">Module A: What is Databricks?</span><span class="lang-de">Modul A: Was ist Databricks?</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst erklären, was Databricks ist, den Unterschied zwischen Databricks und Azure verstehen, und die Kernkonzepte Workspace, Cluster und Notebook benennen.
 
@@ -110,7 +110,7 @@ Enterprise        → Größte Unternehmen, SLAs
 
 **Für den Kurs:** `Standard` ist die Mindestversion für VNet Injection. `Premium` wird für bestimmte Private-Link-Szenarien benötigt.
 
-### 🧪 Kurzes Quiz — Modul A
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul A</span><span class="lang-de">Kurzes Quiz — Modul A</span>
 
 1. Auf welcher Technologie basiert Databricks?
    - a) Kubernetes
@@ -129,13 +129,13 @@ Enterprise        → Größte Unternehmen, SLAs
 
 ---
 
-## Modul B: Databricks Workspace-Basics
+## <span class="lang-en" style="display:none">Module B: Databricks workspace basics</span><span class="lang-de">Modul B: Databricks Workspace-Basics</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst einen Databricks Workspace erstellen, den Unterschied zwischen Control Plane und Compute Plane erklären, und die Terraform-Konfiguration dafür lesen.
 
-### 2.1 Databricks Workspace erstellen
+### 2.1 Databricks <span class="lang-en" style="display:none">Creating a workspace</span><span class="lang-de">Workspace erstellen</span>
 
 ```hcl
 resource "azurerm_resource_group" "databricks" {
@@ -280,7 +280,7 @@ resource "azurerm_subnet" "databricks_container" {
 }
 ```
 
-### 🧪 Kurzes Quiz — Modul B
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul B</span><span class="lang-de">Kurzes Quiz — Modul B</span>
 
 1. Was bedeutet VNet Injection bei Databricks?
    - a) Databricks wird in dein Azure VNet eingebettet ← **Richtig**
@@ -297,7 +297,7 @@ resource "azurerm_subnet" "databricks_container" {
    - b) /26 ← **Richtig**
    - c) /16
 
-### 🧪 Praktische Übung — Modul B
+### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul B</span><span class="lang-de">Praktische Übung — Modul B</span>
 
 **Aufgabe:** Erstelle:
 1. Eine Resource Group
@@ -308,9 +308,9 @@ resource "azurerm_subnet" "databricks_container" {
 
 ---
 
-## Modul C: VNet Injection
+## <span class="lang-en" style="display:none">Module C: VNet Injection</span><span class="lang-de">Modul C: VNet Injection</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst VNet Injection erklären, die notwendigen Terraform-Parameter benennen und eine vollständige, sichere Databricks-Netzwerkkonfiguration erstellen.
 
@@ -494,11 +494,11 @@ network_security_group_rules_required = "AzureDatabricksRules"
 network_security_group_rules_required = "NoAzureDatabricksRules"
 
 # Keine automatischen Regeln — du musst alles selbst machen!
-# Nur bei Back-End Private Link (classic compute plane) empfohlen
+# Nur bei Back-End <span class="lang-en" style="display:none">Private Link (classic compute plane) empfohlen</span><span class="lang-de">Private Link (classic compute plane) empfohlen</span>
 # Oder bei striktem Egress-Lockdown mit Azure Firewall
 ```
 
-### 🧪 Kurzes Quiz — Modul C
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul C</span><span class="lang-de">Kurzes Quiz — Modul C</span>
 
 1. Was bedeutet `no_public_ip = true` in custom_parameters?
    - a) Databricks ohne Internet
@@ -515,7 +515,7 @@ network_security_group_rules_required = "NoAzureDatabricksRules"
    - b) Databricks erstellt automatisch nötige NSG-Regeln ← **Richtig**
    - c) Löscht alle NSG-Regeln
 
-### 🧪 Praktische Übung — Modul C
+### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul C</span><span class="lang-de">Praktische Übung — Modul C</span>
 
 **Aufgabe:** Erstelle:
 1. Eine Resource Group
@@ -526,9 +526,9 @@ network_security_group_rules_required = "NoAzureDatabricksRules"
 
 ---
 
-## Modul D: Secure Cluster Connectivity (SCC)
+## <span class="lang-en" style="display:none">Module D: Secure Cluster Connectivity (SCC)</span><span class="lang-de">Modul D: Secure Cluster Connectivity (SCC)</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst SCC erklären, den Unterschied zwischen Portal-Default und Terraform-Default verstehen, und SCC mit Terraform aktivieren.
 
@@ -730,7 +730,7 @@ resource "azurerm_nat_gateway" "databricks" {
 # Oder: Im custom_parameters nat_gateway_name angeben
 ```
 
-### 🧪 Kurzes Quiz — Modul D
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul D</span><span class="lang-de">Kurzes Quiz — Modul D</span>
 
 1. Was ist die Stolperfalle bei SCC?
    - a) SCC funktioniert nur mit Premium Tier
@@ -752,7 +752,7 @@ resource "azurerm_nat_gateway" "databricks" {
    - b) `AzureDatabricks` ← **Richtig**
    - c) `Azure-DBX`
 
-### 📝 Hausaufgabe
+### 📝 <span class="lang-en" style="display:none">Homework</span><span class="lang-de">Hausaufgabe</span>
 
 - Erstelle einen Databricks Workspace mit SCC (`no_public_ip = true`)
 - Konfiguriere NSG-Regeln für Databricks
@@ -760,9 +760,9 @@ resource "azurerm_nat_gateway" "databricks" {
 
 ---
 
-## Modul E: Private Link und Networking-Entscheidungen
+## <span class="lang-en" style="display:none">Module E: Private Link and network decisions</span><span class="lang-de">Modul E: Private Link und Networking-Entscheidungen</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst die verschiedenen Databricks-Netzwerkoptionen erklären, verstehen, wann welche Option sinnvoll ist, und eine Entscheidungsmatrix anwenden.
 
@@ -816,7 +816,7 @@ Welche Option brauchst du?
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 5.3 Front-End Private Link (vereinfacht)
+### 5.3 Front-End <span class="lang-en" style="display:none">Private Link (vereinfacht)</span><span class="lang-de">Private Link (vereinfacht)</span>
 
 ```hcl
 # ⚠️ Benötigt Premium Tier!
@@ -856,7 +856,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "databricks" {
 ### 5.4 Browser Authentication Workspace
 
 ```hcl
-# Für Front-End Private Link: extra Workspace mit browser_endpoint
+# Für Front-End <span class="lang-en" style="display:none">Private Link: extra Workspace mit browser_endpoint</span><span class="lang-de">Private Link: extra Workspace mit browser_endpoint</span>
 # Braucht Premium Tier!
 
 resource "azurerm_databricks_workspace" "browser_auth" {
@@ -895,7 +895,7 @@ Optional / Vertiefung:
 🔹 DNS-Konfiguration
 ```
 
-### 🧪 Kurzes Quiz — Modul E
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul E</span><span class="lang-de">Kurzes Quiz — Modul E</span>
 
 1. Welche Option ist der Standard für Anfänger?
    - a) Front-End Private Link
@@ -912,7 +912,7 @@ Optional / Vertiefung:
    - b) Weil Benutzer sonst nicht zur Workspace-URL kommen ← **Richtig**
    - c) Weil Azure es verlangt
 
-### 📝 Hausaufgabe
+### 📝 <span class="lang-en" style="display:none">Homework</span><span class="lang-de">Hausaufgabe</span>
 
 - Erstelle eine Entscheidungsmatrix für drei Szenarien:
   1. Lernumgebung
@@ -922,9 +922,9 @@ Optional / Vertiefung:
 
 ---
 
-## Modul F: Terraform für Databricks und Capstone
+## <span class="lang-en" style="display:none">Module F: Terraform for Databricks and Capstone</span><span class="lang-de">Modul F: Terraform für Databricks und Capstone</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst einen vollständigen Databricks Workspace mit Networking und Security mit Terraform erstellen, und weißt, wie die verschiedenen Konzepte zusammenhängen.
 
@@ -1130,7 +1130,7 @@ terraform apply
 terraform destroy
 ```
 
-### 6.3 🏆 Capstone-Projekt
+### 6.3 🏆 <span class="lang-en" style="display:none">Capstone project</span><span class="lang-de">Capstone-Projekt</span>
 
 **Aufgabe:** Erstelle eine vollständige Databricks-Infrastruktur:
 
@@ -1166,7 +1166,7 @@ Optional (Bonus):
 - [ ] NSG-Regeln sind korrekt
 - [ ] NAT Gateway ist konfiguriert
 
-### 6.4 Was kommt als Nächstes?
+### 6.4 <span class="lang-en" style="display:none">What's next?</span><span class="lang-de">Was kommt als Nächstes?</span>
 
 ```
 Fertig mit Databricks 101? Weiter zu:
@@ -1189,7 +1189,7 @@ Databricks 101         → Workspace, VNet Injection, SCC, Private Link
 Integration 101        → Alles zusammen: Terraform + Azure + Databricks
 ```
 
-### 📝 Letztes Quiz — Kurs-Ende
+### 📝 <span class="lang-en" style="display:none">Final Quiz — Kurs-Ende</span><span class="lang-de">Letztes Quiz — Kurs-Ende</span>
 
 1. Nenne die zwei Subnet-Typen, die Databricks braucht.
    **Muster:** Host Subnet und Container Subnet
@@ -1205,7 +1205,7 @@ Integration 101        → Alles zusammen: Terraform + Azure + Databricks
 
 ---
 
-## Anhang: Databricks-Portreferenz
+## <span class="lang-en" style="display:none">Appendix: Databricks port reference</span><span class="lang-de">Anhang: Databricks-Portreferenz</span>
 
 | Port | Richtung | Zweck | NSG-Regel |
 |------|----------|-------|-----------|
@@ -1216,7 +1216,7 @@ Integration 101        → Alles zusammen: Terraform + Azure + Databricks
 | 53 | Outbound | DNS | Zu */53 |
 | 80 | Outbound | HTTP (nicht empfohlen) | Zu */80 |
 
-## Anhang: Häufige Fehler
+## <span class="lang-en" style="display:none">Appendix: Common errors</span><span class="lang-de">Anhang: Häufige Fehler</span>
 
 | Fehler | Lösung |
 |--------|--------|

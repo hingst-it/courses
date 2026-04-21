@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }} — {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% include i18n.html %}
 </head>
 <body>
   <div class="parallax-bg">
@@ -16,50 +17,107 @@
     <div class="nav-inner">
       <a href="{{ '/' | relative_url }}" class="logo"><span>☁️</span> Cloud Courses</a>
       <nav>
-        <a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a>
-        <a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a>
-        <a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a>
-        <a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a>
+        <span class="lang-en" style="display:none"><a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a></span>
+        <span class="lang-de"><a href="{{ '/courses/terraform-101.html' | relative_url }}">Terraform 101</a></span>
+        <span class="lang-en" style="display:none"><a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a></span>
+        <span class="lang-de"><a href="{{ '/courses/azure-101.html' | relative_url }}">Azure 101</a></span>
+        <span class="lang-en" style="display:none"><a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a></span>
+        <span class="lang-de"><a href="{{ '/courses/databricks-101.html' | relative_url }}">Databricks 101</a></span>
+        <span class="lang-en" style="display:none"><a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a></span>
+        <span class="lang-de"><a href="{{ '/courses/integration-101.html' | relative_url }}">Integration 101</a></span>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">Beginner 101 · Deutsch</div>
+      <span class="hero-badge">
+        <span class="lang-en" style="display:none">Beginner 101 · Deutsch</span>
+        <span class="lang-de">Beginner 101 · Deutsch</span>
+        <span class="lang-en" style="display:none">Beginner 101 · English</span>
+        <span class="lang-de" style="display:none">Beginner 101 · English</span>
+      </span>
       <h1>Terraform × Azure<br><span class="gradient">& Databricks</span></h1>
-      <p>Dein Weg von Null zur Cloud-Infrastruktur. Schritt für Schritt — auf Deutsch.</p>
+      <p>
+        <span class="lang-en" style="display:none">Dein Weg von Null zur Cloud-Infrastruktur. Schritt für Schritt — auf Deutsch.</span>
+        <span class="lang-de">Dein Weg von Null zur Cloud-Infrastruktur. Schritt für Schritt — auf Deutsch.</span>
+        <span class="lang-en" style="display:none">Your path from zero to cloud infrastructure. Step by step.</span>
+        <span class="lang-de" style="display:none">Your path from zero to cloud infrastructure. Step by step.</span>
+      </p>
       <div class="hero-cta">
-        <a href="#courses" class="btn btn-primary">Kurse entdecken ↓</a>
-        <a href="#how" class="btn btn-outline">So funktioniert's</a>
+        <a href="#courses" class="btn btn-primary">
+          <span class="lang-en" style="display:none">Kurse entdecken ↓</span>
+          <span class="lang-de">Kurse entdecken ↓</span>
+          <span class="lang-en" style="display:none">Explore courses ↓</span>
+          <span class="lang-de" style="display:none">Explore courses ↓</span>
+        </a>
+        <a href="#how" class="btn btn-outline">
+          <span class="lang-en" style="display:none">So funktioniert's</span>
+          <span class="lang-de">So funktioniert's</span>
+          <span class="lang-en" style="display:none">How it works</span>
+          <span class="lang-de" style="display:none">How it works</span>
+        </a>
       </div>
     </div>
     <div class="scroll-hint">
-      <span>Scroll</span>
+      <span class="lang-en" style="display:none">Scroll</span>
+      <span class="lang-de">Scroll</span>
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </div>
   </section>
 
   <div class="section" id="courses">
-    <span class="section-label">Kurse</span>
-    <h2 class="section-title">Wähle deinen Einstieg</h2>
-    <p class="section-desc">Vier Kurse, eine Reise. Beginne bei Terraform 101 oder springe direkt rein.</p>
+    <span class="section-label">
+      <span class="lang-en" style="display:none">Kurse</span>
+      <span class="lang-de">Kurse</span>
+      <span class="lang-en" style="display:none">Courses</span>
+      <span class="lang-de" style="display:none">Courses</span>
+    </span>
+    <h2 class="section-title">
+      <span class="lang-en" style="display:none">Wähle deinen Einstieg</span>
+      <span class="lang-de">Wähle deinen Einstieg</span>
+      <span class="lang-en" style="display:none">Choose your starting point</span>
+      <span class="lang-de" style="display:none">Choose your starting point</span>
+    </h2>
+    <p class="section-desc">
+      <span class="lang-en" style="display:none">Vier Kurse, eine Reise. Beginne bei Terraform 101 oder springe direkt rein.</span>
+      <span class="lang-de">Vier Kurse, eine Reise. Beginne bei Terraform 101 oder springe direkt rein.</span>
+      <span class="lang-en" style="display:none">Four courses, one journey. Start with Terraform 101 or dive right in.</span>
+      <span class="lang-de" style="display:none">Four courses, one journey. Start with Terraform 101 or dive right in.</span>
+    </p>
 
     <div class="courses-grid">
       <a href="{{ '/courses/terraform-101.html' | relative_url }}" class="course-card reveal">
         <div class="icon icon--tf">🟩</div>
-        <h3>Terraform 101</h3>
+        <h3>
+          <span class="lang-en" style="display:none">Terraform 101</span>
+          <span class="lang-de">Terraform 101</span>
+        </h3>
         <div class="duration">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          8 Stunden · Absolute Beginners
+          <span class="lang-en" style="display:none">8 Stunden · Absolute Beginners</span>
+          <span class="lang-de">8 Stunden · Absolute Beginners</span>
+          <span class="lang-en" style="display:none">8 hours · Absolute Beginners</span>
+          <span class="lang-de" style="display:none">8 hours · Absolute Beginners</span>
         </div>
-        <p class="desc">Infrastructure as Code von Grund auf. HCL, State, Modules, Best Practices.</p>
+        <p class="desc">
+          <span class="lang-en" style="display:none">Infrastructure as Code von Grund auf. HCL, State, Modules, Best Practices.</span>
+          <span class="lang-de">Infrastructure as Code von Grund auf. HCL, State, Modules, Best Practices.</span>
+          <span class="lang-en" style="display:none">Infrastructure as Code from scratch. HCL, State, Modules, Best Practices.</span>
+          <span class="lang-de" style="display:none">Infrastructure as Code from scratch. HCL, State, Modules, Best Practices.</span>
+        </p>
         <div class="tags">
           <span class="tag">HCL</span>
           <span class="tag">State</span>
           <span class="tag">Modules</span>
         </div>
-        <span class="arrow">Kurs starten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="arrow">
+          <span class="lang-en" style="display:none">Kurs starten</span>
+          <span class="lang-de">Kurs starten</span>
+          <span class="lang-en" style="display:none">Start course</span>
+          <span class="lang-de" style="display:none">Start course</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
       </a>
 
       <a href="{{ '/courses/azure-101.html' | relative_url }}" class="course-card reveal">
@@ -67,15 +125,29 @@
         <h3>Azure 101</h3>
         <div class="duration">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          8 Stunden · Terraform 101 empfohlen
+          <span class="lang-en" style="display:none">8 Stunden · Terraform 101 empfohlen</span>
+          <span class="lang-de">8 Stunden · Terraform 101 empfohlen</span>
+          <span class="lang-en" style="display:none">8 hours · Terraform 101 recommended</span>
+          <span class="lang-de" style="display:none">8 hours · Terraform 101 recommended</span>
         </div>
-        <p class="desc">Azure Cloud-Grundlagen: Resource Groups, VNets, NSGs, Hub-and-Spoke.</p>
+        <p class="desc">
+          <span class="lang-en" style="display:none">Azure Cloud-Grundlagen: Resource Groups, VNets, NSGs, Hub-and-Spoke.</span>
+          <span class="lang-de">Azure Cloud-Grundlagen: Resource Groups, VNets, NSGs, Hub-and-Spoke.</span>
+          <span class="lang-en" style="display:none">Azure Cloud fundamentals: Resource Groups, VNets, NSGs, Hub-and-Spoke.</span>
+          <span class="lang-de" style="display:none">Azure Cloud fundamentals: Resource Groups, VNets, NSGs, Hub-and-Spoke.</span>
+        </p>
         <div class="tags">
           <span class="tag">VNet</span>
           <span class="tag">NSG</span>
           <span class="tag">Peering</span>
         </div>
-        <span class="arrow">Kurs starten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="arrow">
+          <span class="lang-en" style="display:none">Kurs starten</span>
+          <span class="lang-de">Kurs starten</span>
+          <span class="lang-en" style="display:none">Start course</span>
+          <span class="lang-de" style="display:none">Start course</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
       </a>
 
       <a href="{{ '/courses/databricks-101.html' | relative_url }}" class="course-card reveal">
@@ -83,15 +155,29 @@
         <h3>Databricks 101</h3>
         <div class="duration">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          8 Stunden · Azure-Vorkenntnisse
+          <span class="lang-en" style="display:none">8 Stunden · Azure-Vorkenntnisse</span>
+          <span class="lang-de">8 Stunden · Azure-Vorkenntnisse</span>
+          <span class="lang-en" style="display:none">8 hours · Azure prior knowledge</span>
+          <span class="lang-de" style="display:none">8 hours · Azure prior knowledge</span>
         </div>
-        <p class="desc">Databricks-Infrastruktur: Workspace, VNet Injection, SCC, Private Link.</p>
+        <p class="desc">
+          <span class="lang-en" style="display:none">Databricks-Infrastruktur: Workspace, VNet Injection, SCC, Private Link.</span>
+          <span class="lang-de">Databricks-Infrastruktur: Workspace, VNet Injection, SCC, Private Link.</span>
+          <span class="lang-en" style="display:none">Databricks infrastructure: Workspace, VNet Injection, SCC, Private Link.</span>
+          <span class="lang-de" style="display:none">Databricks infrastructure: Workspace, VNet Injection, SCC, Private Link.</span>
+        </p>
         <div class="tags">
           <span class="tag">VNet Injection</span>
           <span class="tag">SCC</span>
           <span class="tag">Private Link</span>
         </div>
-        <span class="arrow">Kurs starten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="arrow">
+          <span class="lang-en" style="display:none">Kurs starten</span>
+          <span class="lang-de">Kurs starten</span>
+          <span class="lang-en" style="display:none">Start course</span>
+          <span class="lang-de" style="display:none">Start course</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
       </a>
 
       <a href="{{ '/courses/integration-101.html' | relative_url }}" class="course-card reveal">
@@ -99,15 +185,29 @@
         <h3>Integration 101</h3>
         <div class="duration">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          10 Stunden · Intermediate
+          <span class="lang-en" style="display:none">10 Stunden · Intermediate</span>
+          <span class="lang-de">10 Stunden · Intermediate</span>
+          <span class="lang-en" style="display:none">10 hours · Intermediate</span>
+          <span class="lang-de" style="display:none">10 hours · Intermediate</span>
         </div>
-        <p class="desc">Alles kombiniert: Module, CI/CD, Security Scanning, Capstone-Projekt.</p>
+        <p class="desc">
+          <span class="lang-en" style="display:none">Alles kombiniert: Module, CI/CD, Security Scanning, Capstone-Projekt.</span>
+          <span class="lang-de">Alles kombiniert: Module, CI/CD, Security Scanning, Capstone-Projekt.</span>
+          <span class="lang-en" style="display:none">All combined: Modules, CI/CD, Security Scanning, Capstone project.</span>
+          <span class="lang-de" style="display:none">All combined: Modules, CI/CD, Security Scanning, Capstone project.</span>
+        </p>
         <div class="tags">
           <span class="tag">CI/CD</span>
           <span class="tag">OIDC</span>
           <span class="tag">Capstone</span>
         </div>
-        <span class="arrow">Kurs starten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <span class="arrow">
+          <span class="lang-en" style="display:none">Kurs starten</span>
+          <span class="lang-de">Kurs starten</span>
+          <span class="lang-en" style="display:none">Start course</span>
+          <span class="lang-de" style="display:none">Start course</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
       </a>
     </div>
   </div>
@@ -116,8 +216,18 @@
     <div class="parallax-img" style="background-image: linear-gradient(135deg, rgba(108,99,255,0.3) 0%, rgba(0,212,170,0.3) 100%), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 600%22><rect fill=%22%230a0a1a%22 width=%221200%22 height=%22600%22/></svg>');"></div>
     <div class="overlay"></div>
     <div class="parallax-content">
-      <h2>So funktionieren die Kurse</h2>
-      <p>Fünf Schritte von Theorie zur Praxis</p>
+      <h2>
+        <span class="lang-en" style="display:none">So funktionieren die Kurse</span>
+        <span class="lang-de">So funktionieren die Kurse</span>
+        <span class="lang-en" style="display:none">How the courses work</span>
+        <span class="lang-de" style="display:none">How the courses work</span>
+      </h2>
+      <p>
+        <span class="lang-en" style="display:none">Fünf Schritte von Theorie zur Praxis</span>
+        <span class="lang-de">Fünf Schritte von Theorie zur Praxis</span>
+        <span class="lang-en" style="display:none">Five steps from theory to practice</span>
+        <span class="lang-de" style="display:none">Five steps from theory to practice</span>
+      </p>
     </div>
   </section>
 
@@ -125,58 +235,126 @@
     <div class="features-grid">
       <div class="feature reveal">
         <div class="num">01</div>
-        <h3>Was ist das?</h3>
-        <p>Konzepte, Analogien und die Frage „Warum?" — bevor Code entsteht.</p>
+        <h3>
+          <span class="lang-en" style="display:none">Was ist das?</span>
+          <span class="lang-de">Was ist das?</span>
+          <span class="lang-en" style="display:none">What is it?</span>
+          <span class="lang-de" style="display:none">What is it?</span>
+        </h3>
+        <p>
+          <span class="lang-en" style="display:none">Konzepte, Analogien und die Frage „Warum?" — bevor Code entsteht.</span>
+          <span class="lang-de">Konzepte, Analogien und die Frage „Warum?" — bevor Code entsteht.</span>
+          <span class="lang-en" style="display:none">Concepts, analogies, and the question "Why?" — before any code is written.</span>
+          <span class="lang-de" style="display:none">Concepts, analogies, and the question "Why?" — before any code is written.</span>
+        </p>
       </div>
       <div class="feature reveal">
         <div class="num">02</div>
-        <h3>Worked Examples</h3>
-        <p>Schritt-für-Schritt: Du siehst wie es funktioniert, bevor du es machst.</p>
+        <h3>
+          <span class="lang-en" style="display:none">Worked Examples</span>
+          <span class="lang-de">Worked Examples</span>
+          <span class="lang-en" style="display:none">Worked Examples</span>
+          <span class="lang-de" style="display:none">Worked Examples</span>
+        </h3>
+        <p>
+          <span class="lang-en" style="display:none">Schritt-für-Schritt: Du siehst wie es funktioniert, bevor du es machst.</span>
+          <span class="lang-de">Schritt-für-Schritt: Du siehst wie es funktioniert, bevor du es machst.</span>
+          <span class="lang-en" style="display:none">Step-by-step: See how it works before you try it yourself.</span>
+          <span class="lang-de" style="display:none">Step-by-step: See how it works before you try it yourself.</span>
+        </p>
       </div>
       <div class="feature reveal">
         <div class="num">03</div>
-        <h3>Mach es selbst</h3>
-        <p>Geführte Labs mit echtem Terraform-Code — Learning by Doing.</p>
+        <h3>
+          <span class="lang-en" style="display:none">Mach es selbst</span>
+          <span class="lang-de">Mach es selbst</span>
+          <span class="lang-en" style="display:none">Try it yourself</span>
+          <span class="lang-de" style="display:none">Try it yourself</span>
+        </h3>
+        <p>
+          <span class="lang-en" style="display:none">Geführte Labs mit echtem Terraform-Code --- Learning by Doing.</span>
+          <span class="lang-de">Geführte Labs mit echtem Terraform-Code --- Learning by Doing.</span>
+          <span class="lang-en" style="display:none">Guided labs with real Terraform code --- Learning by Doing.</span>
+          <span class="lang-de" style="display:none">Guided labs with real Terraform code --- Learning by Doing.</span>
+        </p>
       </div>
       <div class="feature reveal">
         <div class="num">04</div>
-        <h3>Quiz & Lösungen</h3>
-        <p>Teste dein Wissen sofort — mit direkt sichtbaren Musterlösungen.</p>
+        <h3>
+          <span class="lang-en" style="display:none">Quiz & Lösungen</span>
+          <span class="lang-de">Quiz & Lösungen</span>
+          <span class="lang-en" style="display:none">Quiz & Solutions</span>
+          <span class="lang-de" style="display:none">Quiz & Solutions</span>
+        </h3>
+        <p>
+          <span class="lang-en" style="display:none">Teste dein Wissen sofort --- mit direkt sichtbaren Musterlösungen.</span>
+          <span class="lang-de">Teste dein Wissen sofort --- mit direkt sichtbaren Musterlösungen.</span>
+          <span class="lang-en" style="display:none">Test your knowledge immediately --- with visible solutions.</span>
+          <span class="lang-de" style="display:none">Test your knowledge immediately --- with visible solutions.</span>
+        </p>
       </div>
       <div class="feature reveal">
         <div class="num">05</div>
-        <h3>Transferaufgabe</h3>
-        <p>Hausaufgaben & Ausblick — was du als Nächstes machen kannst.</p>
+        <h3>
+          <span class="lang-en" style="display:none">Transferaufgabe</span>
+          <span class="lang-de">Transferaufgabe</span>
+          <span class="lang-en" style="display:none">Challenge Task</span>
+          <span class="lang-de" style="display:none">Challenge Task</span>
+        </h3>
+        <p>
+          <span class="lang-en" style="display:none">Hausaufgaben & Ausblick --- was du als Nächstes machen kannst.</span>
+          <span class="lang-de">Hausaufgaben & Ausblick --- was du als Nächstes machen kannst.</span>
+          <span class="lang-en" style="display:none">Homework & Outlook --- what you can do next.</span>
+          <span class="lang-de" style="display:none">Homework & Outlook --- what you can do next.</span>
+        </p>
       </div>
     </div>
 
     <div class="flow-diagram reveal">
       <div class="flow-item">
         <div class="flow-icon">🟩</div>
-        <div class="flow-label">Terraform 101</div>
+        <div class="flow-label">
+          <span class="lang-en" style="display:none">Terraform 101</span>
+          <span class="lang-de">Terraform 101</span>
+        </div>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-item">
         <div class="flow-icon">🟦</div>
-        <div class="flow-label">Azure 101</div>
+        <div class="flow-label">
+          <span class="lang-en" style="display:none">Azure 101</span>
+          <span class="lang-de">Azure 101</span>
+        </div>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-item">
         <div class="flow-icon">🟨</div>
-        <div class="flow-label">Databricks 101</div>
+        <div class="flow-label">
+          <span class="lang-en" style="display:none">Databricks 101</span>
+          <span class="lang-de">Databricks 101</span>
+        </div>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-item">
         <div class="flow-icon">🚀</div>
-        <div class="flow-label">Integration 101</div>
+        <div class="flow-label">
+          <span class="lang-en" style="display:none">Integration 101</span>
+          <span class="lang-de">Integration 101</span>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="site-footer">
-    <p>Kursmaterialien basierend auf terraform-skill (Apache 2.0).</p>
+    <p>
+      <span class="lang-en" style="display:none">Kursmaterialien basierend auf terraform-skill (Apache 2.0).</span>
+      <span class="lang-de">Kursmaterialien basierend auf terraform-skill (Apache 2.0).</span>
+      <span class="lang-en" style="display:none">Course materials based on terraform-skill (Apache 2.0).</span>
+      <span class="lang-de" style="display:none">Course materials based on terraform-skill (Apache 2.0).</span>
+    </p>
   </div>
 
+  <script src="{{ '/assets/js/i18n.js' | relative_url }}"></script>
   <script>
     // ── Parallax on scroll ──
     const layers = document.querySelectorAll('.parallax-bg .layer');

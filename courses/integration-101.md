@@ -5,7 +5,7 @@ description: Terraform + Azure + Databricks kombiniert — 10 Stunden, Intermedi
 permalink: /courses/integration-101.html
 ---
 
-# 🚀 Integration 101 — Terraform × Azure × Databricks kombiniert
+# 🚀 Integration 101 — <span class="lang-en" style="display:none">Terraform × Azure × Databricks combined</span><span class="lang-de">Terraform × Azure × Databricks kombiniert</span>
 
 > **Dauer:** 10 Stunden (1,5 Tage)  
 > **Niveau:** Intermediate — Terraform 101 und Azure 101 werden vorausgesetzt  
@@ -41,7 +41,7 @@ Databricks läuft in Azure-Netzwerken.
 ─────────────────────────────────────────────────────────────────
 ```
 
-### Lernziele dieses Kurses
+### <span class="lang-en" style="display:none">Learning Objectivee dieses Kurses</span><span class="lang-de">Lernziele dieses Kurses</span>
 
 Am Ende kannst du:
 1. Eine vollständige Databricks-Infrastruktur mit Terraform erstellen
@@ -52,13 +52,13 @@ Am Ende kannst du:
 
 ---
 
-## Modul A: Gesamtsystem-Architektur
+## <span class="lang-en" style="display:none">Module A: Full system architecture</span><span class="lang-de">Modul A: Gesamtsystem-Architektur</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst die komplette Architektur von Terraform + Azure + Databricks erklären und die Beziehung zwischen allen Komponenten verstehen.
 
-### 1.1 Die Gesamtarchitektur
+### 1.1 Die <span class="lang-en" style="display:none">Overall architecture</span><span class="lang-de">Gesamtarchitektur</span>
 
 ```
 ─────────────────────────────────────────────────────────────
@@ -120,7 +120,7 @@ Du kannst die komplette Architektur von Terraform + Azure + Databricks erklären
 ─────────────────────────────────────────────────────────────
 ```
 
-### 1.2 Terraform als Steuerungszentrale
+### 1.2 <span class="lang-en" style="display:none">Terraform as the control plane</span><span class="lang-de">Terraform als Steuerungszentrale</span>
 
 ```
 Du schreibst Code in Terraform:
@@ -140,7 +140,7 @@ Azure erstellt ALLES automatisch:
 └── Databricks Workspace mit VNet Injection + SCC
 ```
 
-### 1.3 Wichtige Abhängigkeiten
+### 1.3 <span class="lang-en" style="display:none">Key dependencies</span><span class="lang-de">Wichtige Abhängigkeiten</span>
 
 ```
 Reihenfolge der Erstellung:
@@ -156,7 +156,7 @@ Reihenfolge der Erstellung:
 
 **Terraform merkt sich diese Reihenfolge automatisch** über die Referenzen im Code!
 
-### 🧪 Kurzes Quiz — Modul A
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul A</span><span class="lang-de">Kurzes Quiz — Modul A</span>
 
 1. Welche drei Technologien verbinden wir?
    **Muster:** Terraform (IaC), Azure (Cloud), Databricks (Datenplattform)
@@ -169,13 +169,13 @@ Reihenfolge der Erstellung:
 
 ---
 
-## Modul B: Projektstruktur und Organisation
+## <span class="lang-en" style="display:none">Module B: Project structure and organization</span><span class="lang-de">Modul B: Projektstruktur und Organisation</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst eine professionelle Terraform-Projektstruktur aufbauen, Module organisieren und Remote State konfigurieren.
 
-### 2.1 Projektstruktur
+### 2.1 <span class="lang-en" style="display:none">Project structure</span><span class="lang-de">Projektstruktur</span>
 
 ```
 ──────────────────────────────────────────────────────
@@ -216,7 +216,7 @@ Du kannst eine professionelle Terraform-Projektstruktur aufbauen, Module organis
 ──────────────────────────────────────────────────────
 ```
 
-### 2.2 Module: networking
+### 2.2 <span class="lang-en" style="display:none">Module: networking</span><span class="lang-de">Module: networking</span>
 
 ```hcl
 # modules/networking/main.tf
@@ -296,7 +296,7 @@ output "resource_group_name" {
 }
 ```
 
-### 2.3 Module: databricks
+### 2.3 <span class="lang-en" style="display:none">Module: databricks</span><span class="lang-de">Module: databricks</span>
 
 ```hcl
 # modules/databricks/main.tf
@@ -487,7 +487,7 @@ output "databricks_id" {
 }
 ```
 
-### 🧪 Kurzes Quiz — Modul B
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul B</span><span class="lang-de">Kurzes Quiz — Modul B</span>
 
 1. Warum trennen wir Module von Environment-Config?
    **Muster:** Module sind wiederverwendbar, Environment-Config ist umwelt-spezifisch
@@ -500,9 +500,9 @@ output "databricks_id" {
 
 ---
 
-## Modul C: Infrastruktur-Code — Schritt für Schritt
+## <span class="lang-en" style="display:none">Module C: Infrastructure code — Schritt für Schritt</span><span class="lang-de">Modul C: Infrastruktur-Code — Schritt für Schritt</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst eine komplette Databricks-Infrastruktur mit einem monolithischen Terraform-Projekt erstellen.
 
@@ -755,7 +755,7 @@ terraform apply
 terraform destroy
 ```
 
-### 🧪 Kurzes Quiz — Modul C
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul C</span><span class="lang-de">Kurzes Quiz — Modul C</span>
 
 1. Warum verwenden wir `for_each` für NSG-Regeln?
    **Muster:** Weil es stable resource addresses liefert und Regeln leichter zu erweitern sind
@@ -766,15 +766,15 @@ terraform destroy
 3. Wie viele NSG-Regeln werden im Beispiel mindestens erstellt?
    **Muster:** 5 (MongoDB, Spark, Spark2, HTTPS-Out, DNS-Out)
 
-### 🧪 Praktische Übung — Modul C
+### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul C</span><span class="lang-de">Praktische Übung — Modul C</span>
 
 **Aufgabe:** Erstelle einen vollständigen monolithischen Terraform-Code (alle Schritte 1-6 in einer `main.tf`), der eine Resource Group, ein VNet, zwei Subnetze, eine NSG mit Regeln, ein NAT Gateway und einen Databricks Workspace mit SCC erstellt.
 
 ---
 
-## Modul D: Security, Compliance und Best Practices
+## <span class="lang-en" style="display:none">Module D: Security, compliance and best practices</span><span class="lang-de">Modul D: Security, Compliance und Best Practices</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst Security Scanning einrichten, Best Practices anwenden und häufige Fehler vermeiden.
 
@@ -898,7 +898,7 @@ terraform {
 
 **Merke:** `~> 4.0` erlaubt Patch-Updates (4.0.1, 4.1.0), blockiert aber Breaking Changes (5.0.0).
 
-### 🧪 Kurzes Quiz — Modul D
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul D</span><span class="lang-de">Kurzes Quiz — Modul D</span>
 
 1. Warum ist `~> 4.0` besser als `>= 4.0`?
    **Muster:** Blockiert Breaking Changes von Major-Version 5
@@ -911,13 +911,13 @@ terraform {
 
 ---
 
-## Modul E: CI/CD und Automatisierung
+## <span class="lang-en" style="display:none">Module E: CI/CD and automation</span><span class="lang-de">Modul E: CI/CD und Automatisierung</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst eine GitHub Actions Pipeline für Terraform erstellen und OIDC-Authentifizierung einrichten.
 
-### 5.1 GitHub Actions Workflow
+### 5.1 <span class="lang-en" style="display:none">GitHub Actions workflow</span><span class="lang-de">GitHub Actions Workflow</span>
 
 ```yaml
 # .github/workflows/terraform.yml
@@ -1037,7 +1037,7 @@ Main-Branch Merge:
 └─ Ressourcen aktualisiert ✓
 ```
 
-### 🧪 Kurzes Quiz — Modul E
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul E</span><span class="lang-de">Kurzes Quiz — Modul E</span>
 
 1. Warum ist OIDC besser als Access Keys?
    **Muster:** OIDC erzeugt kurzlebige Tokens — keine langlebigen Secrets im Code
@@ -1050,13 +1050,13 @@ Main-Branch Merge:
 
 ---
 
-## Modul F: Capstone und Deployment
+## <span class="lang-en" style="display:none">Module F: Capstone and deployment</span><span class="lang-de">Modul F: Capstone und Deployment</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst ein vollständiges, produktionsähnliches Projekt erstellen und deployen.
 
-### 6.1 🏆 Capstone-Projekt
+### 6.1 🏆 <span class="lang-en" style="display:none">Capstone project</span><span class="lang-de">Capstone-Projekt</span>
 
 **Aufgabe:** Erstelle eine vollständige, produktionsähnliche Databricks-Infrastruktur:
 
@@ -1160,7 +1160,7 @@ NÄCHSTE SCHRITTE:
 └── Enterprise IaC Patterns
 ```
 
-### 📝 Letztes Quiz — Kurs-Ende
+### 📝 <span class="lang-en" style="display:none">Final Quiz — Kurs-Ende</span><span class="lang-de">Letztes Quiz — Kurs-Ende</span>
 
 1. Nenne die drei Säulen dieses Kurses.
    **Muster:** Terraform (IaC), Azure (Cloud), Databricks (Datenplattform)
@@ -1176,7 +1176,7 @@ NÄCHSTE SCHRITTE:
 
 ---
 
-## Anhang: Komplette Datei-Struktur (Referenz)
+## <span class="lang-en" style="display:none">Appendix: Complete file structure (Referenz)</span><span class="lang-de">Anhang: Komplette Datei-Struktur (Referenz)</span>
 
 ```
 terraform-azure-databricks/
@@ -1215,7 +1215,7 @@ terraform-azure-databricks/
         └── terraform.yml
 ```
 
-## Anhang: Quick Reference
+## <span class="lang-en" style="display:none">Appendix: Quick reference</span><span class="lang-de">Anhang: Quick Reference</span>
 
 ### Terraform Befehle
 

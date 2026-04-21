@@ -5,7 +5,7 @@ description: Azure Cloud-Grundlagen für Terraform-Nutzer — 8 Stunden, absolut
 permalink: /courses/azure-101.html
 ---
 
-# 🟦 Azure 101 — Cloud-Grundlagen für Terraform-Nutzer
+# 🟦 Azure 101 — <span class="lang-en" style="display:none">Cloud fundamentals for Terraform users</span><span class="lang-de">Cloud-Grundlagen für Terraform-Nutzer</span>
 
 > **Dauer:** 8 Stunden (1 voller Tag)  
 > **Niveau:** Absolute Beginners — keine Azure-Vorkenntnisse nötig  
@@ -24,7 +24,7 @@ permalink: /courses/azure-101.html
 
 ---
 
-## Glossar — Wichtige Azure-Begriffe
+## <span class="lang-en" style="display:none">Glossary — Important Azure terms</span><span class="lang-de">Glossar — Wichtige Azure-Begriffe</span>
 
 | Deutsch | English | Bedeutung |
 |---------|---------|-----------|
@@ -40,13 +40,13 @@ permalink: /courses/azure-101.html
 
 ---
 
-## Modul A: Azure-Basics
+## <span class="lang-en" style="display:none">Module A: Azure basics</span><span class="lang-de">Modul A: Azure-Basics</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst Azure-Konzepte wie Subscription, Resource Group, Region und Azure Portal erklären.
 
-### 1.1 Wie Azure organisiert ist
+### 1.1 <span class="lang-en" style="display:none">How Azure is organized</span><span class="lang-de">Wie Azure organisiert ist</span>
 
 ```
 Azure ist in Schichten organisiert:
@@ -68,7 +68,7 @@ Subscription (Abonnement)
 2. **Resource Groups gehören genau einer Subscription**
 3. **Resource Groups können Regionen gemischt haben** (aber: gleiche Region ist einfacher)
 
-### 1.2 Regionen in Azure
+### 1.2 <span class="lang-en" style="display:none">Regions in Azure</span><span class="lang-de">Regionen in Azure</span>
 
 ```
 Azure hat Rechenzentren weltweit:
@@ -85,7 +85,7 @@ West Europe (Niederlande)             ← Europa
 - Für deutschsprachige Kurse: `Germany West Central` (Frankfurt)
 - Alle Ressourcen in einer Resource Group sollten idealerweise in derselben Region sein
 
-### 1.3 Das Azure Portal
+### 1.3 <span class="lang-en" style="display:none">The Azure Portal</span><span class="lang-de">Das Azure Portal</span>
 
 Das Portal ist die Webseite, mit der du Azure manuell bedienen kannst:
 
@@ -101,7 +101,7 @@ Dort kannst du:
 
 **Aber:** Manuelles Arbeiten im Portal ist **nicht reproduzierbar** und **nicht versionierbar**. Genau dafür brauchen wir Terraform!
 
-### 1.4 Azure CLI — Die Befehlszeile
+### 1.4 <span class="lang-en" style="display:none">Azure CLI — the command line</span><span class="lang-de">Azure CLI — Die Befehlszeile</span>
 
 ```bash
 # Login
@@ -113,7 +113,7 @@ az account list --output table
 # Active Subscription setzen
 az account set --subscription "Your Subscription Name"
 
-# Resource Group erstellen (manuell)
+# <span class="lang-en" style="display:none">Creating a resource group (manuell)</span><span class="lang-de">Resource Group erstellen (manuell)</span>
 az group create --name rg-test --location "Germany West Central"
 
 # Alle Resource Groups sehen
@@ -122,7 +122,7 @@ az group list --output table
 
 **CLI-Grundregel:** `az <resource> <action> --name <name> --location <location>`
 
-### 🧪 Kurzes Quiz — Modul A
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul A</span><span class="lang-de">Kurzes Quiz — Modul A</span>
 
 1. Was ist eine Resource Group?
    - a) Eine Datei auf deinem Computer
@@ -141,13 +141,13 @@ az group list --output table
 
 ---
 
-## Modul B: Ressourcengruppen und Ressourcen
+## <span class="lang-en" style="display:none">Module B: Resource groups and resources</span><span class="lang-de">Modul B: Ressourcengruppen und Ressourcen</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst Resource Groups und verschiedene Azure-Ressourcen manuell und mit Terraform erstellen.
 
-### 2.1 Resource Group erstellen
+### 2.1 <span class="lang-en" style="display:none">Creating a resource group</span><span class="lang-de">Resource Group erstellen</span>
 
 ```hcl
 # main.tf
@@ -176,7 +176,7 @@ resource "azurerm_resource_group" "learning" {
 }
 ```
 
-### 2.2 Storage Account
+### 2.2 <span class="lang-en" style="display:none">Storage account</span><span class="lang-de">Storage Account</span>
 
 ```hcl
 resource "azurerm_storage_account" "learning" {
@@ -198,7 +198,7 @@ resource "azurerm_storage_account" "learning" {
 - `GRS` = 3 Kopien im selben + 3 im benachbarten (teurer, aber sicherer)
 - `Standard` = HDD (günstig), `Premium` = SSD (schneller)
 
-### 2.3 Virtuelle Maschine (VM)
+### 2.3 <span class="lang-en" style="display:none">Virtual machine (VM)</span><span class="lang-de">Virtuelle Maschine (VM)</span>
 
 ```hcl
 resource "azurerm_resource_group" "compute" {
@@ -256,7 +256,7 @@ resource "azurerm_linux_virtual_machine" "main" {
 | `Standard_D2s_v3` | 2 | 8 GB | Allgemein |
 | `Standard_D4s_v3` | 4 | 16 GB | Größere Workloads |
 
-### 2.4 Terraform + Azure CLI — Vollständiger Ablauf
+### 2.4 <span class="lang-en" style="display:none">Terraform + Azure CLI — complete flow</span><span class="lang-de">Terraform + Azure CLI — Vollständiger Ablauf</span>
 
 ```bash
 # 1. Anmelden
@@ -283,7 +283,7 @@ terraform apply
 terraform destroy
 ```
 
-### 🧪 Kurzes Quiz — Modul B
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul B</span><span class="lang-de">Kurzes Quiz — Modul B</span>
 
 1. Was bedeutet `LRS` beim Storage Account?
    - a) Low Replication Storage
@@ -300,7 +300,7 @@ terraform destroy
    - b) Im Azure Portal und mit `az` CLI ← **Richtig**
    - c) Auf einem Papierbericht
 
-### 🧪 Praktische Übung — Modul B
+### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul B</span><span class="lang-de">Praktische Übung — Modul B</span>
 
 **Aufgabe:** Erstelle eine Resource Group mit:
 1. Einem Storage Account (`Standard`, `LRS`)
@@ -310,13 +310,13 @@ terraform destroy
 
 ---
 
-## Modul C: Virtual Networks (VNet)
+## <span class="lang-en" style="display:none">Module C: Virtual Networks (VNet)</span><span class="lang-de">Modul C: Virtual Networks (VNet)</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst VNets, Subnetze, Public IPs und NSGs erstellen und verstehen, wie sie zusammenarbeiten.
 
-### 3.1 Was ist ein VNet?
+### 3.1 <span class="lang-en" style="display:none">What is a VNet?</span><span class="lang-de">Was ist ein VNet?</span>
 
 ```
 Ein VNet ist dein eigenes, isoliertes Netzwerk in Azure:
@@ -346,7 +346,7 @@ Dein VNet ist isoliert von anderen Azure-Kunden!
 
 **Empfehlung für Anfänger:** Verwende keine kleineren als `/26` Subnetze.
 
-### 3.2 VNet und Subnetze erstellen
+### 3.2 <span class="lang-en" style="display:none">Creating VNet and subnets</span><span class="lang-de">VNet und Subnetze erstellen</span>
 
 ```hcl
 resource "azurerm_resource_group" "networking" {
@@ -394,7 +394,7 @@ output "subnet_ids" {
 }
 ```
 
-### 3.3 Public IP und NAT Gateway
+### 3.3 <span class="lang-en" style="display:none">Public IP and NAT Gateway</span><span class="lang-de">Public IP und NAT Gateway</span>
 
 ```hcl
 # Öffentliche IP-Adresse
@@ -441,7 +441,7 @@ Mit Azure Firewall (optional):
 Private Subnet → NAT Gateway → Azure Firewall → Public IP → ✅ Internet (gefiltert)
 ```
 
-### 3.4 Netzwerk-Sicherheitsgruppen (NSG)
+### 3.4 <span class="lang-en" style="display:none">Network Security Groups (NSG)</span><span class="lang-de">Netzwerk-Sicherheitsgruppen (NSG)</span>
 
 ```hcl
 # NSG erstellen
@@ -508,7 +508,7 @@ resource "azurerm_subnet_network_security_group_association" "web" {
 | `source_address_prefix` | Woher kommt der Traffic? |
 | `destination_port_range` | Welcher Port? (80, 443, 22, ...) |
 
-### 🧪 Kurzes Quiz — Modul C
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul C</span><span class="lang-de">Kurzes Quiz — Modul C</span>
 
 1. Wie viele IP-Adressen hat ein `/24` Subnet?
    - a) 24
@@ -530,7 +530,7 @@ resource "azurerm_subnet_network_security_group_association" "web" {
    - b) Damit Server im privaten Subnet das Internet erreichen können ← **Richtig**
    - c) Zum Schutz vor Hackern
 
-### 🧪 Praktische Übung — Modul C
+### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul C</span><span class="lang-de">Praktische Übung — Modul C</span>
 
 **Aufgabe:** Erstelle:
 1. Eine Resource Group
@@ -542,13 +542,13 @@ resource "azurerm_subnet_network_security_group_association" "web" {
 
 ---
 
-## Modul D: Hub-and-Spoke Architektur
+## <span class="lang-en" style="display:none">Module D: Hub-and-Spoke architecture</span><span class="lang-de">Modul D: Hub-and-Spoke Architektur</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst Hub-and-Spoke erklären, begründen, wann es sinnvoll ist, und eine einfache Hub-and-Spoke-Architektur mit Terraform erstellen.
 
-### 4.1 Was ist Hub-and-Spoke?
+### 4.1 <span class="lang-en" style="display:none">What is Hub-and-Spoke?</span><span class="lang-de">Was ist Hub-and-Spoke?</span>
 
 ```
 Flache Architektur (ohne Hub):
@@ -571,7 +571,7 @@ Hub-and-Spoke:
 4. **Sicherheit** — Alle Traffic-Flüsse gehen durch den Hub
 5. **Governance** — Zentrale Policies im Hub anwendbar
 
-### 4.2 VNet Peering
+### 4.2 <span class="lang-en" style="display:none">VNet Peering</span><span class="lang-de">VNet Peering</span>
 
 ```
 VNet Peering = Verbindung zwischen zwei VNets:
@@ -589,7 +589,7 @@ Hub VNet           Spoke VNet
 → Traffic bleibt im Azure-Netzwerk (kein Internet!)
 ```
 
-### 4.3 Hub-and-Spoke mit Terraform
+### 4.3 <span class="lang-en" style="display:none">Hub-and-Spoke with Terraform</span><span class="lang-de">Hub-and-Spoke mit Terraform</span>
 
 ```hcl
 # Hub VNet
@@ -660,7 +660,7 @@ resource "azurerm_virtual_network_peering" "spoke2_to_hub" {
 }
 ```
 
-### 4.4 Warum bidirektionales Peering?
+### 4.4 <span class="lang-en" style="display:none">Why bidirectional peering?</span><span class="lang-de">Warum bidirektionales Peering?</span>
 
 ```
 Peering funktioniert NICHT automatisch in beide Richtungen!
@@ -678,7 +678,7 @@ Richtung Spoke → Hub:
 
 **Merke:** Jedes Peering braucht **zwei** `azurerm_virtual_network_peering`-Ressourcen!
 
-### 4.5 Subnetze im Hub und in den Spokes
+### 4.5 <span class="lang-en" style="display:none">Subnets in Hub and Spokes</span><span class="lang-de">Subnetze im Hub und in den Spokes</span>
 
 ```hcl
 # Hub Subnetze
@@ -713,7 +713,7 @@ resource "azurerm_subnet" "spoke2_data" {
 }
 ```
 
-### 🧪 Kurzes Quiz — Modul D
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul D</span><span class="lang-de">Kurzes Quiz — Modul D</span>
 
 1. Warum ist Hub-and-Spoke besser als eine flache Architektur?
    - a) Es ist immer günstiger
@@ -735,7 +735,7 @@ resource "azurerm_subnet" "spoke2_data" {
    - b) `allow_forwarded_traffic`
    - c) `allow_gateway_transit` ← **Richtig**
 
-### 🧪 Praktische Übung — Modul D
+### 🧪 <span class="lang-en" style="display:none">Practical exercise — Modul D</span><span class="lang-de">Praktische Übung — Modul D</span>
 
 **Aufgabe:** Erstelle eine Hub-and-Spoke-Architektur mit:
 1. Einer Resource Group
@@ -746,13 +746,13 @@ resource "azurerm_subnet" "spoke2_data" {
 
 ---
 
-## Modul E: Sicherheit mit NSGs
+## <span class="lang-en" style="display:none">Module E: Security with NSGs</span><span class="lang-de">Modul E: Sicherheit mit NSGs</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst NSG-Regeln erstellen, verstehen, wie Prioritäten funktionieren, und eine sichere Netzwerk-Konfiguration aufbauen.
 
-### 5.1 NSG-Prioritäten
+### 5.1 <span class="lang-en" style="display:none">NSG priorities</span><span class="lang-de">NSG-Prioritäten</span>
 
 ```
 NSG-Regeln werden nach Priorität verarbeitet:
@@ -768,7 +768,7 @@ Priority 4090: Deny All (Inbound, implicit) ← Immer am Ende
 - Bereich: 100–4100
 - Keine doppelten Prioritäten!
 
-### 5.2 Security-Best-Practices
+### 5.2 <span class="lang-en" style="display:none">Security best practices</span><span class="lang-de">Security-Best-Practices</span>
 
 ```hcl
 # ❌ SCHLECHT: SSH von überall öffnen
@@ -824,7 +824,7 @@ resource "azurerm_network_security_rule" "db" {
 }
 ```
 
-### 5.3 Outbound-Regeln
+### 5.3 <span class="lang-en" style="display:none">Outbound rules</span><span class="lang-de">Outbound-Regeln</span>
 
 ```hcl
 # Outbound: DNS erlauben (Port 53)
@@ -854,7 +854,7 @@ resource "azurerm_network_security_rule" "https_outbound" {
 }
 ```
 
-### 5.4 Wichtige Ports für Databricks und Azure
+### 5.4 <span class="lang-en" style="display:none">Important ports for Databricks and Azure</span><span class="lang-de">Wichtige Ports für Databricks und Azure</span>
 
 ```hcl
 # Azure Databricks — Wichtige Ports:
@@ -877,7 +877,7 @@ resource "azurerm_network_security_rule" "databricks" {
 
 **Wichtig:** `source_address_prefix = "AzureDatabricks"` ist ein spezieller Azure-Tag — du kannst keinen IP-Range dafür eingeben!
 
-### 🧪 Kurzes Quiz — Modul E
+### 🧪 <span class="lang-en" style="display:none">Quick Quiz — Modul E</span><span class="lang-de">Kurzes Quiz — Modul E</span>
 
 1. Was bedeutet eine niedrigere Prioritätszahl in einer NSG-Regel?
    - a) Sie wird später geprüft
@@ -894,7 +894,7 @@ resource "azurerm_network_security_rule" "databricks" {
    - b) Damit von außen auf Ressourcen zugegriffen werden kann
    - c) Zum Schutz vor Hackern
 
-### 📝 Hausaufgabe
+### 📝 <span class="lang-en" style="display:none">Homework</span><span class="lang-de">Hausaufgabe</span>
 
 - Erstelle eine NSG mit folgenden Regeln:
   1. HTTPS (443) Inbound von überall
@@ -906,13 +906,13 @@ resource "azurerm_network_security_rule" "databricks" {
 
 ---
 
-## Modul F: Terraform-Integration und Capstone
+## <span class="lang-en" style="display:none">Module F: Terraform integration and Capstone</span><span class="lang-de">Modul F: Terraform-Integration und Capstone</span>
 
-### Lernziel
+### <span class="lang-en" style="display:none">Learning Objective</span><span class="lang-de">Lernziel</span>
 
 Du kannst ein komplettes Azure-Netzwerk mit Terraform erstellen, formatieren, validieren und einen ersten Überblick über Databricks-Netzwerke geben.
 
-### 6.1 Terraform fmt und validate
+### 6.1 <span class="lang-en" style="display:none">Terraform fmt and validate</span><span class="lang-de">Terraform fmt und validate</span>
 
 ```bash
 # Formatieren
@@ -927,7 +927,7 @@ terraform validate
 # Success! The configuration is valid.
 ```
 
-### 6.2 Terraform Plan lesen
+### 6.2 <span class="lang-en" style="display:none">Reading Terraform plan</span><span class="lang-de">Terraform Plan lesen</span>
 
 ```bash
 terraform plan
@@ -955,7 +955,7 @@ terraform plan
 # Bedeutung: 10 neue Ressourcen werden erstellt
 ```
 
-### 6.3 🏆 Capstone-Projekt
+### 6.3 🏆 <span class="lang-en" style="display:none">Capstone project</span><span class="lang-de">Capstone-Projekt</span>
 
 **Aufgabe:** Erstelle eine komplette Hub-and-Spoke-Architektur:
 
@@ -988,7 +988,7 @@ Anforderungen:
 - [ ] NSG-Regeln sind sicher (SSH nicht offen)
 - [ ] Peering ist bidirektional
 
-### 6.4 Was kommt als Nächstes?
+### 6.4 <span class="lang-en" style="display:none">What's next?</span><span class="lang-de">Was kommt als Nächstes?</span>
 
 ```
 Fertig mit Azure 101? Weiter zu:
@@ -999,7 +999,7 @@ Fertig mit Azure 101? Weiter zu:
 4. Azure CI/CD       → GitHub Actions für Azure-Deployment
 ```
 
-### 6.5 Databricks-Networking-Vorschau
+### 6.5 <span class="lang-en" style="display:none">Databricks networking preview</span><span class="lang-de">Databricks-Networking-Vorschau</span>
 
 ```
 Databricks in Azure braucht ein VNet:
@@ -1020,7 +1020,7 @@ Wichtige Konzepte für Databricks:
 
 → Mehr dazu im [Databricks 101 Kurs](databricks-101.md)
 
-### 📝 Letztes Quiz — Kurs-Ende
+### 📝 <span class="lang-en" style="display:none">Final Quiz — Kurs-Ende</span><span class="lang-de">Letztes Quiz — Kurs-Ende</span>
 
 1. Nenne drei Vorteile von Hub-and-Spoke.
    **Muster:** Zentrale Services, Isolation, Kostenersparnis
@@ -1036,7 +1036,7 @@ Wichtige Konzepte für Databricks:
 
 ---
 
-## Anhang: Command Cheat Sheet
+## <span class="lang-en" style="display:none">Appendix: Command Cheat Sheet</span><span class="lang-de">Anhang: Command Cheat Sheet</span>
 
 ```bash
 # Azure CLI
@@ -1057,7 +1057,7 @@ terraform destroy               # Löschen
 terraform state list            # Alle Ressourcen
 ```
 
-## Anhang: Häufige Fehler
+## <span class="lang-en" style="display:none">Appendix: Common errors</span><span class="lang-de">Anhang: Häufige Fehler</span>
 
 | Fehler | Lösung |
 |--------|--------|

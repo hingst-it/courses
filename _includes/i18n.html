@@ -1,0 +1,85 @@
+<style>
+  /* Language toggle */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    opacity: 0;
+    animation: fade-in 0.3s ease forwards;
+  }
+
+  @keyframes fade-in {
+    to { opacity: 1; }
+  }
+
+  .lang-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 16px;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    transition: all 0.2s ease;
+  }
+
+  .lang-toggle-btn:hover {
+    color: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .lang-toggle-btn.active {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+  }
+
+  .lang-toggle-btn .flag {
+    font-size: 14px;
+  }
+
+  /* Hide nav when toggle is visible on desktop */
+  .lang-toggle .nav-desktop {
+    display: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .lang-toggle {
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-toggle-btn {
+      padding: 3px 8px;
+      font-size: 11px;
+    }
+    .lang-toggle-btn .flag {
+      font-size: 12px;
+    }
+    .lang-toggle-btn .label {
+      display: none;
+    }
+  }
+</style>
+
+<div class="lang-toggle" id="lang-toggle">
+  <button id="lang-toggle-de" class="lang-toggle-btn">
+    <span class="flag">🇩🇪</span>
+    <span class="label">DE</span>
+  </button>
+  <button id="lang-toggle-en" class="lang-toggle-btn">
+    <span class="flag">🇬🇧</span>
+    <span class="label">EN</span>
+  </button>
+</div>
