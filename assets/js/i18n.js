@@ -16,7 +16,7 @@ class I18n {
     }
 
     try {
-      const res = await fetch('/locales/' + this.currentLang + '.json');
+      const res = await fetch('/courses/locales/' + this.currentLang + '.json');
       this.translations = await res.json();
       this.loaded = true;
       this.apply();
@@ -108,7 +108,7 @@ class I18n {
       this.currentLang = lang;
       localStorage.setItem('courses-lang', lang);
 
-      fetch('/locales/' + lang + '.json')
+      fetch('/courses/locales/' + lang + '.json')
         .then(r => r.json())
         .then(t => {
           this.translations = t;
