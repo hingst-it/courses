@@ -4,12 +4,12 @@ ruby = "3"
 [tasks.serve]
 description = "Start Jekyll serve with watch"
 depends = ["install-bundle"]
-cmd = "bundle exec jekyll serve --livereload --host=0.0.0.0"
+run = "bundle exec jekyll serve --livereload --host=0.0.0.0"
 
 [tasks.build]
 description = "Build Jekyll site locally"
 depends = ["install-bundle"]
-cmd = "bundle exec jekyll build"
+run = "bundle exec jekyll build"
 
 [tasks.install-bundle]
-cmd = "bundle install"
+run = "bundle install"
