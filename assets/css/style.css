@@ -1482,12 +1482,22 @@ a:hover {
 }
 
 /* ========================================
-   i18N support (lang-en / lang-de)
+   i18N support (lang-en / lang-de / ql-en / ql-de)
    ======================================== */
 .lang-en,
 .lang-de {
   display: inline;
 }
+
+/* English is hidden by default in the layout via inline styles */
+
+/* ql-en / ql-de: English hidden, German visible by default */
+.ql-en {
+  display: none;
+}
+
+/* When JS is active, i18n.js toggles these.
+   For JS-less fallback: German (ql-de) shows, English (ql-en) hides */
 
 /* ========================================
    RESPONSIVE (mobile)

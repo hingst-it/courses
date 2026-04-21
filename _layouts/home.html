@@ -53,7 +53,6 @@
           <button id="lang-toggle-en" class="vscode-btn-toggle">EN</button>
         </div>
       </div>
-
       <div class="file-tree" id="sidebar-content">
         <!-- Dynamic content here -->
       </div>
@@ -89,7 +88,7 @@
       <div class="vscode-breadcrumbs">
         <span class="breadcrumb-item">Cloud Courses</span>
         <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-item">Home</span>
+        <span class="breadcrumb-item" data-i18n="breadcrumb">Home</span>
       </div>
 
       <!-- Welcome Content -->
@@ -97,11 +96,11 @@
         <div class="welcome-view" id="welcome-tab">
           <div class="welcome-header">
             <h1>
-              <span class="lang-en" style="display:none">🚀 Infrastructure as Code mit Terraform, Azure &amp; Databricks</span>
-              <span class="lang-de">🚀 Infrastructure as Code mit Terraform, Azure &amp; Databricks</span>
+              <span class="lang-en" style="display:none">🚀 Infrastructure as Code with Terraform, Azure & Databricks</span>
+              <span class="lang-de">🚀 Infrastruktur als Code mit Terraform, Azure & Databricks</span>
             </h1>
             <p class="welcome-subtitle">
-              <span class="lang-en" style="display:none">Beginner 101 — Keine Vorkenntnisse nötig</span>
+              <span class="lang-en" style="display:none">Beginner 101 — No prior knowledge required</span>
               <span class="lang-de">Beginner 101 — Keine Vorkenntnisse nötig</span>
             </p>
           </div>
@@ -109,44 +108,36 @@
           <div class="welcome-quick-start">
             <div class="quick-start-section">
               <h3>
-                <span class="lang-en" style="display:none">📚 KURSE</span>
+                <span class="lang-en" style="display:none">📚 COURSES</span>
                 <span class="lang-de">📚 KURSE</span>
               </h3>
               <div class="quick-start-list">
                 <a href="/courses/terraform-101.html" class="quick-start-item">
                   <span class="icon">🟩</span>
-                  <span>
-                    <span class="lang-en" style="display:none">Terraform 101</span>
-                    <span class="lang-de">Terraform 101</span>
-                    <span class="lang-en" style="display:none" class="desc">IaC und Terraform von Grund auf</span>
-                    <span class="lang-de" class="desc">IaC und Terraform von Grund auf</span>
+                  <span class="quick-item-content">
+                    <span class="ql-en">Terraform 101 · IaC & Terraform from scratch</span>
+                    <span class="ql-de">Terraform 101 — IaC und Terraform von Grund auf</span>
                   </span>
                 </a>
                 <a href="/courses/azure-101.html" class="quick-start-item">
                   <span class="icon">🟦</span>
-                  <span>
-                    <span class="lang-en" style="display:none">Azure 101</span>
-                    <span class="lang-de">Azure 101</span>
-                    <span class="lang-en" style="display:none">Azure Cloud-Grundlagen für Terraform-Nutzer</span>
-                    <span class="lang-de">Azure Cloud-Grundlagen für Terraform-Nutzer</span>
+                  <span class="quick-item-content">
+                    <span class="ql-en">Azure 101 — Azure Cloud basics for Terraform users</span>
+                    <span class="ql-de">Azure 101 — Azure Cloud-Grundlagen für Terraform-Nutzer</span>
                   </span>
                 </a>
                 <a href="/courses/databricks-101.html" class="quick-start-item">
                   <span class="icon">🟨</span>
-                  <span>
-                    <span class="lang-en" style="display:none">Databricks 101</span>
-                    <span class="lang-de">Databricks 101</span>
-                    <span class="lang-en" style="display:none">Databricks-Infrastruktur und Networking</span>
-                    <span class="lang-de">Databricks-Infrastruktur und Networking</span>
+                  <span class="quick-item-content">
+                    <span class="ql-en">Databricks 101 — Databricks infrastructure & networking</span>
+                    <span class="ql-de">Databricks 101 — Databricks-Infrastruktur und Networking</span>
                   </span>
                 </a>
                 <a href="/courses/integration-101.html" class="quick-start-item">
                   <span class="icon">🚀</span>
-                  <span>
-                    <span class="lang-en" style="display:none">Integration 101</span>
-                    <span class="lang-de">Integration 101</span>
-                    <span class="lang-en" style="display:none">Alle drei kombiniert: Terraform + Azure + Databricks</span>
-                    <span class="lang-de">Alle drei kombiniert: Terraform + Azure + Databricks</span>
+                  <span class="quick-item-content">
+                    <span class="ql-en">Integration 101 — All three combined</span>
+                    <span class="ql-de">Integration 101 — Alle drei kombiniert: Terraform + Azure + Databricks</span>
                   </span>
                 </a>
               </div>
@@ -154,29 +145,29 @@
 
             <div class="quick-start-section">
               <h3>
-                <span class="lang-en" style="display:none">🎯 WAS LERNST DU?</span>
+                <span class="lang-en" style="display:none">🎯 WHAT WILL YOU LEARN?</span>
                 <span class="lang-de">🎯 WAS LERNST DU?</span>
               </h3>
               <ul class="welcome-list">
-                <li><span class="keyword">Terraform-Befehle</span> — init, plan, apply sicher beherrschen</li>
-                <li><span class="keyword">HCL-Sprache</span> — Variablen, Outputs, Locals, Module schreiben</li>
-                <li><span class="keyword">Azure-Netzwerke</span> — VNet, Subnet, NSG, Hub-and-Spoke verstehen</li>
-                <li><span class="keyword">Databricks-Infrastruktur</span> — VNet Injection, SCC, Private Link</li>
+                <li><span class="keyword">Terraform commands</span> — master init, plan, apply</li>
+                <li><span class="keyword">HCL language</span> — Variables, Outputs, Locals, Modules</li>
+                <li><span class="keyword">Azure Networking</span> — VNet, Subnet, NSG, Hub-and-Spoke</li>
+                <li><span class="keyword">Databricks Infrastructure</span> — VNet Injection, SCC, Private Link</li>
                 <li><span class="keyword">Best Practices</span> — Security Scanning, CI/CD, Remote State</li>
               </ul>
             </div>
 
             <div class="quick-start-section">
               <h3>
-                <span class="lang-en" style="display:none">📖 SO FUNKTIONIEREN DIE KURSE</span>
+                <span class="lang-en" style="display:none">📖 HOW THE COURSES WORK</span>
                 <span class="lang-de">📖 SO FUNKTIONIEREN DIE KURSE</span>
               </h3>
               <pre class="welcome-codeblock">
-1. Was ist das?     → Konzepte, Analogien, "Warum?"
-2. So funktioniert es → Worked Examples, Schritt-für-Schritt
-3. Mach es selbst   → Geführte Labs mit Terraform-Code
-4. Teste dein Wissen → Quizze mit Lösungen
-5. Transferaufgabe  → Hausaufgaben, Ausblick
+1. What is it?     → Concepts, analogies, "Why?"
+2. How it works    → Worked examples, step-by-step
+3. Try it yourself → Guided labs with real Terraform code
+4. Test knowledge  → Quizzes with solutions
+5. Challenge task  → Homework, outlook
               </pre>
             </div>
           </div>
@@ -184,7 +175,6 @@
 
         <!-- Course content will be loaded here -->
         <div class="course-view" id="course-tab" style="display:none">
-          {{ content }}
         </div>
       </div>
 

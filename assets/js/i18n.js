@@ -82,6 +82,22 @@ class I18n {
       const lang = el.getAttribute('data-lang');
       el.style.display = lang === this.currentLang ? '' : 'none';
     });
+
+    // Handle .ql-en / .ql-de classes (quick-list language spans)
+    document.querySelectorAll('.ql-en').forEach(el => {
+      el.style.display = this.currentLang === 'en' ? '' : 'none';
+    });
+    document.querySelectorAll('.ql-de').forEach(el => {
+      el.style.display = this.currentLang === 'de' ? '' : 'none';
+    });
+
+    // Handle lang-en / lang-de spans with inline display:none
+    document.querySelectorAll('.lang-en').forEach(el => {
+      el.style.display = this.currentLang === 'en' ? '' : 'none';
+    });
+    document.querySelectorAll('.lang-de').forEach(el => {
+      el.style.display = this.currentLang === 'de' ? '' : 'none';
+    });
   }
 
   setLang(lang) {
